@@ -14,6 +14,10 @@ class ViewController: UIViewController, ARDataSource
     override func viewDidLoad()
     {
         super.viewDidLoad()
+
+        showARViewController()
+        //let locationManager = CLLocationManager()
+
     }
     
     /// Creates random annotations around predefined center point and presents ARViewController modally

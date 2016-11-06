@@ -25,6 +25,10 @@
 		0CF0F8EA1BC5E70C00C7646E /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */; };
 		0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */; };
 		0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */; };
+		38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */; };
+		38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */; };
+		38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */; };
+		38847FFE1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController in Resources */ = {isa = PBXBuildFile; fileRef = 38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */; };
 		38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C172FE1DCE8B40002750A8 /* SexyCoin.png */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
 		0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
+		38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapIconSmall.png; sourceTree = "<group>"; };
+		38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RAMAnimatedTabBarController; sourceTree = "<group>"; };
 		38C172FE1DCE8B40002750A8 /* SexyCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SexyCoin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +99,7 @@
 		0CAD4EA41AE6FC14000F2A2A = {
 			isa = PBXGroup;
 			children = (
+				38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */,
 				38C172F71DCE8435002750A8 /* Assets */,
 				0CF0F8DF1BC5E70C00C7646E /* Classes */,
 				0CAD4EAF1AE6FC14000F2A2A /* StepCoinDemo */,
@@ -117,6 +126,7 @@
 				0CAD4EB61AE6FC14000F2A2A /* Main.storyboard */,
 				0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */,
 				0CAD4EB01AE6FC14000F2A2A /* Supporting Files */,
+				38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */,
 			);
 			name = StepCoinDemo;
 			path = HDAugmentedRealityDemo;
@@ -155,7 +165,9 @@
 		38C172F71DCE8435002750A8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */,
 				38C172FE1DCE8B40002750A8 /* SexyCoin.png */,
+				38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -224,8 +236,12 @@
 			files = (
 				38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */,
 				0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */,
+				38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */,
 				0C10A15E1BC67B5C009EDF6A /* hdar_close@3x.png in Resources */,
+				38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */,
 				0C10A15C1BC67B5C009EDF6A /* hdar_close.png in Resources */,
+				38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */,
+				38847FFE1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController in Resources */,
 				0CAD4EBA1AE6FC14000F2A2A /* Images.xcassets in Resources */,
 				0C10A15B1BC67B5C009EDF6A /* DebugMapViewController.xib in Resources */,
 				0C10A15D1BC67B5C009EDF6A /* hdar_close@2x.png in Resources */,
