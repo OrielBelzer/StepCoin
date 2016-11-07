@@ -106,6 +106,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      */
     open var uiOptions = UiOptions()
     
+    open var didCloseCamera = false
+    
     //===== Private
     fileprivate var initialized: Bool = false
     fileprivate var cameraSession: AVCaptureSession = AVCaptureSession()
@@ -197,6 +199,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     open override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        self.didCloseCamera = false
         onViewDidAppear()   // Doing like this to prevent subclassing problems
     }
     
@@ -240,6 +243,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     internal func closeButtonTap()
     {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.didCloseCamera = true
     }
     
     open override var prefersStatusBarHidden : Bool

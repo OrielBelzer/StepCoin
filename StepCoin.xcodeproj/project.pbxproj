@@ -12,13 +12,12 @@
 		0C10A15D1BC67B5C009EDF6A /* hdar_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C10A1591BC67B5C009EDF6A /* hdar_close@2x.png */; };
 		0C10A15E1BC67B5C009EDF6A /* hdar_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C10A15A1BC67B5C009EDF6A /* hdar_close@3x.png */; };
 		0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB21AE6FC14000F2A2A /* AppDelegate.swift */; };
-		0CAD4EB51AE6FC14000F2A2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB41AE6FC14000F2A2A /* ViewController.swift */; };
+		0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */; };
 		0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB61AE6FC14000F2A2A /* Main.storyboard */; };
 		0CAD4EBA1AE6FC14000F2A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */; };
 		0CAD4F041AE70A3E000F2A2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAD4F031AE70A3E000F2A2A /* CoreMotion.framework */; };
 		0CAD4F061AE70ACA000F2A2A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAD4F051AE70ACA000F2A2A /* CoreLocation.framework */; };
 		0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2C2461AF18C620006E949 /* TestAnnotationView.swift */; };
-		0CB56FB21B35E5DF000EDEBB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB56FB11B35E5DF000EDEBB /* MapKit.framework */; };
 		0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E01BC5E70C00C7646E /* ARAnnotation.swift */; };
 		0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E11BC5E70C00C7646E /* ARAnnotationView.swift */; };
 		0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E21BC5E70C00C7646E /* ARConfiguration.swift */; };
@@ -29,8 +28,25 @@
 		38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */; };
 		38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */; };
 		38847FFE1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController in Resources */ = {isa = PBXBuildFile; fileRef = 38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */; };
+		3884800F1DD0350200ADA8F6 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3884800E1DD0350200ADA8F6 /* Mapbox.framework */; };
+		388480101DD0350200ADA8F6 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3884800E1DD0350200ADA8F6 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		388480131DD03B5500ADA8F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388480121DD03B5500ADA8F6 /* MapViewController.swift */; };
 		38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C172FE1DCE8B40002750A8 /* SexyCoin.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		388480111DD0350300ADA8F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				388480101DD0350200ADA8F6 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C10A1571BC67B5C009EDF6A /* DebugMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugMapViewController.xib; sourceTree = "<group>"; };
@@ -40,7 +56,7 @@
 		0CAD4EAD1AE6FC14000F2A2A /* StepCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CAD4EB11AE6FC14000F2A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CAD4EB21AE6FC14000F2A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0CAD4EB41AE6FC14000F2A2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCoinViewController.swift; sourceTree = "<group>"; };
 		0CAD4EB71AE6FC14000F2A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0CAD4F031AE70A3E000F2A2A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -57,6 +73,9 @@
 		38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapIconSmall.png; sourceTree = "<group>"; };
 		38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RAMAnimatedTabBarController; sourceTree = "<group>"; };
+		3884800A1DD0344A00ADA8F6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		3884800E1DD0350200ADA8F6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		388480121DD03B5500ADA8F6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		38C172FE1DCE8B40002750A8 /* SexyCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SexyCoin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,9 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CB56FB21B35E5DF000EDEBB /* MapKit.framework in Frameworks */,
 				0CAD4F061AE70ACA000F2A2A /* CoreLocation.framework in Frameworks */,
 				0CAD4F041AE70A3E000F2A2A /* CoreMotion.framework in Frameworks */,
+				3884800F1DD0350200ADA8F6 /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +118,8 @@
 		0CAD4EA41AE6FC14000F2A2A = {
 			isa = PBXGroup;
 			children = (
+				3884800E1DD0350200ADA8F6 /* Mapbox.framework */,
+				3884800A1DD0344A00ADA8F6 /* Mapbox.framework */,
 				38847FFD1DCEC93D00ADA8F6 /* RAMAnimatedTabBarController */,
 				38C172F71DCE8435002750A8 /* Assets */,
 				0CF0F8DF1BC5E70C00C7646E /* Classes */,
@@ -120,7 +141,7 @@
 		0CAD4EAF1AE6FC14000F2A2A /* StepCoinDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0CAD4EB41AE6FC14000F2A2A /* ViewController.swift */,
+				38847FFF1DD0194000ADA8F6 /* Views */,
 				0CB2C2461AF18C620006E949 /* TestAnnotationView.swift */,
 				0CAD4EB21AE6FC14000F2A2A /* AppDelegate.swift */,
 				0CAD4EB61AE6FC14000F2A2A /* Main.storyboard */,
@@ -162,6 +183,15 @@
 			path = Debug;
 			sourceTree = "<group>";
 		};
+		38847FFF1DD0194000ADA8F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */,
+				388480121DD03B5500ADA8F6 /* MapViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		38C172F71DCE8435002750A8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +212,8 @@
 				0CAD4EA91AE6FC14000F2A2A /* Sources */,
 				0CAD4EAA1AE6FC14000F2A2A /* Frameworks */,
 				0CAD4EAB1AE6FC14000F2A2A /* Resources */,
+				388480031DD0308100ADA8F6 /* ShellScript */,
+				388480111DD0350300ADA8F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +282,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		388480031DD0308100ADA8F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0CAD4EA91AE6FC14000F2A2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -257,7 +305,8 @@
 			files = (
 				0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
-				0CAD4EB51AE6FC14000F2A2A /* ViewController.swift in Sources */,
+				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
+				388480131DD03B5500ADA8F6 /* MapViewController.swift in Sources */,
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,
 				0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */,
 				0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */,
@@ -302,6 +351,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -349,6 +399,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -376,6 +427,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Danijel Huis (Z5VTM983UF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 87XVM5W2ZN;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HDAugmentedRealityDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -394,6 +450,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Danijel Huis (Z5VTM983UF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 87XVM5W2ZN;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HDAugmentedRealityDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
