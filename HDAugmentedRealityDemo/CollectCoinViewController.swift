@@ -59,7 +59,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         arViewController.trackingManager.userDistanceFilter = 25
         arViewController.trackingManager.reloadDistanceFilter = 75
         arViewController.setAnnotations(dummyAnnotations)
-        arViewController.uiOptions.debugEnabled = true
+        arViewController.uiOptions.debugEnabled = false
         arViewController.uiOptions.closeButtonEnabled = true
         //arViewController.interfaceOrientationMask = .landscape
         arViewController.onDidFailToFindLocation =

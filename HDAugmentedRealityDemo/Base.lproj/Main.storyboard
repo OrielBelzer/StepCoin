@@ -12,7 +12,7 @@
         <!--Profile-->
         <scene sceneID="MXR-AF-UEg">
             <objects>
-                <viewController id="nbI-4s-qNG" userLabel="Profile" sceneMemberID="viewController">
+                <viewController id="nbI-4s-qNG" userLabel="Profile" customClass="ProfileViewController" customModule="StepCoin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcU-4D-jmG"/>
                         <viewControllerLayoutGuide type="bottom" id="heu-Wl-z3K"/>
@@ -20,18 +20,85 @@
                     <view key="view" contentMode="scaleToFill" id="jP3-Zr-oGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OrielProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="7nS-ec-mw2">
+                                <rect key="frame" x="92" y="101" width="174" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oriel Belzer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b02-fC-aPb">
+                                <rect key="frame" x="86" y="263" width="186" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8R-nP-fvo">
+                                <rect key="frame" x="319" y="42" width="40" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="EditIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZq-CX-Ceo">
+                                <rect key="frame" x="9" y="505" width="192" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
+                                <state key="normal" title="INVITE FRIENDS" backgroundImage="GoldBackground">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CoinImage" translatesAutoresizingMaskIntoConstraints="NO" id="zcs-HE-oIh">
+                                <rect key="frame" x="274" y="389" width="59" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CoinImage" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-zw-Tgf">
+                                <rect key="frame" x="39" y="389" width="59" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CoinImage" translatesAutoresizingMaskIntoConstraints="NO" id="cqL-bb-HmN">
+                                <rect key="frame" x="158" y="405" width="59" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steped Coin On:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-ob-5I7">
+                                <rect key="frame" x="64" y="313" width="146" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$145.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-qQ-LWL">
+                                <rect key="frame" x="230" y="313" width="146" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxs-HO-upa">
+                                <rect key="frame" x="209" y="506" width="150" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
+                                <state key="normal" title="SETTINGS" backgroundImage="GoldBackground">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="izp-bI-169" userLabel="Profile" customClass="RAMAnimatedTabBarItem"/>
+                    <connections>
+                        <outlet property="editProfileButton" destination="n8R-nP-fvo" id="fga-7j-0il"/>
+                        <outlet property="inviteFriendsButton" destination="vZq-CX-Ceo" id="a4W-mv-STj"/>
+                        <outlet property="profileName" destination="b02-fC-aPb" id="5lT-Nf-ZCF"/>
+                        <outlet property="profilePic" destination="7nS-ec-mw2" id="ohc-kb-IXB"/>
+                        <outlet property="settingsButton" destination="gxs-HO-upa" id="9wu-Ky-acc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0G-Kf-xC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="1104"/>
+            <point key="canvasLocation" x="-234.40000000000001" y="1103.2983508245877"/>
         </scene>
         <!--Collect-->
         <scene sceneID="Rbn-5w-0JP">
             <objects>
-                <viewController id="u2K-7R-d8a" userLabel="Collect" sceneMemberID="viewController">
+                <viewController id="u2K-7R-d8a" userLabel="Collect" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Le-IS-h1I"/>
                         <viewControllerLayoutGuide type="bottom" id="FSB-f4-3Xf"/>
@@ -42,9 +109,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="zoomLevel">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsRotating" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsScrolling" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsZooming" value="YES"/>
@@ -97,6 +161,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CoinImage" width="25" height="24"/>
+        <image name="EditIcon" width="512" height="512"/>
+        <image name="GoldBackground" width="960" height="600"/>
+        <image name="OrielProfilePic" width="320" height="480"/>
         <image name="Settings" width="30" height="30"/>
     </resources>
 </document>
