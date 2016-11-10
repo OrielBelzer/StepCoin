@@ -44,11 +44,16 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         
         // Create random annotations around center point    //@TODO
         //FIXME: set your initial position here, this is used to generate random POIs
+        
+        //TODO - 
+        //  Set the lat and lon based on the user's current location
+        //
         let lat = 37.241681
         let lon = -121.884804
         let delta = 0.05
         let count = 2
-        let dummyAnnotations = self.getDummyAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
+        let coinsAnnotations = self.getCoinsAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
+        //let dummyAnnotations = self.getDummyAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
    
         // Present ARViewController
         arViewController.dataSource = self
@@ -58,7 +63,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         arViewController.headingSmoothingFactor = 0.05
         arViewController.trackingManager.userDistanceFilter = 25
         arViewController.trackingManager.reloadDistanceFilter = 75
-        arViewController.setAnnotations(dummyAnnotations)
+        arViewController.setAnnotations(coinsAnnotations)
         arViewController.uiOptions.debugEnabled = false
         arViewController.uiOptions.closeButtonEnabled = true
         //arViewController.interfaceOrientationMask = .landscape
@@ -78,6 +83,23 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         let annotationView = TestAnnotationView()
         //annotationView.frame = CGRect(x: 0,y: 0,width: 150,height: 50)
         return annotationView;
+    }
+    
+    fileprivate func getCoinsAnnotations(centerLatitude: Double, centerLongitude: Double, delta: Double, count: Int) -> Array<ARAnnotation>
+    {
+        var annotations: [ARAnnotation] = []
+        
+        let profileView = ProfileViewController()
+        for coin in profileView.coins {
+            //Check if the coin is X feet away from my current location that I got as an inpute to the function
+            //If it is then : 
+            
+            let annotation = ARAnnotation()
+            annotation.location = CLLocation(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
+            annotations.append(annotation)
+        }
+        
+        return annotations
     }
     
     fileprivate func getDummyAnnotations(centerLatitude: Double, centerLongitude: Double, delta: Double, count: Int) -> Array<ARAnnotation>
