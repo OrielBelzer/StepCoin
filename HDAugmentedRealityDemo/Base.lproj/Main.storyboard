@@ -96,7 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="izp-bI-169" userLabel="Profile" customClass="RAMAnimatedTabBarItem"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" id="izp-bI-169" userLabel="Profile" customClass="RAMAnimatedTabBarItem"/>
                     <connections>
                         <outlet property="collectedCoinsTable" destination="VsZ-Nt-s4p" id="GVh-Ak-Y8h"/>
                         <outlet property="editProfileButton" destination="n8R-nP-fvo" id="fga-7j-0il"/>
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pay" id="jVH-LV-yOf"/>
+                    <tabBarItem key="tabBarItem" title="Pay" image="PaymentTabIcon" id="jVH-LV-yOf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipI-WG-CZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +149,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsTilting" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="jPo-Wu-8PG"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapTabIcon" id="jPo-Wu-8PG"/>
                     <connections>
                         <outlet property="mapView" destination="Ids-GD-9iB" id="gYl-yI-7ZO"/>
                     </connections>
@@ -191,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collect Coin" image="Settings" id="m8U-De-gz9"/>
+                    <tabBarItem key="tabBarItem" title="Collect Coin" image="CollectCoinTabIcon" id="m8U-De-gz9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,10 +199,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CollectCoinTabIcon" width="30" height="30"/>
         <image name="EditIcon" width="512" height="512"/>
         <image name="GoldBackground" width="960" height="600"/>
+        <image name="MapTabIcon" width="30" height="30"/>
         <image name="OrielProfilePic" width="320" height="480"/>
+        <image name="PaymentTabIcon" width="30" height="30"/>
         <image name="ProfileBackground" width="160" height="176"/>
-        <image name="Settings" width="30" height="30"/>
+        <image name="ProfileTabIcon" width="30" height="30"/>
     </resources>
 </document>
