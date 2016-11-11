@@ -46,37 +46,30 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OrielProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="7nS-ec-mw2">
-                                        <rect key="frame" x="100" y="89" width="174" height="154"/>
+                                        <rect key="frame" x="101" y="94" width="174" height="154"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8R-nP-fvo">
-                                        <rect key="frame" x="328" y="29" width="40" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="EditIcon"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYo-21-GlN">
-                                        <rect key="frame" x="95" y="29" width="186" height="32"/>
+                                        <rect key="frame" x="95" y="39" width="186" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oriel Belzer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b02-fC-aPb">
-                                        <rect key="frame" x="100" y="251" width="186" height="32"/>
+                                        <rect key="frame" x="95" y="256" width="186" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8R-nP-fvo">
+                                        <rect key="frame" x="320" y="39" width="40" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="EditIcon"/>
+                                    </button>
                                 </subviews>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-sz-r1L">
-                                <rect key="frame" x="186" y="313" width="135" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VsZ-Nt-s4p">
                                 <rect key="frame" x="0.0" y="360" width="376" height="271"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -88,6 +81,13 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$145.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-qQ-LWL">
                                 <rect key="frame" x="66" y="310" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-sz-r1L">
+                                <rect key="frame" x="178" y="310" width="135" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
                                 <nil key="textColor"/>
@@ -110,10 +110,29 @@
             </objects>
             <point key="canvasLocation" x="-234.40000000000001" y="1103.2983508245877"/>
         </scene>
-        <!--Collect-->
+        <!--Pay-->
+        <scene sceneID="dG5-sX-ZTR">
+            <objects>
+                <viewController id="7Uy-Be-VnD" userLabel="Pay" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sSP-hJ-Ad7"/>
+                        <viewControllerLayoutGuide type="bottom" id="4NR-6s-PHc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i4m-9N-Meh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pay" id="jVH-LV-yOf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipI-WG-CZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1348" y="645"/>
+        </scene>
+        <!--Map-->
         <scene sceneID="Rbn-5w-0JP">
             <objects>
-                <viewController id="u2K-7R-d8a" userLabel="Collect" customClass="MapViewController" customModule="StepCoin" sceneMemberID="viewController">
+                <viewController id="u2K-7R-d8a" customClass="MapViewController" customModule="StepCoin" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Le-IS-h1I"/>
                         <viewControllerLayoutGuide type="bottom" id="FSB-f4-3Xf"/>
@@ -130,7 +149,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsTilting" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="jPo-Wu-8PG" userLabel="Collect" customClass="RAMAnimatedTabBarItem"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="jPo-Wu-8PG"/>
                     <connections>
                         <outlet property="mapView" destination="Ids-GD-9iB" id="gYl-yI-7ZO"/>
                     </connections>
@@ -139,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="-234" y="290"/>
         </scene>
-        <!--Animated Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="eg3-JC-o11">
             <objects>
-                <tabBarController id="vVD-oC-Ke1" customClass="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController id="vVD-oC-Ke1" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vaz-Lo-0GB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -150,8 +169,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="u2K-7R-d8a" kind="relationship" relationship="viewControllers" id="XI6-sQ-KK4"/>
-                        <segue destination="nbI-4s-qNG" kind="relationship" relationship="viewControllers" id="hYC-FA-xm3"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="4i1-gO-Dgk"/>
+                        <segue destination="7Uy-Be-VnD" kind="relationship" relationship="viewControllers" id="Y07-8h-Xnm"/>
+                        <segue destination="nbI-4s-qNG" kind="relationship" relationship="viewControllers" id="nef-bz-Rc1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEM-hd-o90" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collect Coin" image="Settings" id="m8U-De-gz9" customClass="RAMAnimatedTabBarItem"/>
+                    <tabBarItem key="tabBarItem" title="Collect Coin" image="Settings" id="m8U-De-gz9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,7 +202,7 @@
         <image name="EditIcon" width="512" height="512"/>
         <image name="GoldBackground" width="960" height="600"/>
         <image name="OrielProfilePic" width="320" height="480"/>
-        <image name="ProfileBackground" width="150" height="84"/>
+        <image name="ProfileBackground" width="160" height="176"/>
         <image name="Settings" width="30" height="30"/>
     </resources>
 </document>

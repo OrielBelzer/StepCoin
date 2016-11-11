@@ -98,7 +98,8 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         for coin in profileView.coins {
             let annotation = ARAnnotation()
             let coinCoordinates = CLLocation(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
-            if (userCurrentCoordinates.distance(from: coinCoordinates) <= 5) //Coins is within 3 meters away from user's current location
+            NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
+            if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 3 meters away from user's current location
             {
                 annotation.location = coinCoordinates
                 annotations.append(annotation)

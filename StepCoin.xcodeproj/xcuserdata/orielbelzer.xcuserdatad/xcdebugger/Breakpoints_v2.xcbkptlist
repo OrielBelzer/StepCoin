@@ -276,7 +276,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
@@ -286,6 +286,22 @@
             startingLineNumber = "128"
             endingLineNumber = "128"
             landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/CollectCoinViewController.swift"
+            timestampString = "500527136.569037"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getCoinsAnnotations(centerLatitude:centerLongitude:delta:count:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
