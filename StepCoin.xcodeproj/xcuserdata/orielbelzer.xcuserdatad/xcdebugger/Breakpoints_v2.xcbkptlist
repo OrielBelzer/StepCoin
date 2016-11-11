@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,12 +168,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "convertCoinsCoordinatesToAddress()"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "numberOfSectionsInTableView(tableView:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,12 +200,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "convertCoinsCoordinatesToAddress()"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -216,12 +216,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
-            timestampString = "500449151.661704"
+            timestampString = "500508344.33036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "convertCoinsCoordinatesToAddress()"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "500450443.871535"
+            timestampString = "500508956.794659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "500450378.283632"
+            timestampString = "500508956.794659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,76 +279,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "500451278.189294"
+            filePath = "HDAugmentedRealityDemo/ProfileViewController.swift"
+            timestampString = "500509297.585949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "MapViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StepCoin.MapViewController.mapView.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.MGLMapView&gt;"
-                  moduleName = "StepCoin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orielbelzer/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
-                  timestampString = "500451515.89692"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StepCoin.MapViewController.mapView.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.MGLMapView&gt;"
-                  moduleName = "StepCoin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orielbelzer/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
-                  timestampString = "500451515.898574"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StepCoin.MapViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; StepCoin.MapViewController"
-                  moduleName = "StepCoin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orielbelzer/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
-                  timestampString = "500451515.900217"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StepCoin.MapViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;StepCoin.MapViewController&gt;"
-                  moduleName = "StepCoin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orielbelzer/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
-                  timestampString = "500451515.901918"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

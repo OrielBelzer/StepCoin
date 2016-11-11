@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VsZ-Nt-s4p">
-                                <rect key="frame" x="0.0" y="360" width="376" height="307"/>
+                                <rect key="frame" x="0.0" y="360" width="376" height="271"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -131,6 +131,9 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="jPo-Wu-8PG" userLabel="Collect" customClass="RAMAnimatedTabBarItem"/>
+                    <connections>
+                        <outlet property="mapView" destination="Ids-GD-9iB" id="gYl-yI-7ZO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GT-nj-osG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

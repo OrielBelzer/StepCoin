@@ -20,31 +20,40 @@ class MapViewController: UIViewController, MGLMapViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        mapView.delegate = self
-//        
-//        mapView.userTrackingMode = .follow
+        mapView.delegate = self
+        mapView.userTrackingMode = .follow
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        let profileView = ProfileViewController() //Needed in order to access the coins data which we store in the profile view for now
-//        profileView.convertCoinsCoordinatesToAddress() //Need to run it just in case the user didn't changed a screen to the profile before going to the map
-//        
-//        for coin in profileView.coins {
-//            let point = MGLPointAnnotation()
-//            point.coordinate = CLLocationCoordinate2D(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
-//            point.title = coin.5 //Coin's worth
-//            point.subtitle = coin.3 //Coin's address
-//            
-//            mapView.addAnnotation(point)
-//            
-//            //TODO -
-//            //  Cusomize the annotation icon to a coin annotaion
-//            //  Try to focus on the user location when loading the map
-//        }
-
+        let profileView = ProfileViewController() //Needed in order to access the coins data which we store in the profile view for now
+        profileView.convertCoinsCoordinatesToAddress(shouldReloadTableData: false) //Need to run it just in case the user didn't changed a screen to the profile before going to the map
         
+        for coin in profileView.coins {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
+            point.title = coin.6 //Coin's worth
+            //point.subtitle = coin.6 //Coin's worth
+            
+            mapView.addAnnotation(point)
+        }
+    }
+    
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "CoinImage")
+        
+        if annotationImage == nil {
+            var image = UIImage(named: "CoinImage")!
+            image = image.withAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "CoinImage")
+        }
+        
+        return annotationImage
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
     }
 
     

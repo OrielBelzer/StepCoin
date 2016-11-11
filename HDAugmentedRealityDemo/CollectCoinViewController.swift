@@ -11,8 +11,7 @@ import CoreLocation
 
 let arViewController = ARViewController()
 
-
-class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegate
+class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegate, CLLocationManagerDelegate
 {
     override func viewDidLoad()
     {
@@ -42,14 +41,17 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
             return
         }
         
-        // Create random annotations around center point    //@TODO
-        //FIXME: set your initial position here, this is used to generate random POIs
+        let locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        var currentLocation: CLLocation
+
+        currentLocation = locManager.location!
         
-        //TODO - 
-        //  Set the lat and lon based on the user's current location
-        //
-        let lat = 37.241681
-        let lon = -121.884804
+        NSLog("lat " + String(currentLocation.coordinate.latitude))
+        NSLog("long " + String(currentLocation.coordinate.longitude))
+        
+        let lat = currentLocation.coordinate.latitude // 37.241681
+        let lon = currentLocation.coordinate.longitude // -121.884804
         let delta = 0.05
         let count = 2
         let coinsAnnotations = self.getCoinsAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
@@ -89,14 +91,18 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
     {
         var annotations: [ARAnnotation] = []
         
+        let userCurrentCoordinates = CLLocation(latitude: centerLatitude, longitude: centerLongitude)
+        
+        
         let profileView = ProfileViewController()
         for coin in profileView.coins {
-            //Check if the coin is X feet away from my current location that I got as an inpute to the function
-            //If it is then : 
-            
             let annotation = ARAnnotation()
-            annotation.location = CLLocation(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
-            annotations.append(annotation)
+            let coinCoordinates = CLLocation(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
+            if (userCurrentCoordinates.distance(from: coinCoordinates) <= 5) //Coins is within 3 meters away from user's current location
+            {
+                annotation.location = coinCoordinates
+                annotations.append(annotation)
+            }
         }
         
         return annotations

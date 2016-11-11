@@ -54,7 +54,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var coins: [(String, String, String, String, String, String, String)] = [
         ("37.241681", "-121.88480400000003" , "", "1", "" , "", "$0.5"),
         ("37.351507", "-121.981114" , "", "2", "Big Mug Coffee" , "https://qph.ec.quoracdn.net/main-qimg-42a047420a707f34a6c6bf703766e528-c?convert_to_webp=true", "$1"),
-        ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$1")
+        ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$1"),
+        ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$2")
     ]
     
     override func viewDidLoad()
@@ -86,7 +87,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        convertCoinsCoordinatesToAddress()
+        convertCoinsCoordinatesToAddress(shouldReloadTableData: true)
     }
     
     
@@ -115,7 +116,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //println("You selected cell #\(indexPath.row)!")
     }
     
-    func convertCoinsCoordinatesToAddress() 
+    func convertCoinsCoordinatesToAddress(shouldReloadTableData: Bool)
     {
         var index = 0
         for coin in coins {
@@ -124,7 +125,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let latitude :CLLocationDegrees = Double(coin.0)!
             let location = CLLocation(latitude: latitude, longitude: longitude)
             
-            reverseGeoLocation(location: location, index: index)
+            reverseGeoLocation(location: location, index: index, shouldReloadTableData: shouldReloadTableData)
             
             index += 1
             
@@ -132,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
-    func reverseGeoLocation(location: CLLocation, index: Int) {
+    func reverseGeoLocation(location: CLLocation, index: Int, shouldReloadTableData: Bool) {
         let geoCoder = CLGeocoder()
 
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
@@ -150,7 +151,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.coins[index].2 += ", " + zip! + ", " + country!
             }
             
-            self.collectedCoinsTable.reloadData()
+            if (shouldReloadTableData) {
+                self.collectedCoinsTable.reloadData()
+            }
+            
         })
     }
 }
