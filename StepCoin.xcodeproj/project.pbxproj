@@ -24,6 +24,8 @@
 		0CF0F8EA1BC5E70C00C7646E /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */; };
 		0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */; };
 		0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */; };
+		383B574F1DE1611E008270DE /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B574E1DE1611E008270DE /* PayViewController.swift */; };
+		383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */; };
 		387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */; };
 		38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */; };
 		38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */; };
@@ -70,6 +72,8 @@
 		0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
 		0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
+		383B574E1DE1611E008270DE /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayCustomTableViewCell.xib; sourceTree = "<group>"; };
 		387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */,
 				388480141DD0F5E700ADA8F6 /* MapViewController.swift */,
 				3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */,
+				383B574E1DE1611E008270DE /* PayViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -202,6 +207,7 @@
 				0CAD4EB61AE6FC14000F2A2A /* Main.storyboard */,
 				38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */,
 				387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */,
+				383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */,
 			);
 			name = GUI;
 			path = HDAugmentedRealityDemo;
@@ -274,6 +280,7 @@
 				38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */,
 				0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */,
 				387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */,
+				383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */,
 				38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */,
 				0C10A15E1BC67B5C009EDF6A /* hdar_close@3x.png in Resources */,
 				38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */,
@@ -315,6 +322,7 @@
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,
 				0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */,
 				0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */,
+				383B574F1DE1611E008270DE /* PayViewController.swift in Sources */,
 				0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */,
 				3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */,
 				0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */,
