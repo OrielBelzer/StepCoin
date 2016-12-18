@@ -35,6 +35,9 @@
 		388480151DD0F5E700ADA8F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388480141DD0F5E700ADA8F6 /* MapViewController.swift */; };
 		3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */; };
 		38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C172FE1DCE8B40002750A8 /* SexyCoin.png */; };
+		BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */; };
+		BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEED1E064B6300C07781 /* Coin.swift */; };
+		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +86,9 @@
 		3884801A1DD1306500ADA8F6 /* StepCoin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepCoin-Bridging-Header.h"; sourceTree = "<group>"; };
 		3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		38C172FE1DCE8B40002750A8 /* SexyCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SexyCoin.png; sourceTree = "<group>"; };
+		BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TransparentCoin.png; path = ../../../../../Downloads/TransparentCoin.png; sourceTree = "<group>"; };
+		BEC9AEED1E064B6300C07781 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = HDAugmentedReality/Classes/Coin.swift; sourceTree = "<group>"; };
+		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,8 @@
 		0CAD4EA41AE6FC14000F2A2A = {
 			isa = PBXGroup;
 			children = (
+				BEC9AEF21E0656D500C07781 /* Model */,
+				BEC9AEEF1E06548600C07781 /* Controllers */,
 				38C172F71DCE8435002750A8 /* Assets */,
 				38F109441DD410BE002BBBA8 /* GUI */,
 				0CAD4EB21AE6FC14000F2A2A /* AppDelegate.swift */,
@@ -194,6 +202,7 @@
 		38C172F71DCE8435002750A8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */,
 				38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */,
 				38C172FE1DCE8B40002750A8 /* SexyCoin.png */,
 				38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */,
@@ -211,6 +220,22 @@
 			);
 			name = GUI;
 			path = HDAugmentedRealityDemo;
+			sourceTree = "<group>";
+		};
+		BEC9AEEF1E06548600C07781 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEC9AEF01E06549E00C07781 /* CoinsController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BEC9AEF21E0656D500C07781 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEC9AEED1E064B6300C07781 /* Coin.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +308,7 @@
 				383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */,
 				38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */,
 				0C10A15E1BC67B5C009EDF6A /* hdar_close@3x.png in Resources */,
+				BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */,
 				38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */,
 				0C10A15C1BC67B5C009EDF6A /* hdar_close.png in Resources */,
 				38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */,
@@ -319,10 +345,12 @@
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
 				388480151DD0F5E700ADA8F6 /* MapViewController.swift in Sources */,
+				BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */,
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,
 				0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */,
 				0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */,
 				383B574F1DE1611E008270DE /* PayViewController.swift in Sources */,
+				BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */,
 				0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */,
 				3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */,
 				0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */,

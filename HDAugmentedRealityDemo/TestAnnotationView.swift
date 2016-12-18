@@ -12,6 +12,9 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
 {
     open var titleLabel: UILabel?
     open var infoButton: UIButton?
+    open var imageView: UIImageView?
+    open var coinIcon = ""
+
 
     override open func didMoveToSuperview()
     {
@@ -25,12 +28,14 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     func loadUi()
     {
         //Add Coing Icon
-        let imageName = "SexyCoin.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        self.addSubview(imageView)
+        if (coinIcon.isEmpty) {
+            self.coinIcon = "TransparentCoin.png"
+        }
+        let image = UIImage(named: self.coinIcon)
+        self.imageView = UIImageView(image: image!)
+        self.addSubview(imageView!)
         
-        /*
+        
         // Title label
         self.titleLabel?.removeFromSuperview()
         let label = UILabel()
@@ -41,6 +46,7 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
         self.addSubview(label)
         self.titleLabel = label
         
+        /*
         // Info button
         self.infoButton?.removeFromSuperview()
         let button = UIButton(type: UIButtonType.detailDisclosure)
@@ -94,10 +100,12 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     open func tapGesture()
     {
         //Logic to collect the coin
-        if let annotation = self.annotation
+        if self.annotation != nil
         {
-            let alertView = UIAlertView(title: annotation.title, message: "Tapped", delegate: nil, cancelButtonTitle: "OK")
+            NSLog("Collected coin")
+            let alertView = UIAlertView(title: "Coin Collected", message: "Congrats! You just collected a coin!", delegate: nil, cancelButtonTitle: "OK")
             alertView.show()
+            self.imageView?.removeFromSuperview()
         }
     }
 

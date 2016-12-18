@@ -30,6 +30,8 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoic3RlcGNvaW4iLCJhIjoiY2l2N2ljcnMzMDAwZjJvbzI0ZWQyNm4zMCJ9.ocMlyRTES-SZEQVnvZbaMQ</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>StepCoin uses your location to help you collect Coins near you.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>StepCoin uses camera for Augmented Reality.</string>
 	<key>NSLocationAlwaysUsageDescription</key>

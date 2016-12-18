@@ -83,7 +83,8 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
     {
         // Annotation views should be lightweight views, try to avoid xibs and autolayout all together.
         let annotationView = TestAnnotationView()
-        //annotationView.frame = CGRect(x: 0,y: 0,width: 150,height: 50)
+        //annotationView. ORIEL
+        annotationView.frame = CGRect(x: 0,y: 0,width: 150,height: 50)
         return annotationView;
     }
     
@@ -93,11 +94,9 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         
         let userCurrentCoordinates = CLLocation(latitude: centerLatitude, longitude: centerLongitude)
         
-        
-        let profileView = ProfileViewController()
-        for coin in profileView.coins {
+        for coin in CoinsController().coins {
             let annotation = ARAnnotation()
-            let coinCoordinates = CLLocation(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
+            let coinCoordinates = CLLocation(latitude: Double(coin.latitude)!, longitude: Double(coin.longitude)!)
             NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
             if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 3 meters away from user's current location
             {

@@ -15,25 +15,26 @@ class MapViewController: UIViewController, MGLMapViewDelegate
 {
  
     @IBOutlet var mapView: MGLMapView!
-
+    var coinsController = CoinsController()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.userTrackingMode = .follow
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let profileView = ProfileViewController() //Needed in order to access the coins data which we store in the profile view for now
-        profileView.convertCoinsCoordinatesToAddress(shouldReloadTableData: false) //Need to run it just in case the user didn't changed a screen to the profile before going to the map
+        //profileView.convertCoinsCoordinatesToAddress(shouldReloadTableData: false) //Need to run it just in case the user didn't changed a screen to the profile before going to the map
         
-        for coin in profileView.coins {
+        for coin in coinsController.coins {
             let point = MGLPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: Double(coin.0)!, longitude: Double(coin.1)!)
-            point.title = coin.6 //Coin's worth
+            point.coordinate = CLLocationCoordinate2D(latitude: Double(coin.latitude)!, longitude: Double(coin.longitude)!)
+            point.title = coin.worth //Coin's worth
             //point.subtitle = coin.6 //Coin's worth
             
             mapView.addAnnotation(point)
