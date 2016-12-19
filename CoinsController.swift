@@ -6,6 +6,7 @@
 //
 
 import CoreLocation
+import SwiftHTTP
 
 
 open class CoinsController
@@ -25,7 +26,8 @@ open class CoinsController
     
         var coinsFromServer: [(String, String, String, String, String, String, String)] = [
             ("37.7767902", "-122.4164055" , "", "2", "Walgreen" , "https://a.yipitcdn.com/yc/logo/walgreens-1403027143.jpg", "$1"),
-            ("37.241681", "-121.88480400000003" , "", "1", "" , "", "$0.5"),
+            ("37.241681", "-121.88480400000003" , "", "1", "Starbucks" , "", "$0.5"),
+            ("37.241681", "-121.88480400000003" , "", "1", "Big Mug Coffee" , "", "$1.5"),
             ("37.351507", "-121.981114" , "", "2", "Big Mug Coffee" , "https://qph.ec.quoracdn.net/main-qimg-42a047420a707f34a6c6bf703766e528-c?convert_to_webp=true", "$1"),
             ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$1"),
             ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$2")

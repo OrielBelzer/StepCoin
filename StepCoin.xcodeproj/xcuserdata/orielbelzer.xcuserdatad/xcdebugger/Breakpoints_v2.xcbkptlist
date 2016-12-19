@@ -125,8 +125,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -141,7 +141,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkName = "numberOfSectionsInTableView(tableView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -157,8 +157,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -172,9 +172,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
-            landmarkType = "7">
+            endingLineNumber = "124">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -189,8 +187,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "numberOfSectionsInTableView(tableView:)"
-            landmarkType = "7">
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -204,9 +202,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
-            landmarkType = "7">
+            endingLineNumber = "133">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -220,9 +216,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
-            landmarkType = "7">
+            endingLineNumber = "127">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,9 +278,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "convertCoinsCoordinatesToAddress(shouldReloadTableData:)"
-            landmarkType = "7">
+            endingLineNumber = "130">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

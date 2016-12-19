@@ -1,0 +1,6 @@
+framework module Pods_StepCoin {
+  umbrella header "Pods-StepCoin-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -14,6 +14,7 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     open var infoButton: UIButton?
     open var imageView: UIImageView?
     open var coinIcon = ""
+    open var coin: Coin?
 
 
     override open func didMoveToSuperview()
@@ -102,8 +103,8 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
         //Logic to collect the coin
         if self.annotation != nil
         {
-            NSLog("Collected coin")
-            let alertView = UIAlertView(title: "Coin Collected", message: "Congrats! You just collected a coin!", delegate: nil, cancelButtonTitle: "OK")
+            let message = "Congrats! You just collected a coin for " + (coin?.businessName)! + ", worth " + (coin?.worth)!
+            let alertView = UIAlertView(title: "Coin Collected", message: message, delegate: nil, cancelButtonTitle: "OK")
             alertView.show()
             self.imageView?.removeFromSuperview()
         }
