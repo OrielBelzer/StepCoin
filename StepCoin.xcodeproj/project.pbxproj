@@ -36,6 +36,8 @@
 		3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */; };
 		38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C172FE1DCE8B40002750A8 /* SexyCoin.png */; };
 		3F62BB1BC654310CFCD3351B /* Pods_StepCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A7C7886D660732064BE69E /* Pods_StepCoin.framework */; };
+		BE7FEBDD1E07BBA800909C74 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7FEBDC1E07BBA800909C74 /* LoginViewController.xib */; };
+		BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */; };
 		BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */; };
 		BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEED1E064B6300C07781 /* Coin.swift */; };
 		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
@@ -90,6 +92,8 @@
 		38C172FE1DCE8B40002750A8 /* SexyCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SexyCoin.png; sourceTree = "<group>"; };
 		75AFD1EAF351018A2ED05732 /* Pods-StepCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.release.xcconfig"; sourceTree = "<group>"; };
 		A92ABB6A9220D133A6B5FAB1 /* Pods-StepCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		BE7FEBDC1E07BBA800909C74 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = GUI/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
+		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TransparentCoin.png; path = ../../../../../Downloads/TransparentCoin.png; sourceTree = "<group>"; };
 		BEC9AEED1E064B6300C07781 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = HDAugmentedReality/Classes/Coin.swift; sourceTree = "<group>"; };
 		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				388480141DD0F5E700ADA8F6 /* MapViewController.swift */,
 				3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */,
 				383B574E1DE1611E008270DE /* PayViewController.swift */,
+				BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -224,6 +229,7 @@
 				38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */,
 				387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */,
 				383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */,
+				BE7FEBDC1E07BBA800909C74 /* LoginViewController.xib */,
 			);
 			name = GUI;
 			path = HDAugmentedRealityDemo;
@@ -333,6 +339,7 @@
 				38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */,
 				0CAD4EBA1AE6FC14000F2A2A /* Images.xcassets in Resources */,
 				0C10A15B1BC67B5C009EDF6A /* DebugMapViewController.xib in Resources */,
+				BE7FEBDD1E07BBA800909C74 /* LoginViewController.xib in Resources */,
 				0C10A15D1BC67B5C009EDF6A /* hdar_close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +415,7 @@
 				0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
+				BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */,
 				388480151DD0F5E700ADA8F6 /* MapViewController.swift in Sources */,
 				BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */,
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,

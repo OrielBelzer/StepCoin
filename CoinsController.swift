@@ -36,7 +36,7 @@ open class CoinsController
         
         var coins = [Coin]()
         for coinFromServer in coinsFromServer {
-            var coin = Coin(longitude: coinFromServer.1, latitude: coinFromServer.0, address: coinFromServer.2, type: coinFromServer.3, businessName: coinFromServer.4, businessLogoLink: coinFromServer.5, worth: coinFromServer.6)
+            let coin = Coin(longitude: coinFromServer.1, latitude: coinFromServer.0, address: coinFromServer.2, type: coinFromServer.3, businessName: coinFromServer.4, businessLogoLink: coinFromServer.5, worth: coinFromServer.6)
             coins.append(coin)
         }
         
