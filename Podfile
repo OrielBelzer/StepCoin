@@ -4,4 +4,7 @@ use_frameworks!
 target 'StepCoin' do
   pod 'SwiftHTTP', '~> 2.0.0'
   pod 'SwiftyJSON'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 end

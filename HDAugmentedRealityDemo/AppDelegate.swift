@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let defaults = UserDefaults.standard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UIViewController
+        let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! UIViewController
+        
+        NSLog("Login status when app opened " + defaults.bool(forKey: "loginStatus").description)
+        if (defaults.bool(forKey: "loginStatus"))
+        {
+            self.window?.rootViewController = mapViewController
+        }
+        else
+        {
+            self.window?.rootViewController = loginViewController
+        }
         return true
     }
 

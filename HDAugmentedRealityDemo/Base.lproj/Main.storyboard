@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vVD-oC-Ke1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vVD-oC-Ke1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -146,7 +146,7 @@
         <!--Map-->
         <scene sceneID="Rbn-5w-0JP">
             <objects>
-                <viewController id="u2K-7R-d8a" customClass="MapViewController" customModule="StepCoin" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="u2K-7R-d8a" customClass="MapViewController" customModule="StepCoin" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Le-IS-h1I"/>
                         <viewControllerLayoutGuide type="bottom" id="FSB-f4-3Xf"/>
@@ -172,10 +172,61 @@
             </objects>
             <point key="canvasLocation" x="-234" y="290"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Sie-8l-HeB">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="v4n-fQ-fc9" customClass="LoginViewController" customModule="StepCoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v0A-jN-KRh"/>
+                        <viewControllerLayoutGuide type="bottom" id="4K4-LP-ojp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dKv-Po-FAb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZP-LQ-j3v">
+                                <rect key="frame" x="16" y="332" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8d-Ge-vrO">
+                                <rect key="frame" x="16" y="296" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CoinImage3D" translatesAutoresizingMaskIntoConstraints="NO" id="hvj-jy-DMe">
+                                <rect key="frame" x="101" y="135" width="172" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVf-Yu-3bl">
+                                <rect key="frame" x="16" y="370" width="343" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonWithSender:" destination="v4n-fQ-fc9" eventType="touchUpInside" id="Hlh-iL-MxZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="n8d-Ge-vrO" id="ck1-bU-cTc"/>
+                        <outlet property="passwordTextField" destination="BZP-LQ-j3v" id="hpi-jX-jPI"/>
+                        <segue destination="vVD-oC-Ke1" kind="presentation" identifier="MoveToMainApp" id="ptS-8G-a5N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDs-eL-b2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2164" y="-90"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eg3-JC-o11">
             <objects>
-                <tabBarController id="vVD-oC-Ke1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" id="vVD-oC-Ke1" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vaz-Lo-0GB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -213,6 +264,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CoinImage3D" width="512" height="512"/>
         <image name="CollectCoinTabIcon" width="30" height="30"/>
         <image name="EditIcon" width="512" height="512"/>
         <image name="GoldBackground" width="960" height="600"/>
