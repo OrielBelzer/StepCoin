@@ -7,4 +7,5 @@ target 'StepCoin' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Toucan'
 end

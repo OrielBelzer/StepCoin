@@ -36,6 +36,11 @@
 		3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */; };
 		38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C172FE1DCE8B40002750A8 /* SexyCoin.png */; };
 		3F62BB1BC654310CFCD3351B /* Pods_StepCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A7C7886D660732064BE69E /* Pods_StepCoin.framework */; };
+		BE2F447A1E09D2E100652A08 /* tranCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2F44791E09D2E100652A08 /* tranCoin.png */; };
+		BE2F447C1E09D5B400652A08 /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2F447B1E09D5B400652A08 /* facebookIcon.png */; };
+		BE2F44841E09DE3500652A08 /* loginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2F44831E09DE3500652A08 /* loginBackground.jpg */; };
+		BE2F44861E09DF0A00652A08 /* whiteLine.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2F44851E09DF0A00652A08 /* whiteLine.png */; };
+		BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */; };
 		BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */; };
 		BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */; };
 		BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEED1E064B6300C07781 /* Coin.swift */; };
@@ -91,6 +96,11 @@
 		38C172FE1DCE8B40002750A8 /* SexyCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SexyCoin.png; sourceTree = "<group>"; };
 		75AFD1EAF351018A2ED05732 /* Pods-StepCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.release.xcconfig"; sourceTree = "<group>"; };
 		A92ABB6A9220D133A6B5FAB1 /* Pods-StepCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		BE2F44791E09D2E100652A08 /* tranCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tranCoin.png; path = ../../../../../Desktop/tranCoin.png; sourceTree = "<group>"; };
+		BE2F447B1E09D5B400652A08 /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebookIcon.png; path = ../../../../../Desktop/facebookIcon.png; sourceTree = "<group>"; };
+		BE2F44831E09DE3500652A08 /* loginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = loginBackground.jpg; path = ../../../../../Desktop/loginBackground.jpg; sourceTree = "<group>"; };
+		BE2F44851E09DF0A00652A08 /* whiteLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteLine.png; path = ../../../../../Desktop/whiteLine.png; sourceTree = "<group>"; };
+		BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReigsterationViewController.swift; sourceTree = "<group>"; };
 		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TransparentCoin.png; path = ../../../../../Downloads/TransparentCoin.png; sourceTree = "<group>"; };
 		BEC9AEED1E064B6300C07781 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = HDAugmentedReality/Classes/Coin.swift; sourceTree = "<group>"; };
@@ -204,6 +214,7 @@
 				3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */,
 				383B574E1DE1611E008270DE /* PayViewController.swift */,
 				BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */,
+				BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -212,6 +223,10 @@
 		38C172F71DCE8435002750A8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BE2F44851E09DF0A00652A08 /* whiteLine.png */,
+				BE2F44831E09DE3500652A08 /* loginBackground.jpg */,
+				BE2F447B1E09D5B400652A08 /* facebookIcon.png */,
+				BE2F44791E09D2E100652A08 /* tranCoin.png */,
 				BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */,
 				38847FFB1DCEC7FB00ADA8F6 /* MapIconSmall.png */,
 				38C172FE1DCE8B40002750A8 /* SexyCoin.png */,
@@ -326,6 +341,7 @@
 			files = (
 				38C172FF1DCE8B40002750A8 /* SexyCoin.png in Resources */,
 				0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */,
+				BE2F447A1E09D2E100652A08 /* tranCoin.png in Resources */,
 				387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */,
 				383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */,
 				38847FFC1DCEC7FB00ADA8F6 /* MapIconSmall.png in Resources */,
@@ -334,9 +350,12 @@
 				38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */,
 				0C10A15C1BC67B5C009EDF6A /* hdar_close.png in Resources */,
 				38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */,
+				BE2F44841E09DE3500652A08 /* loginBackground.jpg in Resources */,
 				0CAD4EBA1AE6FC14000F2A2A /* Images.xcassets in Resources */,
+				BE2F44861E09DF0A00652A08 /* whiteLine.png in Resources */,
 				0C10A15B1BC67B5C009EDF6A /* DebugMapViewController.xib in Resources */,
 				0C10A15D1BC67B5C009EDF6A /* hdar_close@2x.png in Resources */,
+				BE2F447C1E09D5B400652A08 /* facebookIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */,
+				BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
 				BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */,
