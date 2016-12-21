@@ -62,5 +62,37 @@ class LoginViewController: UIViewController
         
     }
     
+    @IBAction func facebookLoginButton(sender: UIButton) {
+        let loginManager = LoginManager()
+        var facebookUserID = ""
+        
+        loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print("Logged in!")
+                
+                let connection = GraphRequestConnection()
+                let params = ["fields" : "email, name, gender, picture"]
+                connection.add(GraphRequest(graphPath: "/me", parameters: params)) { httpResponse, result in
+                    switch result {
+                    case .success(let response):
+                        NSLog("Graph Request Succeeded: \(response)")
+                        facebookUserID = (response.dictionaryValue?["id"] as? String)!
+                        NSLog("User ID " + facebookUserID)
+                    case .failed(let error):
+                        NSLog("Graph Request Failed: \(error)")
+                    }
+                }
+                connection.start()
+                
+                
+                
+            }
+        }
+    }
 }
 

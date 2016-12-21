@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0G-Kf-xC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234.40000000000001" y="1103.2983508245877"/>
+            <point key="canvasLocation" x="382" y="985"/>
         </scene>
         <!--Pay-->
         <scene sceneID="dG5-sX-ZTR">
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipI-WG-CZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1348" y="644.52773613193403"/>
+            <point key="canvasLocation" x="-338" y="985"/>
         </scene>
         <!--Map-->
         <scene sceneID="Rbn-5w-0JP">
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GT-nj-osG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="290"/>
+            <point key="canvasLocation" x="704.79999999999995" y="289.20539730134936"/>
         </scene>
         <!--Registration Login View-->
         <scene sceneID="YuR-5M-hBD">
@@ -231,7 +231,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserPicPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="tsh-Ge-LPN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsh-Ge-LPN">
                                 <rect key="frame" x="118" y="180" width="139" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -242,9 +242,28 @@
                                     <action selector="imagePickerButtonWithSender:" destination="07f-tO-5dE" eventType="touchUpInside" id="f69-1D-wMS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDt-sG-39M">
+                                <rect key="frame" x="16" y="28" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="v4n-fQ-fc9" kind="show" id="YJe-Kp-UTo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUz-Wj-I0R">
+                                <rect key="frame" x="23" y="31" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UK6-le-TbQ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="4mj-Kg-dcj"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailAddressTextField" destination="Ee7-jt-OZv" id="GxA-ds-I9N"/>
                         <outlet property="imagePickerButton" destination="v8F-zJ-ofJ" id="aj2-o9-eBh"/>
@@ -256,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3L-QG-AKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2879.1999999999998" y="-86.806596701649184"/>
+            <point key="canvasLocation" x="-1225" y="713"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Sie-8l-HeB">
@@ -308,7 +327,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="07f-tO-5dE" kind="show" identifier="MoveToRegistration" id="nom-Uk-SHT"/>
+                                    <segue destination="07f-tO-5dE" kind="show" id="cEI-JN-Ut0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login or Create Your New Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnB-Kj-pdu">
@@ -360,6 +379,9 @@
                                 <rect key="frame" x="125" y="482" width="47" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="facebookIcon"/>
+                                <connections>
+                                    <action selector="facebookLoginButtonWithSender:" destination="v4n-fQ-fc9" eventType="touchUpInside" id="I7l-oK-t3Q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4r-Av-bIa">
                                 <rect key="frame" x="190" y="482" width="47" height="43"/>
@@ -392,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDs-eL-b2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2164" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="-1224.8" y="-90.404797601199405"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eg3-JC-o11">
@@ -412,7 +434,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEM-hd-o90" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1185" y="-90"/>
+            <point key="canvasLocation" x="-247.19999999999999" y="-90.404797601199405"/>
         </scene>
         <!--Collect Coin-->
         <scene sceneID="tne-QT-ifu">
@@ -431,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="-63"/>
+            <point key="canvasLocation" x="1432.8" y="-63.418290854572717"/>
         </scene>
     </scenes>
     <resources>
@@ -443,7 +465,6 @@
         <image name="PaymentTabIcon" width="30" height="30"/>
         <image name="ProfileBackground" width="160" height="176"/>
         <image name="ProfileTabIcon" width="30" height="30"/>
-        <image name="UserPicPlaceHolder" width="112" height="112"/>
         <image name="facebookIcon" width="515" height="536"/>
         <image name="lockIcon" width="128" height="128"/>
         <image name="loginBackground.jpg" width="744" height="1392"/>

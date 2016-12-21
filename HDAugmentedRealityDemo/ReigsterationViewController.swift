@@ -19,12 +19,19 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
 
     var imagePicker = UIImagePickerController()
 
-    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad()
     {
-        let profilePicImage = profilePic.image
-        let resizedImage = Toucan.Resize.resizeImage(profilePicImage!, size: CGSize(width: 100, height: 150))
+        var profilePicImage: UIImage
+        
+        if let profilePicData = defaults.object(forKey: "userProfilePic") as? NSData {
+            profilePicImage = UIImage(data: profilePicData as Data)!
+        } else {
+            profilePicImage = UIImage(named: "UserPicPlaceHolder")!
+        }
+        
+        let resizedImage = Toucan.Resize.resizeImage(profilePicImage, size: CGSize(width: 100, height: 150))
         let resizedAndMaskedImage = Toucan(image: resizedImage).maskWithEllipse(borderWidth: 1, borderColor: UIColor.white).image
         profilePic.image = resizedAndMaskedImage
         
@@ -66,12 +73,14 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //let resizedImage = Toucan.Resize.resizeImage(profilePicImage!, size: CGSize(width: 100, height: 150))
+            let data = UIImagePNGRepresentation(image)
+            defaults.set(data, forKey: "userProfilePic")
+            defaults.synchronize()
+
             let resizedAndMaskedImage = Toucan(image: image).maskWithEllipse(borderWidth: 5, borderColor: UIColor.white).image
             profilePic.image = resizedAndMaskedImage
-            //profilePic.image = resizedAndMaskedImage
         } else{
             NSLog("Something went wrong")
         }
