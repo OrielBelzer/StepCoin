@@ -31,7 +31,22 @@ class ConnectionController
                 let json = JSON(value)
                 onCompletion(json, "")
             case .failure(let error):
-                onCompletion(nil, error.localizedDescription)
+                onCompletion(JSON.null, error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
+    func login(emailAddress: String, password: String, onCompletion: @escaping ServiceResponse) -> Void {
+        let params = ["email": emailAddress, "password": password]
+        
+        Alamofire.request(stepCoinBaseURL+"/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
                 print(error)
             }
         }

@@ -20,17 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UIViewController
-        let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! UIViewController
+        //let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! UIViewController
         
         NSLog("Login status when app opened " + defaults.bool(forKey: "loginStatus").description)
-        if (defaults.bool(forKey: "loginStatus"))
-        {
-            self.window?.rootViewController = mapViewController
-        }
-        else
+        if !(defaults.bool(forKey: "loginStatus"))
         {
             self.window?.rootViewController = loginViewController
+            //self.window?.rootViewController = mapViewController
         }
+        
         return true
     }
 

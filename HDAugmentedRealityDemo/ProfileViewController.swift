@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Toucan
 
 
 class CustomTableViewCell : UITableViewCell {
@@ -43,47 +44,65 @@ class CustomTableViewCell : UITableViewCell {
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet var collectedCoinsTable: UITableView!
-    @IBOutlet var settingsButton: UIButton!
-    @IBOutlet var inviteFriendsButton: UIButton!
     @IBOutlet var editProfileButton: UIButton!
+    @IBOutlet var logoutButton: UIButton!
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var profileName: UILabel!
+    @IBOutlet weak var numberOfCoins: UILabel!
+    @IBOutlet weak var numberOfDollars: UILabel!
+    @IBOutlet weak var numberOfStores: UILabel!
     
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        profilePic.layer.borderWidth = 1
-        profilePic.layer.masksToBounds = false
-        profilePic.layer.borderColor = UIColor.black.cgColor
-        profilePic.layer.cornerRadius = profilePic.frame.height/2
-        profilePic.clipsToBounds = true
         
-        inviteFriendsButton.layer.cornerRadius = 10
-        inviteFriendsButton.layer.borderWidth = 1
-        inviteFriendsButton.layer.borderColor = UIColor.black.cgColor
-        inviteFriendsButton.layer.backgroundColor = UIColor(colorLiteralRed: 218, green: 165, blue: 32, alpha: 1).cgColor
+        var profilePicImage: UIImage
+        if ((defaults.object(forKey: "loginMode") as? String) == "facebook") {
+            if let url = NSURL(string: (defaults.object(forKey: "facebookProfilePic") as? String)!) {
+                if let data = NSData(contentsOf: url as URL) {
+                    defaults.set(data, forKey: "userProfilePic")
+                    defaults.synchronize()
+                }        
+            }
+        }
+        if let profilePicData = defaults.object(forKey: "userProfilePic") as? NSData {
+            profilePicImage = UIImage(data: profilePicData as Data)!
+        } else {
+            profilePicImage = UIImage(named: "UserPicPlaceHolder")!
+        }
         
-        settingsButton.layer.backgroundColor = UIColor(colorLiteralRed: 218, green: 165, blue: 32, alpha: 1).cgColor
-        settingsButton.layer.cornerRadius = 10
-        settingsButton.layer.borderWidth = 1
-        settingsButton.layer.borderColor = UIColor.black.cgColor
+        let resizedImage = Toucan.Resize.resizeImage(profilePicImage, size: CGSize(width: 100, height: 150))
+        let resizedAndMaskedImage = Toucan(image: resizedImage).maskWithEllipse(borderWidth: 1, borderColor: UIColor.white).image
+        profilePic.image = resizedAndMaskedImage
         
+        editProfileButton.layer.cornerRadius = 20
+        editProfileButton.layer.borderWidth = 0
+        editProfileButton.layer.masksToBounds = true;
+
         
         let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
         collectedCoinsTable.register(nib, forCellReuseIdentifier: "customCell")
         
-        
+        self.collectedCoinsTable.backgroundColor = UIColor.clear
         
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //convertCoinsCoordinatesToAddress(shouldReloadTableData: true)
     }
     
     
-    //MARK: - Tableview Delegate & Datasource
+    @IBAction func logout(sender: UIButton) {
+        performSegue(withIdentifier: "MoveToLoginScreen", sender: self)
+    }
+    
+    @IBAction func editProfileButton(sender: UIButton) {
+        
+    }
+    
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         return CoinsController().coins.count
@@ -92,7 +111,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CustomTableViewCell = self.collectedCoinsTable.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        //var (lat, long, address, type, name, logoURL, worth) = coins[indexPath.row]
         var specificCoin = CoinsController().coins[indexPath.row]
         cell.loadItem(worth: specificCoin.worth , address: specificCoin.address, type: specificCoin.type, logoURL: specificCoin.businessLogoLink)
 
@@ -106,6 +124,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         collectedCoinsTable.deselectRow(at: indexPath as IndexPath, animated: true)
-        //println("You selected cell #\(indexPath.row)!")
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
 }

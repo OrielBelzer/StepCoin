@@ -23,14 +23,15 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
 
     let defaults = UserDefaults.standard
     
-    let stepCoinBaseURL = "http://stepcoin.co:8888"
-    
     override func viewDidLoad()
     {
         self.emailAddressTextField.delegate=self
         self.passwordTextField.delegate=self
         self.reenterPasswordTextField.delegate=self
 
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         var profilePicImage: UIImage
         
         if let profilePicData = defaults.object(forKey: "userProfilePic") as? NSData {
@@ -72,7 +73,7 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func registrationButton(sender: UIButton) {
-        var isOKToRegister = true
+        var isOKToRegister = false
         if (isValidEmail(emailAddress: emailAddressTextField.text!)) {
             if (passwordTextField.text == reenterPasswordTextField.text) {
                 isOKToRegister = true
@@ -83,6 +84,8 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
             ConnectionController.sharedInstance.registerUser(emailAddress: emailAddressTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
                 if (error == "") {
                     print("user ID that was created is : " + responseObject.rawString()!)
+                    self.defaults.set(true, forKey: "loginStatus")
+                    self.defaults.setValue("regular", forKey: "loginMode")
                     self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
                 } else {
                     print("Error logging you in!")
@@ -127,6 +130,10 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func showAlert(title: String, message: String) {
