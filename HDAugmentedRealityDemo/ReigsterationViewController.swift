@@ -7,8 +7,10 @@
 
 import UIKit
 import Toucan
+import Alamofire
+import SwiftyJSON
 
-class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var emailAddressTextField: UITextField!
@@ -21,8 +23,14 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
 
     let defaults = UserDefaults.standard
     
+    let stepCoinBaseURL = "http://stepcoin.co:8888"
+    
     override func viewDidLoad()
     {
+        self.emailAddressTextField.delegate=self
+        self.passwordTextField.delegate=self
+        self.reenterPasswordTextField.delegate=self
+
         var profilePicImage: UIImage
         
         if let profilePicData = defaults.object(forKey: "userProfilePic") as? NSData {
@@ -63,6 +71,26 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
+    @IBAction func registrationButton(sender: UIButton) {
+        var isOKToRegister = true
+        if (isValidEmail(emailAddress: emailAddressTextField.text!)) {
+            if (passwordTextField.text == reenterPasswordTextField.text) {
+                isOKToRegister = true
+            }
+        }
+        
+        if (isOKToRegister) {
+            ConnectionController.sharedInstance.registerUser(emailAddress: emailAddressTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
+                if (error == "") {
+                    print("user ID that was created is : " + responseObject.rawString()!)
+                    self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
+                } else {
+                    print("Error logging you in!")
+                }
+            }
+        }
+    }
+    
     @IBAction func imagePickerButton(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
             imagePicker.delegate = self
@@ -87,5 +115,23 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    private func isValidEmail(emailAddress:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailAddress)
+    }
+    
+        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
-

@@ -6,7 +6,6 @@
 //
 
 import CoreLocation
-import SwiftHTTP
 
 
 open class CoinsController
