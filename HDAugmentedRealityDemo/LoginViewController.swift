@@ -9,6 +9,7 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import SwiftyJSON
+import Haneke
 
 class LoginViewController: UIViewController
 {
@@ -54,6 +55,33 @@ class LoginViewController: UIViewController
     }
     
     @IBAction func loginButton(sender: UIButton) {
+        /*
+        ConnectionController.sharedInstance.getCoins()  { (responseObject:[AnyObject], error:String) in
+            if (error == "") {
+                let returnedCoins = responseObject as! [Coin2]
+                print(returnedCoins[0].value!)
+            } else {
+                print(error)
+            }
+        }
+        
+        Shared.dataCache.fetch(key: "coins").onSuccess { data in
+            if let coins = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Coin2] {
+                print(coins[0].value!)
+            }
+        }
+        */
+        
+        
+        ConnectionController.sharedInstance.getUser(userId: "5")  { (responseObject:AnyObject, error:String) in
+            if (error == "") {
+                
+            } else {
+                print(error)
+            }
+        } 
+        
+        /*
         ConnectionController.sharedInstance.login(emailAddress: emailTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
             if (error == "") {
                 self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
@@ -62,7 +90,7 @@ class LoginViewController: UIViewController
             } else {
                 self.showAlert(title: "Error", message: "Please check your credentials and try again")
             }
-        }
+        } */
     }
     
     @IBAction func facebookLoginButton(sender: UIButton) {
@@ -80,7 +108,7 @@ class LoginViewController: UIViewController
                 connection.add(GraphRequest(graphPath: "/me", parameters: params)) { httpResponse, result in
                     switch result {
                     case .success(let response):
-                        ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:JSON, error:String) in
+                        ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
                             if (error == "") {
                                 self.defaults.set(true, forKey: "loginStatus")
                                 self.defaults.setValue("facebook", forKey: "loginMode")

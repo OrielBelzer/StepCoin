@@ -8,4 +8,7 @@ target 'StepCoin' do
   pod 'FacebookShare'
   pod 'Toucan'
   pod 'Alamofire', '~> 4.0'
+  pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'AlamofireObjectMapper', '~> 4.0'
 end

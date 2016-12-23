@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,6 +49,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HanekeSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StepCoin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +77,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>332F91393FB1DE033D370B4CEDDD5FCF</key>
 		<dict>
 			<key>primary</key>
@@ -72,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50F743CD670079111731E469D13D3C7C</key>
+		<key>4948AD43C4ACFBF8EB42C7BBEEA4B903</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8673E1CB37EF69AA40352E9FA7340328</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>9502FB01641FBABB78522037E882757B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5FD5ED4F843C4EE6D60C8CA9C774C8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,7 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B22A1B6560B310C6EB9B8B0C01E0B10A</key>
+		<key>AE4759774042D8E013517E82C6F7A058</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6D09600BE7C5EFB2C1E833D040A3FB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

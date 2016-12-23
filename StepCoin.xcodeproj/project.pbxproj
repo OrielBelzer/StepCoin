@@ -44,8 +44,11 @@
 		BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */; };
 		BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8593451E0B615900A00166 /* ConnectionController.swift */; };
 		BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */; };
-		BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEED1E064B6300C07781 /* Coin.swift */; };
 		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
+		BEFEC6361E0C902000237997 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6351E0C902000237997 /* Location.swift */; };
+		BEFEC6381E0C908C00237997 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6371E0C908C00237997 /* Coin.swift */; };
+		BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6391E0CC8EC00237997 /* Coin2.swift */; };
+		BEFEC63C1E0CCA0700237997 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC63B1E0CCA0700237997 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,8 +108,11 @@
 		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE8593451E0B615900A00166 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 		BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TransparentCoin.png; path = ../../../../../Downloads/TransparentCoin.png; sourceTree = "<group>"; };
-		BEC9AEED1E064B6300C07781 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = HDAugmentedReality/Classes/Coin.swift; sourceTree = "<group>"; };
 		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
+		BEFEC6351E0C902000237997 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
+		BEFEC6371E0C908C00237997 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = Models/Coin.swift; sourceTree = "<group>"; };
+		BEFEC6391E0CC8EC00237997 /* Coin2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin2.swift; path = Models/Coin2.swift; sourceTree = "<group>"; };
+		BEFEC63B1E0CCA0700237997 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +276,10 @@
 		BEC9AEF21E0656D500C07781 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BEC9AEED1E064B6300C07781 /* Coin.swift */,
+				BEFEC6371E0C908C00237997 /* Coin.swift */,
+				BEFEC6351E0C902000237997 /* Location.swift */,
+				BEFEC6391E0CC8EC00237997 /* Coin2.swift */,
+				BEFEC63B1E0CCA0700237997 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -430,18 +439,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFEC6381E0C908C00237997 /* Coin.swift in Sources */,
 				0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */,
+				BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */,
 				BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
+				BEFEC6361E0C902000237997 /* Location.swift in Sources */,
 				BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */,
+				BEFEC63C1E0CCA0700237997 /* User.swift in Sources */,
 				388480151DD0F5E700ADA8F6 /* MapViewController.swift in Sources */,
 				BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */,
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,
 				0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */,
 				0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */,
 				383B574F1DE1611E008270DE /* PayViewController.swift in Sources */,
-				BEC9AEEE1E064B6300C07781 /* Coin.swift in Sources */,
 				BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */,
 				0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */,
 				3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */,
