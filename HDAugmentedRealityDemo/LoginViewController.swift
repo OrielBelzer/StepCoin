@@ -34,7 +34,7 @@ class LoginViewController: UIViewController
         registerButton.layer.borderWidth = 1
         registerButton.layer.borderColor = UIColor.white.cgColor
         
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.white])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.white])
     }
     
@@ -73,13 +73,7 @@ class LoginViewController: UIViewController
         }
         */
         
-        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
-            if (error == "") {
-                self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
-            } else {
-                print(error)
-            }
-        }
+        performLogin(emailAddress: emailTextField.text!, password: passwordTextField.text!)
     }
     
     @IBAction func facebookLoginButton(sender: UIButton) {
@@ -99,10 +93,10 @@ class LoginViewController: UIViewController
                     case .success(let response):
                         ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
                             if (error == "") {
+                                self.performLogin(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!)
                                 self.defaults.setValue("facebook", forKey: "loginMode")
                                 let userID = (response.dictionaryValue?["id"] as? String)!
                                 self.defaults.setValue("http://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
-                                self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
                             } else {
                                 print("Error logging you in!")
                             }
@@ -122,39 +116,26 @@ class LoginViewController: UIViewController
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func performLogin(){
-        /*
-         --------------------------------------------------------------
-                                TO-DO
-         --------------------------------------------------------------
-                Login will return the ID of the user and then
-                need to call the /users/X (X = user ID).
-                That will reload all the user data to the cache
-         --------------------------------------------------------------
-        */
-        
-        /*
-         ConnectionController.sharedInstance.login(emailAddress: emailTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
-         if (error == "") {
-         self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
-         self.defaults.set(true, forKey: "loginStatus")
-         self.defaults.setValue("regular", forKey: "loginMode")
-         } else {
-         self.showAlert(title: "Error", message: "Please check your credentials and try again")
-         }
-         } */
-        
-        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
+    private func performLogin(emailAddress: String, password: String){
+        ConnectionController.sharedInstance.login(emailAddress: emailAddress, password: password) { (responseObject:SwiftyJSON.JSON, error:String) in
             if (error == "") {
+                print(responseObject["id"])
+                self.defaults.set(responseObject["id"].string, forKey: "userId")
+                
+                ConnectionController.sharedInstance.getUser(userId: String(describing: responseObject["id"]))  { (responseObject1:[AnyObject], error:String) in
+                    if (error == "") {
+                        self.defaults.set(true, forKey: "loginStatus")
+                        self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
+                    } else {
+                        self.defaults.set(false, forKey: "loginStatus")
+                        print(error)
+                    }
+                }
                 
             } else {
-                print(error)
+                self.showAlert(title: "Error", message: "Please check your credentials and try again")
             }
         }
-        
-        /* Set this one to true inside the login function if the login succedded */
-        
-            self.defaults.set(true, forKey: "loginStatus")
     }
 }
 

@@ -45,16 +45,18 @@ class ConnectionController
     func login(emailAddress: String, password: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
         let params = ["email": emailAddress, "password": password]
         
-        Alamofire.request(stepCoinBaseURL+"/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(stepCoinBaseURL+"/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                print(json["id"])
                 onCompletion(json, "")
             case .failure(let error):
                 onCompletion(JSON.null, error.localizedDescription)
                 print(error)
             }
         }
+        
     }
     
     func getUser(userId: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
@@ -91,6 +93,22 @@ class ConnectionController
             case .failure(let error):
                 print(response.result.value!)
                 onCompletion([], error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
+    func addCoin(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        let params = ["longitude": longitude, "latitude": latitude]
+        
+        Alamofire.request(stepCoinBaseURL+"/coins", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json["id"])
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
                 print(error)
             }
         }

@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Toucan
 import Haneke
+import SwiftyJSON
 
 class CustomTableViewCell : UITableViewCell {
     
@@ -51,11 +52,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberOfCoins: UILabel!
     @IBOutlet weak var numberOfDollars: UILabel!
     @IBOutlet weak var numberOfStores: UILabel!
+    @IBOutlet weak var addCoinButton: UIButton!
     
     let defaults = UserDefaults.standard
     let cache = Shared.dataCache
 
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -93,6 +94,27 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    
+        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
+            if (error == "") {
+                UserController().calcUserQuantities()
+            } else {
+                print(error)
+            }
+            
+            self.collectedCoinsTable.reloadData()
+            if (self.userDefaultsAlreadyExist(key: "userNumberOfCoins")) {
+                print((self.defaults.object(forKey: "userNumberOfCoins") as? Int)!)
+                self.numberOfCoins.text = String((self.defaults.object(forKey: "userNumberOfCoins") as? Int)!)
+            }
+            if (self.userDefaultsAlreadyExist(key: "userSumOfCoinsValue")) {
+                self.numberOfDollars.text = "$" + String((self.defaults.object(forKey: "userSumOfCoinsValue") as? Double)!)
+            }
+            if (self.userDefaultsAlreadyExist(key: "userSumOfCoinsStores")) {
+                print((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
+                self.numberOfStores.text = String((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
+            }
+        }
     }
     
     
@@ -100,18 +122,40 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         performSegue(withIdentifier: "MoveToLoginScreen", sender: self)
     }
     
+    /* HACK TO ADD A COIN - REMOVE IN GA*/
+    
+    @IBAction func addCoinButton(sender: UIButton) {
+        let locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        var currentLocation: CLLocation
+        currentLocation = locManager.location!
+        
+        let lat = currentLocation.coordinate.latitude // 37.241681
+        let lon = currentLocation.coordinate.longitude // -121.884804
+        
+        ConnectionController.sharedInstance.addCoin(longitude: String(lon), latitude: String(lat))  { (responseObject:SwiftyJSON.JSON, error:String) in
+            if (error == "") {
+            } else {
+                print(error)
+            }
+        }
+    }
+    
     @IBAction func editProfileButton(sender: UIButton) {
         
+    }
+    
+    func userDefaultsAlreadyExist(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         var numberOfCoins = 0
-        cache.fetch(key: "user").onSuccess { data in
-            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
-                numberOfCoins = (user.coins?.count)!
-            }
+        if (userDefaultsAlreadyExist(key: "userNumberOfCoins")) {
+            numberOfCoins = (defaults.object(forKey: "userNumberOfCoins") as? Int)!
         }
+        
         return numberOfCoins
     }
     
