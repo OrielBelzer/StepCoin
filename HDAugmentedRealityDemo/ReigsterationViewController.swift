@@ -29,7 +29,7 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         self.passwordTextField.delegate=self
         self.reenterPasswordTextField.delegate=self
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationLoginView.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         var profilePicImage: UIImage

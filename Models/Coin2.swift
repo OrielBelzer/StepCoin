@@ -16,6 +16,7 @@ class Coin2: NSObject, NSCoding, Mappable {
     var endDate: String?
     var taken: String?
     var takenDate: String?
+    var createTime: String?
     var storeId: Int?
     var location: Location?
     var userId: Int?
@@ -32,6 +33,7 @@ class Coin2: NSObject, NSCoding, Mappable {
         endDate         <- map["endDate"]
         taken           <- map["taken"]
         takenDate       <- map["takenDate"]
+        createTime      <- map["createTime"]
         storeId         <- map["store_id"]
         location        <- map["location_id"]
         userId          <- map["user_id"]
@@ -47,6 +49,7 @@ class Coin2: NSObject, NSCoding, Mappable {
         self.endDate = aDecoder.decodeObject(forKey: "endDate") as? String
         self.taken = aDecoder.decodeObject(forKey: "taken") as? String
         self.takenDate = aDecoder.decodeObject(forKey: "takenDate") as? String
+        self.createTime = aDecoder.decodeObject(forKey: "createTime") as? String
         self.storeId = aDecoder.decodeObject(forKey: "storeId") as? Int
         self.location = aDecoder.decodeObject(forKey: "location") as? Location
         self.userId = aDecoder.decodeObject(forKey: "userId") as? Int
@@ -61,6 +64,7 @@ class Coin2: NSObject, NSCoding, Mappable {
         aCoder.encode(endDate, forKey: "endDate")
         aCoder.encode(taken, forKey: "taken")
         aCoder.encode(takenDate, forKey: "takenDate")
+        aCoder.encode(createTime, forKey: "createTime")
         aCoder.encode(storeId, forKey: "storeId")
         aCoder.encode(location, forKey: "location")
         aCoder.encode(userId, forKey: "userId")

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UIViewController
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         //let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! UIViewController
         
         NSLog("Login status when app opened " + defaults.bool(forKey: "loginStatus").description)

@@ -57,17 +57,20 @@ class ConnectionController
         }
     }
     
-    func getUser(userId: String, onCompletion: @escaping ServiceResponseAnyObject) -> Void {
-        Alamofire.request(stepCoinBaseURL+"/users/"+userId).responseObject { (response: DataResponse<User>) in
+    func getUser(userId: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        Alamofire.request(stepCoinBaseURL+"/users/"+userId).responseArray { (response: DataResponse<[User]>) in
             switch response.result {
             case .success(let value):
                 let user = response.result.value
-                print(user?.email)
-                let json = JSON(value)
+                
+                let cache = Shared.dataCache
+                cache.remove(key: "user")
+                cache.set(value: NSKeyedArchiver.archivedData(withRootObject: user![0]), key: "user")
+                
                 onCompletion(user!, "")
             case .failure(let error):
                 print(response.result.value)
-                onCompletion("" as AnyObject, error.localizedDescription)
+                onCompletion([], error.localizedDescription)
                 print(error)
             }
         }
@@ -79,7 +82,6 @@ class ConnectionController
             switch response.result {
             case .success(let value):
                 let coins = response.result.value
-                let json = JSON(value)
                 
                 let cache = Shared.dataCache
                 cache.remove(key: "coins")

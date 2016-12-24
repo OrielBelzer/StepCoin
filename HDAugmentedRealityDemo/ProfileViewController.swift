@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import Toucan
-
+import Haneke
 
 class CustomTableViewCell : UITableViewCell {
     
@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberOfStores: UILabel!
     
     let defaults = UserDefaults.standard
+    let cache = Shared.dataCache
 
     
     override func viewDidLoad()
@@ -105,13 +106,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        return CoinsController().coins.count
+        var numberOfCoins = 0
+        cache.fetch(key: "user").onSuccess { data in
+            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
+                numberOfCoins = (user.coins?.count)!
+            }
+        }
+        return numberOfCoins
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CustomTableViewCell = self.collectedCoinsTable.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        var specificCoin = CoinsController().coins[indexPath.row]
+        let specificCoin = CoinsController().coins[indexPath.row]
         cell.loadItem(worth: specificCoin.worth , address: specificCoin.address, type: specificCoin.type, logoURL: specificCoin.businessLogoLink)
 
         return cell

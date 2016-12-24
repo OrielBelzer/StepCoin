@@ -55,8 +55,9 @@ class LoginViewController: UIViewController
     }
     
     @IBAction func loginButton(sender: UIButton) {
+        
         /*
-        ConnectionController.sharedInstance.getCoins()  { (responseObject:[AnyObject], error:String) in
+         ConnectionController.sharedInstance.getCoins()  { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 let returnedCoins = responseObject as! [Coin2]
                 print(returnedCoins[0].value!)
@@ -72,25 +73,13 @@ class LoginViewController: UIViewController
         }
         */
         
-        
-        ConnectionController.sharedInstance.getUser(userId: "5")  { (responseObject:AnyObject, error:String) in
+        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
             if (error == "") {
-                
+                self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
             } else {
                 print(error)
             }
-        } 
-        
-        /*
-        ConnectionController.sharedInstance.login(emailAddress: emailTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
-            if (error == "") {
-                self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
-                self.defaults.set(true, forKey: "loginStatus")
-                self.defaults.setValue("regular", forKey: "loginMode")
-            } else {
-                self.showAlert(title: "Error", message: "Please check your credentials and try again")
-            }
-        } */
+        }
     }
     
     @IBAction func facebookLoginButton(sender: UIButton) {
@@ -110,7 +99,6 @@ class LoginViewController: UIViewController
                     case .success(let response):
                         ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
                             if (error == "") {
-                                self.defaults.set(true, forKey: "loginStatus")
                                 self.defaults.setValue("facebook", forKey: "loginMode")
                                 let userID = (response.dictionaryValue?["id"] as? String)!
                                 self.defaults.setValue("http://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
@@ -132,6 +120,41 @@ class LoginViewController: UIViewController
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func performLogin(){
+        /*
+         --------------------------------------------------------------
+                                TO-DO
+         --------------------------------------------------------------
+                Login will return the ID of the user and then
+                need to call the /users/X (X = user ID).
+                That will reload all the user data to the cache
+         --------------------------------------------------------------
+        */
+        
+        /*
+         ConnectionController.sharedInstance.login(emailAddress: emailTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
+         if (error == "") {
+         self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
+         self.defaults.set(true, forKey: "loginStatus")
+         self.defaults.setValue("regular", forKey: "loginMode")
+         } else {
+         self.showAlert(title: "Error", message: "Please check your credentials and try again")
+         }
+         } */
+        
+        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
+            if (error == "") {
+                
+            } else {
+                print(error)
+            }
+        }
+        
+        /* Set this one to true inside the login function if the login succedded */
+        
+            self.defaults.set(true, forKey: "loginStatus")
     }
 }
 
