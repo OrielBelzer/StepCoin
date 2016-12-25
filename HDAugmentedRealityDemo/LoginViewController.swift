@@ -74,6 +74,7 @@ class LoginViewController: UIViewController
         */
         
         performLogin(emailAddress: emailTextField.text!, password: passwordTextField.text!)
+        self.defaults.setValue("regular", forKey: "loginMode")
     }
     
     @IBAction func facebookLoginButton(sender: UIButton) {
@@ -94,9 +95,11 @@ class LoginViewController: UIViewController
                         ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
                             if (error == "") {
                                 self.performLogin(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!)
+                                print(response)
                                 self.defaults.setValue("facebook", forKey: "loginMode")
                                 let userID = (response.dictionaryValue?["id"] as? String)!
                                 self.defaults.setValue("http://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
+                                self.defaults.setValue((response.dictionaryValue?["name"] as? String)!, forKey: "userFullName")
                             } else {
                                 print("Error logging you in!")
                             }
@@ -120,7 +123,7 @@ class LoginViewController: UIViewController
         ConnectionController.sharedInstance.login(emailAddress: emailAddress, password: password) { (responseObject:SwiftyJSON.JSON, error:String) in
             if (error == "") {
                 print(responseObject["id"])
-                self.defaults.set(responseObject["id"].string, forKey: "userId")
+                self.defaults.set(String(describing: responseObject["id"]), forKey: "userId")
                 
                 ConnectionController.sharedInstance.getUser(userId: String(describing: responseObject["id"]))  { (responseObject1:[AnyObject], error:String) in
                     if (error == "") {

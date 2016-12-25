@@ -7,9 +7,10 @@
 
 import CoreLocation
 
-
 open class CoinsController
 {
+    let defaults = UserDefaults.standard
+
     open var coins = [Coin]()
 
     init() {
@@ -40,6 +41,44 @@ open class CoinsController
         }
         
         return coins
+    }
+    
+    func reloadCoinsFromServer(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        if (shouldReloadCoinsFromServer(longitude: longitude, latitdue: latitude)) {
+            ConnectionController.sharedInstance.getCoins(longitude: longitude, latitude: latitude)  { (responseObject:[AnyObject], error:String) in
+                if (error == "") {
+                    let returnedCoins = responseObject as! [Coin2]
+                    print(returnedCoins[0].value!)
+                    onCompletion(responseObject, "")
+                } else {
+                    print(error)
+                    onCompletion([], error)
+                }
+            }
+        }
+    }
+    
+    private func shouldReloadCoinsFromServer(longitude: String, latitdue:String) -> Bool {
+        if ((defaults.value(forKey: "lastUserLatitude") as? Double) == nil) { //If it is the first attempt to get coins
+            defaults.set(Double(longitude), forKey: "lastUserLongitude")
+            defaults.set(Double(latitdue), forKey: "lastUserLatitude")
+            defaults.synchronize()
+            return true
+        }
+        
+        let lastUserCoordinates = CLLocation(latitude: (defaults.value(forKey: "lastUserLatitude") as? Double)!, longitude: (defaults.value(forKey: "lastUserLongitude") as? Double)!)
+        let currentUserCoordinates = CLLocation(latitude: Double(latitdue)!, longitude: Double(longitude)!)
+        
+        let distanceInMeters = lastUserCoordinates.distance(from: currentUserCoordinates)
+        
+        if (distanceInMeters > 500) {
+            defaults.set(Double(longitude), forKey: "lastUserLongitude")
+            defaults.set(Double(latitdue), forKey: "lastUserLatitude")
+            defaults.synchronize()
+            return true
+        }
+        
+        return false
     }
     
     //TODO - The address of the coins should come back from the server and not calculated on the user side to save me the trouble below

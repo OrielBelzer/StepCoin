@@ -54,6 +54,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="logoutIcon"/>
                                         <connections>
+                                            <action selector="logoutWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="haJ-b2-ca3"/>
                                             <segue destination="v4n-fQ-fc9" kind="show" id="MXZ-g8-NgF"/>
                                         </connections>
                                     </button>
@@ -135,7 +136,7 @@
                         <outlet property="addCoinButton" destination="8e1-2n-5mX" id="SQJ-RP-3cW"/>
                         <outlet property="collectedCoinsTable" destination="VsZ-Nt-s4p" id="GVh-Ak-Y8h"/>
                         <outlet property="editProfileButton" destination="ley-ng-Abu" id="BSO-6Q-0PC"/>
-                        <outlet property="logoutButton" destination="n8R-nP-fvo" id="Idc-kz-cDF"/>
+                        <outlet property="logoutButton" destination="n8R-nP-fvo" id="te2-Us-n3j"/>
                         <outlet property="numberOfCoins" destination="ba6-jO-XTS" id="fce-Cb-NnJ"/>
                         <outlet property="numberOfDollars" destination="gTH-No-qMb" id="ER5-ap-uZ7"/>
                         <outlet property="numberOfStores" destination="c3E-IA-T9Z" id="2Av-KO-LGe"/>

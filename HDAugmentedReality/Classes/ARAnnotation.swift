@@ -17,7 +17,7 @@ open class ARAnnotation: NSObject
     /// Location of annotation
     open var location: CLLocation?
     // Coin of annotation
-    open var coin: Coin?
+    open var coin: Coin2?
     
     /// View for annotation. It is set inside ARViewController after fetching view from dataSource.
     internal(set) open var annotationView: ARAnnotationView?

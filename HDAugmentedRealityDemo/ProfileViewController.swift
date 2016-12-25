@@ -61,8 +61,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     {
         super.viewDidLoad()
         
+        profileName.text = ""
         var profilePicImage: UIImage
         if ((defaults.object(forKey: "loginMode") as? String) == "facebook") {
+            profileName.text = (defaults.object(forKey: "userFullName") as? String)!
             if let url = NSURL(string: (defaults.object(forKey: "facebookProfilePic") as? String)!) {
                 if let data = NSData(contentsOf: url as URL) {
                     defaults.set(data, forKey: "userProfilePic")
@@ -95,7 +97,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
-        ConnectionController.sharedInstance.getUser(userId: "38")  { (responseObject:[AnyObject], error:String) in
+        ConnectionController.sharedInstance.getUser(userId: (self.defaults.object(forKey: "userId") as? String)!)  { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 UserController().calcUserQuantities()
             } else {
@@ -119,7 +121,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func logout(sender: UIButton) {
-        performSegue(withIdentifier: "MoveToLoginScreen", sender: self)
+        self.defaults.set(false, forKey: "loginStatus")
+        self.defaults.set("", forKey: "userProfilePic")
+        self.defaults.set("", forKey: "facebookProfilePic")
+        defaults.set("", forKey: "lastUserLongitude")
+        defaults.set("", forKey: "lastUserLatitude")
+        defaults.synchronize()
     }
     
     /* HACK TO ADD A COIN - REMOVE IN GA*/

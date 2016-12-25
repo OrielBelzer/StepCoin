@@ -79,11 +79,14 @@ class ConnectionController
 
     }
     
-    func getCoins(onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        Alamofire.request(stepCoinBaseURL+"/coins").responseArray { (response: DataResponse<[Coin2]>) in
+    func getCoins(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        let params = ["longitude": longitude, "latitude": latitude]
+        
+        Alamofire.request(stepCoinBaseURL+"/coins", parameters: params).responseArray { (response: DataResponse<[Coin2]>) in
             switch response.result {
             case .success(let value):
                 let coins = response.result.value
+                print(coins?[0].id)
                 
                 let cache = Shared.dataCache
                 cache.remove(key: "coins")

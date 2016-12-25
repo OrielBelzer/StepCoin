@@ -8,7 +8,7 @@
 import ObjectMapper
 import Haneke
 
-class Coin2: NSObject, NSCoding, Mappable {
+open class Coin2: NSObject, NSCoding, Mappable {
     var id: Int?
     var value: String?
     var enabled: String?
@@ -21,11 +21,11 @@ class Coin2: NSObject, NSCoding, Mappable {
     var location: Location?
     var userId: Int?
     
-    required init?(map: Map) {
+    required public init?(map: Map) {
         
     }
     
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         id              <- map["id"]
         value           <- map["value"]
         enabled         <- map["enabled"]
@@ -41,7 +41,7 @@ class Coin2: NSObject, NSCoding, Mappable {
     
     //MARK: NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         self.id = aDecoder.decodeObject(forKey: "id") as? Int
         self.value = aDecoder.decodeObject(forKey: "value") as? String
         self.enabled = aDecoder.decodeObject(forKey: "enabled") as? String
@@ -56,7 +56,7 @@ class Coin2: NSObject, NSCoding, Mappable {
         
     }
     
-    func encode(with aCoder: NSCoder) {
+    public func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "id")
         aCoder.encode(value, forKey: "value")
         aCoder.encode(enabled, forKey: "enabled")
