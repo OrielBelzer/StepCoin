@@ -65,11 +65,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate
         print(userLocation?.coordinate.latitude)
         print(userLocation?.coordinate.longitude)
         
+        /* TODO - This is where I will need to change the call to go to a new call which will get me the coins for an entier square */
+        
         coinsController.reloadCoinsFromServer(longitude: (userLocation?.coordinate.longitude.description)!, latitude: (userLocation?.coordinate.latitude.description)!) { (responseObject:[AnyObject], error:String) in
                 self.addCoinsToMap()
         }
-        
-        
     }
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
