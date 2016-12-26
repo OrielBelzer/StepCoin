@@ -22,10 +22,13 @@ class CustomTableViewCell : UITableViewCell {
         collectedCoinAmount.text = worth
         collectedCoinAddress.text = address
         
-        if type == "1" {
+        if logoURL == "" {
             collectedCoinLogo.image = UIImage(named: "CoinImage")
         } else {
-            loadImageFromURL(urlString: logoURL)
+            if let url = NSURL(string: logoURL) {
+                collectedCoinLogo.hnk_setImageFromURL(url as URL)
+                //loadImageFromURL(urlString: logoURL)
+            }
         }
         
     }
@@ -100,11 +103,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         ConnectionController.sharedInstance.getUser(userId: (self.defaults.object(forKey: "userId") as? String)!)  { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 UserController().calcUserQuantities()
+                StoreController().getStoresForCoins(coinsToGetStoresFor: ((responseObject[0] as? User)?.coins)!)
+                self.collectedCoinsTable.reloadData()
+
             } else {
                 print(error)
             }
             
-            self.collectedCoinsTable.reloadData()
             if (self.userDefaultsAlreadyExist(key: "userNumberOfCoins")) {
                 print((self.defaults.object(forKey: "userNumberOfCoins") as? Int)!)
                 self.numberOfCoins.text = String((self.defaults.object(forKey: "userNumberOfCoins") as? Int)!)
@@ -116,17 +121,27 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
                 self.numberOfStores.text = String((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
             }
+            
         }
     }
     
     
     @IBAction func logout(sender: UIButton) {
-        self.defaults.set(false, forKey: "loginStatus")
-        self.defaults.set("", forKey: "userProfilePic")
-        self.defaults.set("", forKey: "facebookProfilePic")
+        defaults.set(false, forKey: "loginStatus")
+        defaults.set("", forKey: "userProfilePic")
+        defaults.set("", forKey: "facebookProfilePic")
         defaults.set("", forKey: "lastUserLongitude")
         defaults.set("", forKey: "lastUserLatitude")
+        defaults.set(0, forKey: "userNumberOfCoins")
         defaults.synchronize()
+        
+        Shared.dataCache.fetch(key: "stores").onSuccess { data in
+            if let stores = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Store] {
+                print(stores.count)
+            }
+        }
+        
+        self.cache.remove(key: "stores")
     }
     
     /* HACK TO ADD A COIN - REMOVE IN GA*/
@@ -169,10 +184,31 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CustomTableViewCell = self.collectedCoinsTable.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        let specificCoin = CoinsController().coins[indexPath.row]
-        cell.loadItem(worth: specificCoin.worth , address: specificCoin.address, type: specificCoin.type, logoURL: specificCoin.businessLogoLink)
-
+        Shared.dataCache.fetch(key: "user").onSuccess { data in
+            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
+                if (user.coins?.count != 0) {
+                    let userCollectedCoin = user.coins?[indexPath.row]
+                    Shared.dataCache.fetch(key: "stores").onSuccess { data in
+                        if let stores = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Store] {
+                            for store in stores {
+                                if store.id == userCollectedCoin?.storeId {
+                                    cell.loadItem(worth: (userCollectedCoin?.value)!, address: (userCollectedCoin?.location?.address)!, type: "1", logoURL: store.logoURL!)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        //let specificCoin = CoinsController().coins[indexPath.row]
+        //cell.loadItem(worth: specificCoin.worth , address: specificCoin.address, type: specificCoin.type, logoURL: specificCoin.businessLogoLink)
+        
         return cell
+    }
+    
+    func buildCell(onCompletion: UITableViewCell) -> Void {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int

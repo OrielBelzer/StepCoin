@@ -17,10 +17,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate
     @IBOutlet var mapView: MGLMapView!
     var coinsController = CoinsController()
     let defaults = UserDefaults.standard
-    var counter = 0
     let cache = Shared.dataCache
 
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -32,49 +30,36 @@ class MapViewController: UIViewController, MGLMapViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        addCoinsToMap()
-//        for coin in coinsController.coins {
-//            let point = MGLPointAnnotation()
-//            point.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
-//            point.coordinate = CLLocationCoordinate2D(latitude: Double(coin.latitude)!, longitude: Double(coin.longitude)!)
-//            point.title = coin.worth
-//            mapView.addAnnotation(point)
-//        }
+        //addCoinsToMap()
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
-        /*      
-                    TO-DO
-            This is where I should get coins based on the
-            zoom of the map. The below has the points of the map.
-         
- 
         print("---------------------------------")
         print(mapView.visibleCoordinateBounds.ne.latitude)
         print(mapView.visibleCoordinateBounds.ne.longitude)
         print(mapView.visibleCoordinateBounds.sw.latitude)
         print(mapView.visibleCoordinateBounds.sw.longitude)
         print("---------------------------------")
-         
-        */
+        
+        coinsController.reloadCoinsFromServerBasedOnZoom(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude)) { (responseObject:[AnyObject], error:String) in
+            if (error == "") {
+                StoreController().getStoresForCoins(coinsToGetStoresFor: (responseObject as? [Coin2])!)
+                self.addCoinsToMap(coinsToAddToMap: (responseObject as? [Coin2])!)
+            }
+        }
     }
     
     func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
-        print(counter)
-        counter += 1
-        print(userLocation?.coordinate.latitude)
-        print(userLocation?.coordinate.longitude)
-        
-        /* TODO - This is where I will need to change the call to go to a new call which will get me the coins for an entier square */
-        
-        coinsController.reloadCoinsFromServer(longitude: (userLocation?.coordinate.longitude.description)!, latitude: (userLocation?.coordinate.latitude.description)!) { (responseObject:[AnyObject], error:String) in
-                self.addCoinsToMap()
-        }
+
     }
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "CoinImage")
         
+        /* TODO - 
+                1. To see if I can put the logo of the business as a coin instaed of the generic photo
+                2. See if I can group annotations in case there is more than 1 at the exact same location
+        */
         if annotationImage == nil {
             var image = UIImage(named: "CoinImage")!
             image = image.withAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
@@ -88,18 +73,23 @@ class MapViewController: UIViewController, MGLMapViewDelegate
         return true
     }
 
-    private func addCoinsToMap() {
-        Shared.dataCache.fetch(key: "coins").onSuccess { data in
-            if (self.mapView.annotations != nil) {
-                self.mapView.removeAnnotations(self.mapView.annotations!)
-            }
-            
-            if let coins = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Coin2] {
-                for coin in coins {
-                    let point = MGLPointAnnotation()
-                    point.coordinate = CLLocationCoordinate2D(latitude: Double((coin.location?.latitude)!)!, longitude: Double((coin.location?.longitude)!)!)
-                    point.title = "$"+coin.value! + " at"
-                    self.mapView.addAnnotation(point)
+    private func addCoinsToMap(coinsToAddToMap: [Coin2]) {
+        if (self.mapView.annotations != nil) {
+            self.mapView.removeAnnotations(self.mapView.annotations!)
+        }
+        
+        for coin in coinsToAddToMap {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: Double((coin.location?.latitude)!)!, longitude: Double((coin.location?.longitude)!)!)
+            Shared.dataCache.fetch(key: "stores").onSuccess { data in
+                if let stores = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Store] {
+                    for store in stores {
+                        if store.id == coin.storeId {
+                            point.title = "$"+coin.value! + " at " + store.name!
+                            self.mapView.addAnnotation(point)
+                            break
+                        }
+                    }
                 }
             }
         }

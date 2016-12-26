@@ -43,6 +43,8 @@
 		BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */; };
 		BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */; };
 		BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8593451E0B615900A00166 /* ConnectionController.swift */; };
+		BE8AA0021E0F876A00364FBD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA0011E0F876A00364FBD /* Store.swift */; };
+		BE8AA0041E105AFD00364FBD /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA0031E105AFD00364FBD /* StoreController.swift */; };
 		BE8F24211E0E26B400A3992F /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F24201E0E26B400A3992F /* UserController.swift */; };
 		BEC9AEEC1E0649D100C07781 /* TransparentCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */; };
 		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
@@ -108,6 +110,8 @@
 		BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReigsterationViewController.swift; sourceTree = "<group>"; };
 		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE8593451E0B615900A00166 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
+		BE8AA0011E0F876A00364FBD /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Models/Store.swift; sourceTree = "<group>"; };
+		BE8AA0031E105AFD00364FBD /* StoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreController.swift; path = Controllers/StoreController.swift; sourceTree = "<group>"; };
 		BE8F24201E0E26B400A3992F /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controllers/UserController.swift; sourceTree = "<group>"; };
 		BEC9AEEB1E0649D100C07781 /* TransparentCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TransparentCoin.png; path = ../../../../../Downloads/TransparentCoin.png; sourceTree = "<group>"; };
 		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				BEC9AEF01E06549E00C07781 /* CoinsController.swift */,
 				BE8593451E0B615900A00166 /* ConnectionController.swift */,
 				BE8F24201E0E26B400A3992F /* UserController.swift */,
+				BE8AA0031E105AFD00364FBD /* StoreController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				BEFEC6351E0C902000237997 /* Location.swift */,
 				BEFEC6391E0CC8EC00237997 /* Coin2.swift */,
 				BEFEC63B1E0CCA0700237997 /* User.swift */,
+				BE8AA0011E0F876A00364FBD /* Store.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -459,6 +465,8 @@
 				383B574F1DE1611E008270DE /* PayViewController.swift in Sources */,
 				BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */,
 				0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */,
+				BE8AA0041E105AFD00364FBD /* StoreController.swift in Sources */,
+				BE8AA0021E0F876A00364FBD /* Store.swift in Sources */,
 				3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */,
 				BE8F24211E0E26B400A3992F /* UserController.swift in Sources */,
 				0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */,

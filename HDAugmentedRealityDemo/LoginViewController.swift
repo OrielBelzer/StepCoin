@@ -36,10 +36,13 @@ class LoginViewController: UIViewController
         
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.white])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationLoginView.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-    
+        
     }
     
     func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
@@ -55,24 +58,6 @@ class LoginViewController: UIViewController
     }
     
     @IBAction func loginButton(sender: UIButton) {
-        
-        /*
-         ConnectionController.sharedInstance.getCoins()  { (responseObject:[AnyObject], error:String) in
-            if (error == "") {
-                let returnedCoins = responseObject as! [Coin2]
-                print(returnedCoins[0].value!)
-            } else {
-                print(error)
-            }
-        }
-        
-        Shared.dataCache.fetch(key: "coins").onSuccess { data in
-            if let coins = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Coin2] {
-                print(coins[0].value!)
-            }
-        }
-        */
-        
         performLogin(emailAddress: emailTextField.text!, password: passwordTextField.text!)
         self.defaults.setValue("regular", forKey: "loginMode")
     }
@@ -127,7 +112,10 @@ class LoginViewController: UIViewController
                 
                 ConnectionController.sharedInstance.getUser(userId: String(describing: responseObject["id"]))  { (responseObject1:[AnyObject], error:String) in
                     if (error == "") {
+                        StoreController().getStoresForCoins(coinsToGetStoresFor: ((responseObject1[0] as? User)?.coins)!)
+                        UserController().calcUserQuantities()
                         self.defaults.set(true, forKey: "loginStatus")
+                        self.defaults.set(responseObject["id"], forKey: "userId")
                         self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
                     } else {
                         self.defaults.set(false, forKey: "loginStatus")
@@ -139,6 +127,10 @@ class LoginViewController: UIViewController
                 self.showAlert(title: "Error", message: "Please check your credentials and try again")
             }
         }
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

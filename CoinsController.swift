@@ -11,40 +11,9 @@ open class CoinsController
 {
     let defaults = UserDefaults.standard
 
-    open var coins = [Coin]()
-
-    init() {
-        self.coins = self.getCoins()
-    }
-    
-    /// PUBLIC FUNCTIONS ///
-    
-    func getCoins() -> [Coin]{
-        
-        //Assuming this is the result I got from the server
-        //Structure is - lat, long, adress as string (filled in on load), type of coin, name of business (in case type 2), link to URL logo in case type 2, worth
-    
-        var coinsFromServer: [(String, String, String, String, String, String, String)] = [
-            ("37.7767902", "-122.4164055" , "", "2", "Walgreen" , "https://a.yipitcdn.com/yc/logo/walgreens-1403027143.jpg", "$1"),
-            ("37.241681", "-121.88480400000003" , "", "1", "Starbucks" , "", "$0.5"),
-            ("37.241681", "-121.88480400000003" , "", "1", "Big Mug Coffee" , "", "$1.5"),
-            ("37.351507", "-121.981114" , "", "2", "Big Mug Coffee" , "https://qph.ec.quoracdn.net/main-qimg-42a047420a707f34a6c6bf703766e528-c?convert_to_webp=true", "$1"),
-            ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$1"),
-            ("37.35190817557375", "-121.9835615158081" , "", "1", "" , "", "$2")
-            
-        ]
-        
-        var coins = [Coin]()
-        for coinFromServer in coinsFromServer {
-            let coin = Coin(longitude: coinFromServer.1, latitude: coinFromServer.0, address: coinFromServer.2, type: coinFromServer.3, businessName: coinFromServer.4, businessLogoLink: coinFromServer.5, worth: coinFromServer.6)
-            coins.append(coin)
-        }
-        
-        return coins
-    }
-    
-    func reloadCoinsFromServer(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        if (shouldReloadCoinsFromServer(longitude: longitude, latitdue: latitude)) {
+    /* Used to get coins within certain distance from the current user location */
+    func reloadCoinsFromServerWithinCoordinatesRange(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        if (shouldReloadCoinsFromServerWithinCoordinatesRange(longitude: longitude, latitdue: latitude)) {
             ConnectionController.sharedInstance.getCoins(longitude: longitude, latitude: latitude)  { (responseObject:[AnyObject], error:String) in
                 if (error == "") {
                     let returnedCoins = responseObject as! [Coin2]
@@ -58,7 +27,21 @@ open class CoinsController
         }
     }
     
-    private func shouldReloadCoinsFromServer(longitude: String, latitdue:String) -> Bool {
+    func reloadCoinsFromServerBasedOnZoom(swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        ConnectionController.sharedInstance.getCoinsBasedOnZoom(swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude)  { (responseObject:[AnyObject], error:String) in
+            if (error == "") {
+                let returnedCoins = responseObject as! [Coin2]
+                print(returnedCoins[0].value!)
+                onCompletion(responseObject, "")
+            } else {
+                print(error)
+                onCompletion([], error)
+            }
+        }
+    }
+
+    
+    private func shouldReloadCoinsFromServerWithinCoordinatesRange(longitude: String, latitdue:String) -> Bool {
         if ((defaults.value(forKey: "lastUserLatitude") as? Double) == nil) { //If it is the first attempt to get coins
             defaults.set(Double(longitude), forKey: "lastUserLongitude")
             defaults.set(Double(latitdue), forKey: "lastUserLatitude")

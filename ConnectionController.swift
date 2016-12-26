@@ -17,8 +17,8 @@ typealias ServiceResponseAnyObjectArray = ([AnyObject], String) -> Void
 
 class ConnectionController
 {
-    let stepCoinBaseURL = "http://77.126.47.21:8888"
-    //let stepCoinBaseURL = "http://stepcoin.co:8888"
+    //let stepCoinBaseURL = "http://stepcoin.ddns.net:8888"
+    let stepCoinBaseURL = "http://stepcoin.co:8888"
 
     class var sharedInstance:ConnectionController {
         struct Singleton {
@@ -61,6 +61,7 @@ class ConnectionController
     
     func getUser(userId: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
         Alamofire.request(stepCoinBaseURL+"/users/"+userId).responseArray { (response: DataResponse<[User]>) in
+            /* ERROR HERE - CANT SERIALIZE THE USER OBJECT ALL OF A SUDDEN */
             switch response.result {
             case .success(let value):
                 let user = response.result.value
@@ -68,7 +69,7 @@ class ConnectionController
                 let cache = Shared.dataCache
                 cache.remove(key: "user")
                 cache.set(value: NSKeyedArchiver.archivedData(withRootObject: user![0]), key: "user")
-                
+            
                 onCompletion(user!, "")
             case .failure(let error):
                 print(response.result.value)
@@ -79,6 +80,46 @@ class ConnectionController
 
     }
     
+    func getStore(storeId: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        Alamofire.request(stepCoinBaseURL+"/stores/"+storeId).responseArray { (response: DataResponse<[Store]>) in
+            switch response.result {
+            case .success(let value):
+                let store = response.result.value
+                
+                //let cache = Shared.dataCache
+                //cache.remove(key: "user")
+                //cache.set(value: NSKeyedArchiver.archivedData(withRootObject: user![0]), key: "user")
+                
+                onCompletion(store!, "")
+            case .failure(let error):
+                print(response.result.value)
+                onCompletion([], error.localizedDescription)
+                print(error)
+            }
+        }
+        
+    }
+    
+    func getCoinsBasedOnZoom(swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        let params = ["sw.longitude": swLongitude, "sw.latitude": swLatitude, "ne.longitude": neLongitude, "ne.latitude": neLatitude]
+        
+        Alamofire.request(stepCoinBaseURL+"/coins", parameters: params).responseArray { (response: DataResponse<[Coin2]>) in
+            switch response.result {
+            case .success(let value):
+                let coins = response.result.value
+                
+                if (coins?.count == 0) {
+                    onCompletion([], "no coins in zoom")
+                } else {
+                    onCompletion(coins!, "")
+                }
+            case .failure(let error):
+                onCompletion([], error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
     func getCoins(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
         let params = ["longitude": longitude, "latitude": latitude]
         
@@ -86,19 +127,39 @@ class ConnectionController
             switch response.result {
             case .success(let value):
                 let coins = response.result.value
-                print(coins?[0].id)
                 
                 let cache = Shared.dataCache
                 cache.remove(key: "coins")
                 cache.set(value: NSKeyedArchiver.archivedData(withRootObject: coins!), key: "coins")
 
-                onCompletion(coins!, "")
+                if (coins?.count == 0) {
+                    onCompletion([], "no coins")
+                } else {
+                    onCompletion(coins!, "")
+                }
             case .failure(let error):
                 print(response.result.value!)
                 onCompletion([], error.localizedDescription)
                 print(error)
             }
         }
+    }
+    
+    func collectCoin(userId: Int, coinId: Int, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        let params = ["userId": String(userId), "coinId": String(coinId)]
+        
+        Alamofire.request(stepCoinBaseURL+"/coins/collect", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
+                print(error)
+            }
+        }
+        
     }
     
     func addCoin(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
@@ -115,7 +176,6 @@ class ConnectionController
                 print(error)
             }
         }
-        
     }
 
 }

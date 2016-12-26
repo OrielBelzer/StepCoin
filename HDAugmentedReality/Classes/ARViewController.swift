@@ -816,7 +816,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         if let location = trackingManager.userLocation
         {
             self.lastLocation = location
-            CoinsController().reloadCoinsFromServer(longitude: String(location.coordinate.longitude), latitude: String(location.coordinate.latitude)) { (responseObject:[AnyObject], error:String) in
+            CoinsController().reloadCoinsFromServerWithinCoordinatesRange(longitude: String(location.coordinate.longitude), latitude: String(location.coordinate.latitude)) { (responseObject:[AnyObject], error:String) in
             }
         }
         

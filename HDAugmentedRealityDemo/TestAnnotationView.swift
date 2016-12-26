@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
 {
@@ -15,6 +16,8 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     open var imageView: UIImageView?
     open var coinIcon = ""
     open var coin: Coin2?
+
+    let defaults = UserDefaults.standard
 
 
     override open func didMoveToSuperview()
@@ -103,6 +106,17 @@ open class TestAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
         //Logic to collect the coin
         if self.annotation != nil
         {
+            /* TODO - CHECK THAT THE COIN WAS COLLECTED. NEED ELI TO FIX THE SERVER SIDE CODE RESPONSE FOR THE COLLECT FUNCTION 
+ 
+            ConnectionController.sharedInstance.collectCoin(userId: (defaults.value(forKey: "userId") as? Int)! , coinId: (coin?.id)!)  { (responseObject:SwiftyJSON.JSON, error:String) in
+                if (error == "") {
+                    
+                } else {
+                    print(error)
+                }
+            }
+            */
+            
             let message = "Congrats! You just collected a coin for " + "BUSINESS NAME" + ", worth " + (coin?.value)!
             let alertView = UIAlertView(title: "Coin Collected", message: message, delegate: nil, cancelButtonTitle: "OK")
             alertView.show()
