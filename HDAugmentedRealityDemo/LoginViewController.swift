@@ -10,6 +10,8 @@ import FacebookLogin
 import FacebookCore
 import SwiftyJSON
 import Haneke
+import Crashlytics
+import TwitterKit
 
 class LoginViewController: UIViewController
 {
@@ -62,6 +64,24 @@ class LoginViewController: UIViewController
         self.defaults.setValue("regular", forKey: "loginMode")
     }
     
+    @IBAction func twitterLoginButton(sender: UIButton) {
+        Twitter.sharedInstance().logIn { (session, error) -> Void in
+            if session != nil {
+                ConnectionController.sharedInstance.registerUser(emailAddress: (session?.userName)!, password: (session?.userID)!) { (responseObject:SwiftyJSON.JSON, error:String) in
+                    if (error == "") {
+                            self.performLogin(emailAddress: (session?.userName)!, password: (session?.userID)!)
+                            self.defaults.setValue("twitter", forKey: "loginMode")
+                            self.defaults.setValue("@"+(session?.userName)!, forKey: "userFullName")
+                    } else {
+                        print("Error logging you in!")
+                    }
+                }
+            } else {
+                print("Error logging in using Twitter - " + error.debugDescription)
+            }
+        }
+    }
+    
     @IBAction func facebookLoginButton(sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
@@ -112,11 +132,15 @@ class LoginViewController: UIViewController
                 
                 ConnectionController.sharedInstance.getUser(userId: String(describing: responseObject["id"]))  { (responseObject1:[AnyObject], error:String) in
                     if (error == "") {
+                        let user = (responseObject1[0] as? User)
                         StoreController().getStoresForCoins(coinsToGetStoresFor: ((responseObject1[0] as? User)?.coins)!)
                         UserController().calcUserQuantities()
                         self.defaults.set(true, forKey: "loginStatus")
-                        self.defaults.set(responseObject["id"], forKey: "userId")
+                       // self.defaults.set(responseObject["id"], forKey: "userId")
                         self.performSegue(withIdentifier: "MoveToMainApp", sender: self)
+                        
+                        self.logUserToFabric(userId: String(describing: user!.id), userEmail: user!.email!)
+
                     } else {
                         self.defaults.set(false, forKey: "loginStatus")
                         print(error)
@@ -128,6 +152,12 @@ class LoginViewController: UIViewController
             }
         }
     }
+    
+    func logUserToFabric(userId: String, userEmail: String) {
+        Crashlytics.sharedInstance().setUserEmail(userEmail)
+        Crashlytics.sharedInstance().setUserIdentifier(userId)
+    }
+
     
     func dismissKeyboard() {
         view.endEditing(true)

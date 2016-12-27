@@ -11,7 +11,6 @@ import CoreLocation
 import Mapbox
 import Haneke
 
-
 class MapViewController: UIViewController, MGLMapViewDelegate
 {
     @IBOutlet var mapView: MGLMapView!
@@ -25,15 +24,19 @@ class MapViewController: UIViewController, MGLMapViewDelegate
 
         mapView.delegate = self
         mapView.userTrackingMode = .follow
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //addCoinsToMap()
+        loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+        loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
+    }
+    
+    func loadCoinsToMap(swLongitude: String, swLatitude: String, neLongitude: String, neLatitude: String) {
         print("---------------------------------")
         print(mapView.visibleCoordinateBounds.ne.latitude)
         print(mapView.visibleCoordinateBounds.ne.longitude)
@@ -41,7 +44,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate
         print(mapView.visibleCoordinateBounds.sw.longitude)
         print("---------------------------------")
         
-        coinsController.reloadCoinsFromServerBasedOnZoom(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude)) { (responseObject:[AnyObject], error:String) in
+        coinsController.reloadCoinsFromServerBasedOnZoom(swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude) { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 StoreController().getStoresForCoins(coinsToGetStoresFor: (responseObject as? [Coin2])!)
                 self.addCoinsToMap(coinsToAddToMap: (responseObject as? [Coin2])!)

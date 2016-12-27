@@ -200,6 +200,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         super.viewDidAppear(animated)
         self.didCloseCamera = false
+        self.reloadAnnotations()
         onViewDidAppear()   // Doing like this to prevent subclassing problems
     }
     
@@ -816,7 +817,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         if let location = trackingManager.userLocation
         {
             self.lastLocation = location
-            CoinsController().reloadCoinsFromServerWithinCoordinatesRange(longitude: String(location.coordinate.longitude), latitude: String(location.coordinate.latitude)) { (responseObject:[AnyObject], error:String) in
+            CoinsController().reloadCoinsFromServerWithinCoordinatesRange(longitude: String(location.coordinate.longitude), latitude: String(location.coordinate.latitude), forceReload: true) { (responseObject:[AnyObject], error:String) in
             }
         }
         

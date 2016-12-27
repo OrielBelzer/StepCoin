@@ -152,7 +152,7 @@ class ConnectionController
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                
+                print(response)
                 onCompletion(json, "")
             case .failure(let error):
                 onCompletion(JSON.null, error.localizedDescription)

@@ -11,6 +11,7 @@ import CoreLocation
 import Toucan
 import Haneke
 import SwiftyJSON
+import Crashlytics
 
 class CustomTableViewCell : UITableViewCell {
     
@@ -66,7 +67,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         profileName.text = ""
         var profilePicImage: UIImage
-        if ((defaults.object(forKey: "loginMode") as? String) == "facebook") {
+        let loginMode = (defaults.object(forKey: "loginMode") as? String)
+        if (loginMode == "facebook" || loginMode == "twitter") {
             profileName.text = (defaults.object(forKey: "userFullName") as? String)!
             if let url = NSURL(string: (defaults.object(forKey: "facebookProfilePic") as? String)!) {
                 if let data = NSData(contentsOf: url as URL) {
@@ -97,6 +99,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
 
+    @IBAction func crashButtonTapped(sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
@@ -223,4 +229,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
+    
+
 }

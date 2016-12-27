@@ -85,7 +85,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
     func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView
     {
         // Annotation views should be lightweight views, try to avoid xibs and autolayout all together.
-        let annotationView = TestAnnotationView()
+        let annotationView = CoinAnnotationView()
         annotationView.coin = viewForAnnotation.coin
         annotationView.frame = CGRect(x: 0,y: 0,width: 150,height: 50)
         return annotationView;

@@ -17,7 +17,7 @@
 		0CAD4EBA1AE6FC14000F2A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */; };
 		0CAD4F041AE70A3E000F2A2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAD4F031AE70A3E000F2A2A /* CoreMotion.framework */; };
 		0CAD4F061AE70ACA000F2A2A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAD4F051AE70ACA000F2A2A /* CoreLocation.framework */; };
-		0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2C2461AF18C620006E949 /* TestAnnotationView.swift */; };
+		0CB2C2471AF18C620006E949 /* CoinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2C2461AF18C620006E949 /* CoinAnnotationView.swift */; };
 		0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E01BC5E70C00C7646E /* ARAnnotation.swift */; };
 		0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E11BC5E70C00C7646E /* ARAnnotationView.swift */; };
 		0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E21BC5E70C00C7646E /* ARConfiguration.swift */; };
@@ -82,7 +82,7 @@
 		0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0CAD4F031AE70A3E000F2A2A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0CAD4F051AE70ACA000F2A2A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0CB2C2461AF18C620006E949 /* TestAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAnnotationView.swift; sourceTree = "<group>"; };
+		0CB2C2461AF18C620006E949 /* CoinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinAnnotationView.swift; sourceTree = "<group>"; };
 		0CB56FB11B35E5DF000EDEBB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0CF0F8E01BC5E70C00C7646E /* ARAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotation.swift; sourceTree = "<group>"; };
 		0CF0F8E11BC5E70C00C7646E /* ARAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotationView.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		38847FFF1DD0194000ADA8F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0CB2C2461AF18C620006E949 /* TestAnnotationView.swift */,
+				0CB2C2461AF18C620006E949 /* CoinAnnotationView.swift */,
 				0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */,
 				388480141DD0F5E700ADA8F6 /* MapViewController.swift */,
 				3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */,
@@ -394,7 +394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6c7efcaecefc0691bfbde2a38837bb2b33d331bb 645212a3ac736a8c4821947e8b093c517acccf6acd67453bc2bae9e5f288e548";
 		};
 		48F8B5A285D19F30CE9110A0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -449,7 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFEC6381E0C908C00237997 /* Coin.swift in Sources */,
-				0CB2C2471AF18C620006E949 /* TestAnnotationView.swift in Sources */,
+				0CB2C2471AF18C620006E949 /* CoinAnnotationView.swift in Sources */,
 				BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */,
 				BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,

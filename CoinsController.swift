@@ -12,8 +12,8 @@ open class CoinsController
     let defaults = UserDefaults.standard
 
     /* Used to get coins within certain distance from the current user location */
-    func reloadCoinsFromServerWithinCoordinatesRange(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        if (shouldReloadCoinsFromServerWithinCoordinatesRange(longitude: longitude, latitdue: latitude)) {
+    func reloadCoinsFromServerWithinCoordinatesRange(longitude: String, latitude: String, forceReload: Bool, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        if ((shouldReloadCoinsFromServerWithinCoordinatesRange(longitude: longitude, latitdue: latitude)) || forceReload) {
             ConnectionController.sharedInstance.getCoins(longitude: longitude, latitude: latitude)  { (responseObject:[AnyObject], error:String) in
                 if (error == "") {
                     let returnedCoins = responseObject as! [Coin2]

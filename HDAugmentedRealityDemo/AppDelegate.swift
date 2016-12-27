@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
+import Fabric
+import TwitterKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = loginViewController
             //self.window?.rootViewController = mapViewController
         }
+        
+        Fabric.with([Twitter.self])
+        Fabric.with([Crashlytics.self])
         
         return true
     }
