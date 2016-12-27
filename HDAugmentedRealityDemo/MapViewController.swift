@@ -30,6 +30,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
+        
+        
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {

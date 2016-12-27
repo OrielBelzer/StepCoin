@@ -66,7 +66,14 @@
                                         <rect key="frame" x="283" y="51" width="85" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="crashButtonTappedWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="XNN-c0-84L"/>
+                                            <action selector="addCoinButtonWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="fbG-jJ-yuN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otF-2Q-Kz7">
+                                        <rect key="frame" x="101" y="53" width="174" height="152"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="editProfilePicButtonWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="80H-J4-GvW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -136,6 +143,7 @@
                         <outlet property="addCoinButton" destination="8e1-2n-5mX" id="SQJ-RP-3cW"/>
                         <outlet property="collectedCoinsTable" destination="VsZ-Nt-s4p" id="GVh-Ak-Y8h"/>
                         <outlet property="editProfileButton" destination="ley-ng-Abu" id="BSO-6Q-0PC"/>
+                        <outlet property="editProfilePicButton" destination="otF-2Q-Kz7" id="L3x-2v-pCY"/>
                         <outlet property="logoutButton" destination="n8R-nP-fvo" id="te2-Us-n3j"/>
                         <outlet property="numberOfCoins" destination="ba6-jO-XTS" id="fce-Cb-NnJ"/>
                         <outlet property="numberOfDollars" destination="gTH-No-qMb" id="ER5-ap-uZ7"/>
@@ -286,7 +294,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="v4n-fQ-fc9" kind="show" id="YJe-Kp-UTo"/>
+                                    <segue destination="v4n-fQ-fc9" kind="show" identifier="BackToLoginScreen" id="YJe-Kp-UTo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUz-Wj-I0R">
@@ -489,17 +497,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q5P-Ni-xU1">
+                                <rect key="frame" x="47" y="220" width="280" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.06483190864802843" green="0.073196136139574014" blue="0.39968670685279184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Collect Coin" image="CollectCoinTabIcon" id="m8U-De-gz9"/>
+                    <connections>
+                        <segue destination="vVD-oC-Ke1" kind="show" identifier="CollectCoinToTabController" id="ogM-gK-dM6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.8" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="1095" y="-416"/>
         </scene>
     </scenes>
     <resources>
         <image name="CollectCoinTabIcon" width="30" height="30"/>
+        <image name="LaunchImage.png" width="674" height="556"/>
         <image name="MapTabIcon" width="30" height="30"/>
         <image name="PaymentTabIcon" width="30" height="30"/>
         <image name="ProfileTabIcon" width="30" height="30"/>
@@ -514,7 +532,7 @@
         <image name="whiteLine.png" width="1969" height="2322"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ptS-8G-a5N"/>
-        <segue reference="MXZ-g8-NgF"/>
+        <segue reference="YJe-Kp-UTo"/>
+        <segue reference="yLc-Ic-Lwl"/>
     </inferredMetricsTieBreakers>
 </document>

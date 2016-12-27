@@ -28,6 +28,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
             showARViewController()
         } else {
             arViewController.didCloseCamera = false
+            self.performSegue(withIdentifier: "CollectCoinToTabController", sender: self)
         }
     }
     
@@ -58,7 +59,6 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         let delta = 0.05
         let count = 2
         let coinsAnnotations = self.getCoinsAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
-        //let dummyAnnotations = self.getDummyAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
    
         // Present ARViewController
         arViewController.dataSource = self
@@ -68,7 +68,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         arViewController.headingSmoothingFactor = 0.05
         arViewController.trackingManager.userDistanceFilter = 25
         arViewController.trackingManager.reloadDistanceFilter = 75
-        arViewController.setAnnotations(coinsAnnotations)
+        //arViewController.setAnnotations(coinsAnnotations)
         arViewController.uiOptions.debugEnabled = false
         arViewController.uiOptions.closeButtonEnabled = true
         //arViewController.interfaceOrientationMask = .landscape
@@ -109,65 +109,14 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
                         annotation.location = coinCoordinates
                         annotations.append(annotation)
                     }
-
                 }
             }
+            arViewController.setAnnotations(annotations)
         }
+    
+        return annotations
+    }
 
-//        for coin in CoinsController().coins {
-//            let annotation = ARAnnotation()
-//            let coinCoordinates = CLLocation(latitude: Double(coin.latitude)!, longitude: Double(coin.longitude)!)
-//            NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
-//            if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 3 meters away from user's current location
-//            {
-//                annotation.coin = coin
-//                annotation.location = coinCoordinates
-//                annotations.append(annotation)
-//            }
-//        }
-        
-        return annotations
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    fileprivate func getDummyAnnotations(centerLatitude: Double, centerLongitude: Double, delta: Double, count: Int) -> Array<ARAnnotation>
-    {
-        var annotations: [ARAnnotation] = []
-        
-        srand48(3)
-        for i in stride(from: 0, to: count, by: 1)
-        {
-            let annotation = ARAnnotation()
-            annotation.location = self.getRandomLocation(centerLatitude: centerLatitude, centerLongitude: centerLongitude, delta: delta)
-            //annotation.title = "POI \(i)"
-            annotations.append(annotation)
-        }
-        return annotations
-    }
-    
-    fileprivate func getRandomLocation(centerLatitude: Double, centerLongitude: Double, delta: Double) -> CLLocation
-    {
-        var lat = centerLatitude
-        var lon = centerLongitude
-        
-        let latDelta = -(delta / 2) + drand48() * delta
-        let lonDelta = -(delta / 2) + drand48() * delta
-        lat = lat + latDelta
-        lon = lon + lonDelta
-        return CLLocation(latitude: lat, longitude: lon)
-    }
-    
-    @IBAction func buttonTap(_ sender: AnyObject)
-    {
-        showARViewController()
-    }
     
     func handleLocationFailure(elapsedSeconds: TimeInterval, acquiredLocationBefore: Bool, arViewController: ARViewController?)
     {

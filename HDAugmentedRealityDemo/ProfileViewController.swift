@@ -46,7 +46,7 @@ class CustomTableViewCell : UITableViewCell {
     }
 }
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet var collectedCoinsTable: UITableView!
     @IBOutlet var editProfileButton: UIButton!
@@ -57,9 +57,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberOfDollars: UILabel!
     @IBOutlet weak var numberOfStores: UILabel!
     @IBOutlet weak var addCoinButton: UIButton!
-    
+    @IBOutlet weak var editProfilePicButton: UIButton!
+
     let defaults = UserDefaults.standard
     let cache = Shared.dataCache
+
+    var imagePicker = UIImagePickerController()
 
     override func viewDidLoad()
     {
@@ -127,10 +130,44 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
                 self.numberOfStores.text = String((self.defaults.object(forKey: "userSumOfCoinsStores") as? Int)!)
             }
+        }
+        
+        var profilePicImage: UIImage
+        if let profilePicData = defaults.object(forKey: "userProfilePic") as? NSData {
+            profilePicImage = UIImage(data: profilePicData as Data)!
+        } else {
+            profilePicImage = UIImage(named: "UserPicPlaceHolder")!
+        }
+        let resizedImage = Toucan.Resize.resizeImage(profilePicImage, size: CGSize(width: 100, height: 150))
+        let resizedAndMaskedImage = Toucan(image: resizedImage).maskWithEllipse(borderWidth: 1, borderColor: UIColor.white).image
+        profilePic.image = resizedAndMaskedImage
+    }
+    
+    @IBAction func editProfilePicButton(sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum;
+            imagePicker.allowsEditing = false
             
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let data = UIImagePNGRepresentation(image)
+            defaults.set(data, forKey: "userProfilePic")
+            defaults.synchronize()
+            
+            let resizedAndMaskedImage = Toucan(image: image).maskWithEllipse(borderWidth: 5, borderColor: UIColor.white).image
+            profilePic.image = resizedAndMaskedImage
+        } else{
+            NSLog("Something went wrong")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+
     
     @IBAction func logout(sender: UIButton) {
         defaults.set(false, forKey: "loginStatus")

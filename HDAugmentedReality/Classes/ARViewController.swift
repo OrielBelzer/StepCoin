@@ -207,6 +207,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     open override func viewDidDisappear(_ animated: Bool)
     {
         super.viewDidDisappear(animated)
+        
         onViewDidDisappear()    // Doing like this to prevent subclassing problems
     }
     
@@ -245,6 +246,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
         self.didCloseCamera = true
+
     }
     
     open override var prefersStatusBarHidden : Bool
@@ -818,6 +820,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         {
             self.lastLocation = location
             CoinsController().reloadCoinsFromServerWithinCoordinatesRange(longitude: String(location.coordinate.longitude), latitude: String(location.coordinate.latitude), forceReload: true) { (responseObject:[AnyObject], error:String) in
+                self.reloadAnnotations()
             }
         }
         

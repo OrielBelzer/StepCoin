@@ -44,7 +44,12 @@ class LoginViewController: UIViewController
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        if (self.defaults.value(forKey: "didRegister") != nil) {
+            if (self.defaults.value(forKey: "didRegister") as? Bool)! {
+                self.showAlert(title: "Success", message: "You registered successfully, please use your credentials to login")
+            }
+            self.defaults.set(false, forKey: "didRegister")
+        }
     }
     
     func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
@@ -124,7 +129,7 @@ class LoginViewController: UIViewController
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func performLogin(emailAddress: String, password: String){
+    func performLogin(emailAddress: String, password: String){
         ConnectionController.sharedInstance.login(emailAddress: emailAddress, password: password) { (responseObject:SwiftyJSON.JSON, error:String) in
             if (error == "") {
                 print(responseObject["id"])

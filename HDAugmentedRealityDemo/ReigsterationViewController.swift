@@ -28,7 +28,7 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         self.emailAddressTextField.delegate=self
         self.passwordTextField.delegate=self
         self.reenterPasswordTextField.delegate=self
-
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationLoginView.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -84,9 +84,13 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
             ConnectionController.sharedInstance.registerUser(emailAddress: emailAddressTextField.text!, password: passwordTextField.text!) { (responseObject:JSON, error:String) in
                 if (error == "") {
                     print("user ID that was created is : " + responseObject.rawString()!)
-                    self.defaults.set(true, forKey: "loginStatus")
-                    self.defaults.setValue("regular", forKey: "loginMode")
-                    self.performSegue(withIdentifier: "MoveToMainAppFromRegistration", sender:self)
+                    self.performSegue(withIdentifier: "BackToLoginScreen", sender:self)
+                    self.defaults.setValue(true, forKey: "didRegister")
+                    self.defaults.synchronize()
+
+                    //self.showAlert(title: "Success", message: "You registered successfully, please use your credentials to login")
+                    //self.defaults.set(true, forKey: "loginStatus")
+                    //self.defaults.setValue("regular", forKey: "loginMode")
                 } else {
                     print("Error logging you in!")
                 }
@@ -104,7 +108,7 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let data = UIImagePNGRepresentation(image)
             defaults.set(data, forKey: "userProfilePic")
@@ -117,6 +121,12 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func isValidEmail(emailAddress:String) -> Bool {
@@ -134,11 +144,5 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
     
     func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
