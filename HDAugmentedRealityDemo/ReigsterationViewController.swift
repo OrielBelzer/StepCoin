@@ -135,14 +135,22 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         return emailTest.evaluate(with: emailAddress)
     }
     
-        
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        return true;
-    }
-    
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField === emailAddressTextField) {
+            passwordTextField.becomeFirstResponder()
+        } else if (textField == passwordTextField) {
+            reenterPasswordTextField.becomeFirstResponder()
+        }
+        
+        if (textField.returnKeyType==UIReturnKeyType.join) {
+            registrationButton.sendActions(for: .touchUpInside)
+        }
+        
+        
+        return true
     }
 }

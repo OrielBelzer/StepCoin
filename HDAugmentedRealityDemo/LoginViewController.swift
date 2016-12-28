@@ -13,7 +13,7 @@ import Haneke
 import Crashlytics
 import TwitterKit
 
-class LoginViewController: UIViewController
+class LoginViewController: UIViewController, UITextFieldDelegate
 {
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -37,7 +37,9 @@ class LoginViewController: UIViewController
         registerButton.layer.borderColor = UIColor.white.cgColor
         
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        emailTextField.delegate = self
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        passwordTextField.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationLoginView.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -148,6 +150,7 @@ class LoginViewController: UIViewController
 
                     } else {
                         self.defaults.set(false, forKey: "loginStatus")
+                        self.showAlert(title: "Error", message: "Please check your credentials and try again")
                         print(error)
                     }
                 }
@@ -163,9 +166,21 @@ class LoginViewController: UIViewController
         Crashlytics.sharedInstance().setUserIdentifier(userId)
     }
 
-    
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField === emailTextField) {
+            passwordTextField.becomeFirstResponder()
+        }
+        
+        if (textField.returnKeyType==UIReturnKeyType.go) {
+            loginButton.sendActions(for: .touchUpInside)
+        }
+
+        
+        return true
     }
 }
 
