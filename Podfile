@@ -14,4 +14,5 @@ target 'StepCoin' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
+  pod 'Onboard'
 end

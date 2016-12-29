@@ -40,6 +40,7 @@
 		BE8AA0021E0F876A00364FBD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA0011E0F876A00364FBD /* Store.swift */; };
 		BE8AA0041E105AFD00364FBD /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA0031E105AFD00364FBD /* StoreController.swift */; };
 		BE8F24211E0E26B400A3992F /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F24201E0E26B400A3992F /* UserController.swift */; };
+		BEC5E1731E15BB2700546102 /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */; };
 		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
 		BEFEC6361E0C902000237997 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6351E0C902000237997 /* Location.swift */; };
 		BEFEC6381E0C908C00237997 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6371E0C908C00237997 /* Coin.swift */; };
@@ -100,6 +101,7 @@
 		BE8AA0011E0F876A00364FBD /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Models/Store.swift; sourceTree = "<group>"; };
 		BE8AA0031E105AFD00364FBD /* StoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreController.swift; path = Controllers/StoreController.swift; sourceTree = "<group>"; };
 		BE8F24201E0E26B400A3992F /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controllers/UserController.swift; sourceTree = "<group>"; };
+		BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = SOURCE_ROOT; };
 		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
 		BEFEC6351E0C902000237997 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
 		BEFEC6371E0C908C00237997 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = Models/Coin.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				383B574E1DE1611E008270DE /* PayViewController.swift */,
 				BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */,
 				BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */,
+				BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -424,6 +427,7 @@
 				0CB2C2471AF18C620006E949 /* CoinAnnotationView.swift in Sources */,
 				BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */,
 				BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */,
+				BEC5E1731E15BB2700546102 /* ComingSoonViewController.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
 				BEFEC6361E0C902000237997 /* Location.swift in Sources */,

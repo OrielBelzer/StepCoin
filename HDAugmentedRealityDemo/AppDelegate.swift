@@ -11,7 +11,7 @@ import Fabric
 import Crashlytics
 import Fabric
 import TwitterKit
-
+import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +23,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let defaults = UserDefaults.standard
+        if ((defaults.value(forKey: "firstTimeUser")) == nil) {
+            let firstPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "FirstScreen"), buttonText: "") { () -> Void in }
+            let secondPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "SecondScreen"), buttonText: "") { () -> Void in }
+            let thirdPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "ThirdScreen"), buttonText: "") { () -> Void in}
+            let fourthPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "FourthScreen"), buttonText: "Start") { () -> Void in
+                self.handleLoginScreens()
+            }
+            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "firstScreen"), contents: [firstPage, secondPage, thirdPage, fourthPage])
+            
+            firstPage.topPadding = 0
+            secondPage.topPadding = 0
+            thirdPage.topPadding = 0
+            fourthPage.topPadding = 0
+            
+            self.window?.rootViewController = onboardingVC
+            
+        } else {
+            handleLoginScreens()
+        }
+
+        Fabric.with([Twitter.self])
+        Fabric.with([Crashlytics.self])
+        
+        return true
+    }
+    
+    private func handleLoginScreens() {
+        let defaults = UserDefaults.standard
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         //let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! UIViewController
@@ -34,12 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //self.window?.rootViewController = mapViewController
         }
         
-        Fabric.with([Twitter.self])
-        Fabric.with([Crashlytics.self])
-        
-        return true
+        defaults.set(false, forKey: "firstTimeUser")
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

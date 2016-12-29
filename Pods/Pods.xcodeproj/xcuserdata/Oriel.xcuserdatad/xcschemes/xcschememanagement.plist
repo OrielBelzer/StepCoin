@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Onboard.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StepCoin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,6 +82,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>026D67D121F42B5B55AF492A0B71B2E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
 		<dict>
 			<key>primary</key>
@@ -88,11 +98,6 @@
 			<true/>
 		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4948AD43C4ACFBF8EB42C7BBEEA4B903</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +122,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9502FB01641FBABB78522037E882757B</key>
+		<key>8F5682E0AC126B1910FC04BA8A16F382</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5FD5ED4F843C4EE6D60C8CA9C774C8C</key>
+		<key>9502FB01641FBABB78522037E882757B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B6D09600BE7C5EFB2C1E833D040A3FB0</key>
+		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
+		<key>E685D09756B75C0F93A5B7886B3A6795</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F865EF4E99DB55F7202B9FCB12CB4FA3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

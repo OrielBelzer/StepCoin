@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipI-WG-CZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="985"/>
+            <point key="canvasLocation" x="-434" y="1086"/>
         </scene>
         <!--Map-->
         <scene sceneID="Rbn-5w-0JP">
@@ -481,8 +481,8 @@
                     <connections>
                         <segue destination="u2K-7R-d8a" kind="relationship" relationship="viewControllers" id="XI6-sQ-KK4"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="4i1-gO-Dgk"/>
-                        <segue destination="7Uy-Be-VnD" kind="relationship" relationship="viewControllers" id="Y07-8h-Xnm"/>
-                        <segue destination="nbI-4s-qNG" kind="relationship" relationship="viewControllers" id="nef-bz-Rc1"/>
+                        <segue destination="Ur6-uT-LrH" kind="relationship" relationship="viewControllers" id="h00-C4-GJv"/>
+                        <segue destination="nbI-4s-qNG" kind="relationship" relationship="viewControllers" id="GE6-W1-SC8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEM-hd-o90" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,13 +517,77 @@
             </objects>
             <point key="canvasLocation" x="1095" y="-416"/>
         </scene>
+        <!--Pay-->
+        <scene sceneID="lOb-Ob-HkW">
+            <objects>
+                <viewController id="Ur6-uT-LrH" userLabel="Pay" customClass="ComingSoonViewController" customModule="StepCoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8nY-5S-br4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lie-79-mGc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GWQ-6d-WLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-Lu-iUJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ComingSoon" translatesAutoresizingMaskIntoConstraints="NO" id="pHB-FV-dFv">
+                                <rect key="frame" x="30" y="103" width="329" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QuestionMark" translatesAutoresizingMaskIntoConstraints="NO" id="sZY-GS-szD">
+                                <rect key="frame" x="37" y="295" width="87" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QuestionMark" translatesAutoresizingMaskIntoConstraints="NO" id="RC1-l1-RZv">
+                                <rect key="frame" x="144" y="295" width="87" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QuestionMark" translatesAutoresizingMaskIntoConstraints="NO" id="AsD-8a-GLg">
+                                <rect key="frame" x="248" y="295" width="87" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looking for coins of specific stores? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-Mk-lST">
+                                <rect key="frame" x="93" y="418" width="189" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtA-Ug-4cp">
+                                <rect key="frame" x="93" y="531" width="189" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Tell Us">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tellUsButtonWithSender:" destination="Ur6-uT-LrH" eventType="touchUpInside" id="OLG-aD-fez"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pay" image="PaymentTabIcon" id="kwp-4l-PPw"/>
+                    <connections>
+                        <outlet property="tellUsButton" destination="dtA-Ug-4cp" id="ThR-ib-B7q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2XZ-QU-2zt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1079.2" y="895.50224887556226"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CollectCoinTabIcon" width="30" height="30"/>
+        <image name="ComingSoon" width="301" height="116"/>
         <image name="LaunchImage.png" width="674" height="556"/>
         <image name="MapTabIcon" width="30" height="30"/>
         <image name="PaymentTabIcon" width="30" height="30"/>
         <image name="ProfileTabIcon" width="30" height="30"/>
+        <image name="QuestionMark" width="446" height="442"/>
         <image name="editProfileButtonBackground" width="142" height="88"/>
         <image name="facebookIcon" width="515" height="536"/>
         <image name="infoSectionBackground" width="1280" height="800"/>
@@ -534,7 +598,7 @@
         <image name="whiteLine" width="984" height="1161"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MXZ-g8-NgF"/>
         <segue reference="yLc-Ic-Lwl"/>
+        <segue reference="YJe-Kp-UTo"/>
     </inferredMetricsTieBreakers>
 </document>
