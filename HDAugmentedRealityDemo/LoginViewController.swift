@@ -23,7 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var twitterLoginButton: UIButton!
-
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     let defaults = UserDefaults.standard
 
     override func viewDidLoad()
@@ -43,6 +44,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationLoginView.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        backgroundImage.frame = self.view.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
