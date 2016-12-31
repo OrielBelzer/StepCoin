@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fourthPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "FourthScreen"), buttonText: "Start") { () -> Void in
                 self.handleLoginScreens()
             }
-            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "firstScreen"), contents: [firstPage, secondPage, thirdPage, fourthPage])
+        
+            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnBoardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage])
+            onboardingVC?.shouldMaskBackground = false
             
             firstPage.topPadding = 0
             secondPage.topPadding = 0

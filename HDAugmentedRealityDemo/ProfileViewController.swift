@@ -20,7 +20,7 @@ class CustomTableViewCell : UITableViewCell {
     @IBOutlet var collectedCoinAddress: UILabel!
     
     func loadItem(worth: String, address: String, type: String, logoURL: String) {
-        collectedCoinAmount.text = worth
+        collectedCoinAmount.text = "$"+worth
         collectedCoinAddress.text = address
         
         if logoURL == "" {
@@ -58,7 +58,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberOfStores: UILabel!
     @IBOutlet weak var addCoinButton: UIButton!
     @IBOutlet weak var editProfilePicButton: UIButton!
-
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     let defaults = UserDefaults.standard
     let cache = Shared.dataCache
 
@@ -99,6 +100,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         collectedCoinsTable.register(nib, forCellReuseIdentifier: "customCell")
         
         self.collectedCoinsTable.backgroundColor = UIColor.clear
+        
+        backgroundImage.frame = self.view.bounds
+
         
     }
 

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,26 +19,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="378" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-1c-Iog">
-                        <rect key="frame" x="23" y="9" width="43" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-1c-Iog">
+                        <rect key="frame" x="23" y="7.5" width="45" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="QTp-Qj-lum"/>
+                            <constraint firstAttribute="height" constant="40" id="g4v-bv-5pB"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-C9-Hu5">
-                        <rect key="frame" x="84" y="9" width="206" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-C9-Hu5">
+                        <rect key="frame" x="101.5" y="7.5" width="175" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="iqv-ZV-lFQ"/>
+                            <constraint firstAttribute="width" constant="175" id="t0b-dV-tin"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN1-tV-cuJ">
-                        <rect key="frame" x="298" y="8" width="66" height="38"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN1-tV-cuJ">
+                        <rect key="frame" x="299" y="7" width="65" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="df0-t6-pVh"/>
+                            <constraint firstAttribute="width" constant="65" id="ogB-ZY-FPR"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="w2e-1c-Iog" firstAttribute="leading" secondItem="Tpt-Nu-lKS" secondAttribute="leadingMargin" constant="15" id="8YR-Za-FWX"/>
+                    <constraint firstItem="GN1-tV-cuJ" firstAttribute="centerY" secondItem="Tpt-Nu-lKS" secondAttribute="centerY" id="E0w-xZ-D7i"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GN1-tV-cuJ" secondAttribute="trailing" constant="6" id="Jy5-C3-LMW"/>
+                    <constraint firstItem="BTN-C9-Hu5" firstAttribute="centerY" secondItem="Tpt-Nu-lKS" secondAttribute="centerY" id="miy-KC-00i"/>
+                    <constraint firstItem="w2e-1c-Iog" firstAttribute="centerY" secondItem="Tpt-Nu-lKS" secondAttribute="centerY" id="pKS-jO-zKJ"/>
+                    <constraint firstItem="BTN-C9-Hu5" firstAttribute="centerX" secondItem="Tpt-Nu-lKS" secondAttribute="centerX" id="sUB-hr-S3Q"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>

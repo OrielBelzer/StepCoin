@@ -13,6 +13,7 @@ import MessageUI
 class ComingSoonViewController: UIViewController, MFMailComposeViewControllerDelegate
 {
     @IBOutlet weak var tellUsButton: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad()
     {
@@ -20,6 +21,9 @@ class ComingSoonViewController: UIViewController, MFMailComposeViewControllerDel
         tellUsButton.layer.cornerRadius = 10
         tellUsButton.layer.borderWidth = 1
         tellUsButton.layer.borderColor = UIColor.white.cgColor
+        
+        backgroundImage.frame = self.view.bounds
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

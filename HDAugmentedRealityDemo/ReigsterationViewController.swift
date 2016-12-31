@@ -18,7 +18,8 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var reenterPasswordTextField: UITextField!
     @IBOutlet weak var registrationButton: UIButton!
     @IBOutlet weak var imagePickerButton: UIButton!
-
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     var imagePicker = UIImagePickerController()
 
     let defaults = UserDefaults.standard
@@ -65,6 +66,9 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         registrationButton.layer.cornerRadius = 10
         registrationButton.layer.borderWidth = 0.5
         registrationButton.layer.borderColor = UIColor.white.cgColor
+        
+        backgroundImage.frame = self.view.bounds
+
 
     }
     
