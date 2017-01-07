@@ -18,7 +18,7 @@ typealias ServiceResponseAnyObjectArray = ([AnyObject], String) -> Void
 class ConnectionController
 {
     //let stepCoinBaseURL = "http://stepcoin.ddns.net:8888"
-    let stepCoinBaseURL = "http://stepcoin.co:8888"
+    let stepCoinBaseURL = "https://stepcoin.co:8888"
 
     class var sharedInstance:ConnectionController {
         struct Singleton {

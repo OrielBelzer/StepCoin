@@ -54,7 +54,7 @@
                                             <constraint firstAttribute="height" constant="40" id="zKH-bi-7bS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Edit Profile" backgroundImage="editProfileButtonBackground">
+                                        <state key="normal" title="Edit Profile" backgroundImage="infoSectionBackground">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
@@ -62,7 +62,7 @@
                                         <rect key="frame" x="283" y="51" width="85" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e1-2n-5mX">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e1-2n-5mX">
                                         <rect key="frame" x="283" y="51" width="85" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
@@ -84,6 +84,14 @@
                                         <connections>
                                             <action selector="logoutWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="haJ-b2-ca3"/>
                                             <segue destination="v4n-fQ-fc9" kind="show" id="MXZ-g8-NgF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhK-jj-BM8">
+                                        <rect key="frame" x="22" y="135" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="openMenuWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="fX1-Q2-49F"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -215,6 +223,7 @@
                         <outlet property="numberOfCoins" destination="ba6-jO-XTS" id="fce-Cb-NnJ"/>
                         <outlet property="numberOfDollars" destination="gTH-No-qMb" id="ER5-ap-uZ7"/>
                         <outlet property="numberOfStores" destination="c3E-IA-T9Z" id="2Av-KO-LGe"/>
+                        <outlet property="openMenuButton" destination="vhK-jj-BM8" id="BhS-f0-zea"/>
                         <outlet property="profileName" destination="b02-fC-aPb" id="5lT-Nf-ZCF"/>
                         <outlet property="profilePic" destination="7nS-ec-mw2" id="ohc-kb-IXB"/>
                     </connections>
@@ -795,7 +804,6 @@
         <image name="PaymentTabIcon" width="30" height="30"/>
         <image name="ProfileTabIcon" width="30" height="30"/>
         <image name="QuestionMark" width="446" height="442"/>
-        <image name="editProfileButtonBackground" width="142" height="88"/>
         <image name="facebookIcon" width="515" height="536"/>
         <image name="infoSectionBackground" width="1280" height="800"/>
         <image name="lockIcon" width="128" height="128"/>

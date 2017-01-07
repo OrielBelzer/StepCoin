@@ -15,4 +15,6 @@ target 'StepCoin' do
   pod 'Crashlytics'
   pod 'TwitterKit'
   pod 'Onboard'
+  pod 'FrostedSidebar'
+
 end

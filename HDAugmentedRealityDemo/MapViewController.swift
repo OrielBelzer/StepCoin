@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Mapbox
 import Haneke
+import SwiftyJSON
 
 class MapViewController: UIViewController, MGLMapViewDelegate
 {
@@ -24,7 +25,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate
 
         mapView.delegate = self
         mapView.userTrackingMode = .follow
-
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        mapView.addGestureRecognizer(singleTap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,6 +99,18 @@ class MapViewController: UIViewController, MGLMapViewDelegate
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func handleSingleTap(tap: UITapGestureRecognizer) {
+        let location: CLLocationCoordinate2D = mapView.convert(tap.location(in: mapView), toCoordinateFrom: mapView)
+        print("You tapped at: \(location.latitude), \(location.longitude)")
+        
+        ConnectionController.sharedInstance.addCoin(longitude: String(location.longitude), latitude: String(location.latitude))  { (responseObject:SwiftyJSON.JSON, error:String) in
+            if (error == "") {
+            } else {
+                print(error)
             }
         }
     }

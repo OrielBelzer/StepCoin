@@ -12,6 +12,7 @@ import Toucan
 import Haneke
 import SwiftyJSON
 import Crashlytics
+import FrostedSidebar
 
 class CustomTableViewCell : UITableViewCell {
     
@@ -46,7 +47,7 @@ class CustomTableViewCell : UITableViewCell {
     }
 }
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FrostedSidebarDelegate
 {
     @IBOutlet var collectedCoinsTable: UITableView!
     @IBOutlet var editProfileButton: UIButton!
@@ -58,12 +59,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberOfStores: UILabel!
     @IBOutlet weak var addCoinButton: UIButton!
     @IBOutlet weak var editProfilePicButton: UIButton!
+    @IBOutlet weak var openMenuButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     let defaults = UserDefaults.standard
     let cache = Shared.dataCache
 
     var imagePicker = UIImagePickerController()
+    
+    var frostedSidebar: FrostedSidebar = FrostedSidebar(itemImages: [UIImage(named: "UserPicPlaceHolder")!], colors: nil, selectionStyle: .single)
+
 
     override func viewDidLoad()
     {
@@ -191,6 +196,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.cache.remove(key: "stores")
     }
     
+    @IBAction func openMenu(sender: UIButton) {
+        frostedSidebar.showInViewController( self, animated: true )
+    }
+
     /* HACK TO ADD A COIN - REMOVE IN GA*/
     
     @IBAction func addCoinButton(sender: UIButton) {
@@ -271,5 +280,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.backgroundColor = UIColor.clear
     }
     
-
+    func sidebar(_ sidebar: FrostedSidebar, willShowOnScreenAnimated animated: Bool) {}
+    func sidebar(_ sidebar: FrostedSidebar, didShowOnScreenAnimated animated: Bool) {}
+    func sidebar(_ sidebar: FrostedSidebar, willDismissFromScreenAnimated animated: Bool) {}
+    func sidebar(_ sidebar: FrostedSidebar, didDismissFromScreenAnimated animated: Bool) {}
+    func sidebar(_ sidebar: FrostedSidebar, didTapItemAtIndex index: Int) {}
+    func sidebar(_ sidebar: FrostedSidebar, didEnable itemEnabled: Bool, itemAtIndex index: Int) {}
 }

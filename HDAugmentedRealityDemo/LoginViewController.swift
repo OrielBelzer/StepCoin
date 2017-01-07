@@ -113,7 +113,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                                 print(response)
                                 self.defaults.setValue("facebook", forKey: "loginMode")
                                 let userID = (response.dictionaryValue?["id"] as? String)!
-                                self.defaults.setValue("http://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
+                                self.defaults.setValue("https://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
                                 self.defaults.setValue((response.dictionaryValue?["name"] as? String)!, forKey: "userFullName")
                             } else {
                                 print("Error logging you in!")
