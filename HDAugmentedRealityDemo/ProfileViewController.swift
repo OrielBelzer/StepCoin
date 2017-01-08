@@ -13,6 +13,9 @@ import Haneke
 import SwiftyJSON
 import Crashlytics
 import FrostedSidebar
+import MessageUI
+import PopupDialog
+
 
 class CustomTableViewCell : UITableViewCell {
     
@@ -47,11 +50,10 @@ class CustomTableViewCell : UITableViewCell {
     }
 }
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FrostedSidebarDelegate
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FrostedSidebarDelegate, MFMailComposeViewControllerDelegate
 {
     @IBOutlet var collectedCoinsTable: UITableView!
     @IBOutlet var editProfileButton: UIButton!
-    @IBOutlet var logoutButton: UIButton!
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet weak var numberOfCoins: UILabel!
@@ -67,7 +69,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     var imagePicker = UIImagePickerController()
     
-    var frostedSidebar: FrostedSidebar = FrostedSidebar(itemImages: [UIImage(named: "UserPicPlaceHolder")!], colors: nil, selectionStyle: .single)
+    var frostedSidebar: FrostedSidebar = FrostedSidebar(itemImages: [UIImage(named: "Settings")!,UIImage(named: "ShareUs")!,UIImage(named: "ContactUs")!,UIImage(named: "Logout")!], colors: nil, selectionStyle: .single)
+
+    
 
 
     override func viewDidLoad()
@@ -178,13 +182,54 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     
-    @IBAction func logout(sender: UIButton) {
+    @IBAction func openMenu(sender: UIButton) {
+        frostedSidebar.showInViewController( self, animated: true )
+        frostedSidebar.actionForIndex[0] = {
+            print("tapped settigns menu item")
+            self.performSegue(withIdentifier: "MoveToSettings", sender: self)
+        }
+        frostedSidebar.actionForIndex[1] = {
+            print("tapped share us menu item")
+            self.shareUs()
+        }
+        frostedSidebar.actionForIndex[2] = {
+            print("tapped contact us menu item")
+            self.contactUs()
+        }
+        frostedSidebar.actionForIndex[3] = {
+            print("tapped logout menu item")
+            self.logout()
+        }
+    }
+    
+    private func shareUs() {
+        let ShareUsPopupView = ShareUsPopupViewController(nibName: "ShareUsPopupViewController", bundle: nil)
+        let popup = PopupDialog(viewController: ShareUsPopupView, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+    
+        let okButton = DefaultButton(title: "OK") {}
+        popup.addButtons([okButton])
+
+        present(popup, animated: true, completion: nil)
+    }
+    
+    private func contactUs() {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    private func logout() {
         defaults.set(false, forKey: "loginStatus")
         defaults.set("", forKey: "userProfilePic")
         defaults.set("", forKey: "facebookProfilePic")
         defaults.set("", forKey: "lastUserLongitude")
         defaults.set("", forKey: "lastUserLatitude")
         defaults.set(0, forKey: "userNumberOfCoins")
+        defaults.set("", forKey: "debugMode")
+
         defaults.synchronize()
         
         Shared.dataCache.fetch(key: "stores").onSuccess { data in
@@ -194,12 +239,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         self.cache.remove(key: "stores")
-    }
-    
-    @IBAction func openMenu(sender: UIButton) {
-        frostedSidebar.showInViewController( self, animated: true )
-    }
+        
+        self.performSegue(withIdentifier: "GoToLoginScreen", sender: self)
 
+    }
     /* HACK TO ADD A COIN - REMOVE IN GA*/
     
     @IBAction func addCoinButton(sender: UIButton) {
@@ -220,7 +263,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func editProfileButton(sender: UIButton) {
-        
     }
     
     func userDefaultsAlreadyExist(key: String) -> Bool {
@@ -280,10 +322,38 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.backgroundColor = UIColor.clear
     }
     
+    
+    /* Side menu delegate methods */
     func sidebar(_ sidebar: FrostedSidebar, willShowOnScreenAnimated animated: Bool) {}
     func sidebar(_ sidebar: FrostedSidebar, didShowOnScreenAnimated animated: Bool) {}
     func sidebar(_ sidebar: FrostedSidebar, willDismissFromScreenAnimated animated: Bool) {}
     func sidebar(_ sidebar: FrostedSidebar, didDismissFromScreenAnimated animated: Bool) {}
     func sidebar(_ sidebar: FrostedSidebar, didTapItemAtIndex index: Int) {}
     func sidebar(_ sidebar: FrostedSidebar, didEnable itemEnabled: Bool, itemAtIndex index: Int) {}
+    
+    
+    
+    /* Mail functions & Delegate functions */
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["info@stepcoin.co"])
+        mailComposerVC.setSubject("Contact Us")
+        //mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        
+    }
 }

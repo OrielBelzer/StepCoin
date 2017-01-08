@@ -16,5 +16,5 @@ target 'StepCoin' do
   pod 'TwitterKit'
   pod 'Onboard'
   pod 'FrostedSidebar'
-
+  pod 'PopupDialog', '~> 0.5'
 end

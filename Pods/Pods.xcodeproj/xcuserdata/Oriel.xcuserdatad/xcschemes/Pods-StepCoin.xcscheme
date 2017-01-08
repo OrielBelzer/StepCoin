@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39136DDD2EDD06D413C6857CBA1CB431"
+               BlueprintIdentifier = "42AC9C797BE3F0A74BB60A86CB350E3E"
                BuildableName = "Pods_StepCoin.framework"
                BlueprintName = "Pods-StepCoin"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39136DDD2EDD06D413C6857CBA1CB431"
+            BlueprintIdentifier = "42AC9C797BE3F0A74BB60A86CB350E3E"
             BuildableName = "Pods_StepCoin.framework"
             BlueprintName = "Pods-StepCoin"
             ReferencedContainer = "container:Pods.xcodeproj">

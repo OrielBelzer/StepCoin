@@ -42,6 +42,11 @@
 		BE8F24211E0E26B400A3992F /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F24201E0E26B400A3992F /* UserController.swift */; };
 		BEC5E1731E15BB2700546102 /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */; };
 		BEC9AEF11E06549E00C07781 /* CoinsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC9AEF01E06549E00C07781 /* CoinsController.swift */; };
+		BEE45D3E1E21F59800F3CD38 /* ShareUsPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE45D3D1E21F59800F3CD38 /* ShareUsPopupViewController.xib */; };
+		BEE45D401E21F5A600F3CD38 /* ShareUsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE45D3F1E21F5A600F3CD38 /* ShareUsPopupViewController.swift */; };
+		BEE45D461E21F7DA00F3CD38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */; };
+		BEE45D481E22167400F3CD38 /* DebugPasscodePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE45D471E22167400F3CD38 /* DebugPasscodePopupViewController.xib */; };
+		BEE45D4A1E22167B00F3CD38 /* DebugPasscodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE45D491E22167B00F3CD38 /* DebugPasscodePopupViewController.swift */; };
 		BEFEC6361E0C902000237997 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6351E0C902000237997 /* Location.swift */; };
 		BEFEC6381E0C908C00237997 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6371E0C908C00237997 /* Coin.swift */; };
 		BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6391E0CC8EC00237997 /* Coin2.swift */; };
@@ -103,6 +108,11 @@
 		BE8F24201E0E26B400A3992F /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controllers/UserController.swift; sourceTree = "<group>"; };
 		BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = SOURCE_ROOT; };
 		BEC9AEF01E06549E00C07781 /* CoinsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsController.swift; sourceTree = "<group>"; };
+		BEE45D3D1E21F59800F3CD38 /* ShareUsPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareUsPopupViewController.xib; sourceTree = "<group>"; };
+		BEE45D3F1E21F5A600F3CD38 /* ShareUsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUsPopupViewController.swift; sourceTree = "<group>"; };
+		BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BEE45D471E22167400F3CD38 /* DebugPasscodePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugPasscodePopupViewController.xib; sourceTree = "<group>"; };
+		BEE45D491E22167B00F3CD38 /* DebugPasscodePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugPasscodePopupViewController.swift; sourceTree = "<group>"; };
 		BEFEC6351E0C902000237997 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
 		BEFEC6371E0C908C00237997 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = Models/Coin.swift; sourceTree = "<group>"; };
 		BEFEC6391E0CC8EC00237997 /* Coin2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin2.swift; path = Models/Coin2.swift; sourceTree = "<group>"; };
@@ -210,6 +220,8 @@
 		38847FFF1DD0194000ADA8F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEE45D491E22167B00F3CD38 /* DebugPasscodePopupViewController.swift */,
+				BEE45D3F1E21F5A600F3CD38 /* ShareUsPopupViewController.swift */,
 				0CB2C2461AF18C620006E949 /* CoinAnnotationView.swift */,
 				0CAD4EB41AE6FC14000F2A2A /* CollectCoinViewController.swift */,
 				388480141DD0F5E700ADA8F6 /* MapViewController.swift */,
@@ -218,6 +230,7 @@
 				BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */,
 				BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */,
 				BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */,
+				BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -234,6 +247,8 @@
 		38F109441DD410BE002BBBA8 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				BEE45D471E22167400F3CD38 /* DebugPasscodePopupViewController.xib */,
+				BEE45D3D1E21F59800F3CD38 /* ShareUsPopupViewController.xib */,
 				0CAD4EB61AE6FC14000F2A2A /* Main.storyboard */,
 				38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */,
 				387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */,
@@ -343,6 +358,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */,
+				BEE45D481E22167400F3CD38 /* DebugPasscodePopupViewController.xib in Resources */,
+				BEE45D3E1E21F59800F3CD38 /* ShareUsPopupViewController.xib in Resources */,
 				387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */,
 				383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */,
 				0C10A15E1BC67B5C009EDF6A /* hdar_close@3x.png in Resources */,
@@ -425,6 +442,7 @@
 			files = (
 				BEFEC6381E0C908C00237997 /* Coin.swift in Sources */,
 				0CB2C2471AF18C620006E949 /* CoinAnnotationView.swift in Sources */,
+				BEE45D401E21F5A600F3CD38 /* ShareUsPopupViewController.swift in Sources */,
 				BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */,
 				BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */,
 				BEC5E1731E15BB2700546102 /* ComingSoonViewController.swift in Sources */,
@@ -445,6 +463,8 @@
 				BE8AA0021E0F876A00364FBD /* Store.swift in Sources */,
 				3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */,
 				BE8F24211E0E26B400A3992F /* UserController.swift in Sources */,
+				BEE45D4A1E22167B00F3CD38 /* DebugPasscodePopupViewController.swift in Sources */,
+				BEE45D461E21F7DA00F3CD38 /* SettingsViewController.swift in Sources */,
 				0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */,
 				0CF0F8EA1BC5E70C00C7646E /* ARTrackingManager.swift in Sources */,
 			);
