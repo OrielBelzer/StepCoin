@@ -82,6 +82,11 @@
 	<string>StepCoin uses your location to help you collect Coins near you.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>StepCoin uses photos for setting your profile pic</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

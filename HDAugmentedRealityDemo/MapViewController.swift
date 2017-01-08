@@ -12,8 +12,30 @@ import Mapbox
 import Haneke
 import SwiftyJSON
 
-class MapViewController: UIViewController, MGLMapViewDelegate
+class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate
 {
+    private lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 50
+        manager.delegate = self
+        manager.requestAlwaysAuthorization()
+        return manager
+    }()
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let mostRecentLocation = locations.last else {
+            return
+        }
+        
+        if UIApplication.shared.applicationState == .active {
+            print("App is not in background")
+        } else {
+            print("App is backgrounded. New location is %@", mostRecentLocation)
+        }
+    }
+
+    
     @IBOutlet var mapView: MGLMapView!
     var coinsController = CoinsController()
     let defaults = UserDefaults.standard
@@ -22,7 +44,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        locationManager.startMonitoringSignificantLocationChanges()
+        
         mapView.delegate = self
         mapView.userTrackingMode = .follow
         
