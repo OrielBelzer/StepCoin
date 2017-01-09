@@ -246,7 +246,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
         self.didCloseCamera = true
-
+        self.trackingManager.stopTracking()
     }
     
     open override var prefersStatusBarHidden : Bool

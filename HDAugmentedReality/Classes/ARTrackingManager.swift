@@ -170,6 +170,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         
         self.tracking = false
         self.stopLocationSearchTimer()
+        self.stopreportLocationTimer()
     }
     
     //==========================================================================================================================================================
@@ -350,6 +351,12 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     {
         self.locationSearchTimer?.invalidate()
         self.locationSearchTimer = nil
+    }
+    
+    func stopreportLocationTimer(resetStartTime: Bool = true)
+    {
+        self.reportLocationTimer?.invalidate()
+        self.reportLocationTimer = nil
     }
     
     func locationSearchTimerTick()

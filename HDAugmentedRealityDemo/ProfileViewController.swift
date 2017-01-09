@@ -154,6 +154,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let resizedImage = Toucan.Resize.resizeImage(profilePicImage, size: CGSize(width: 100, height: 150))
         let resizedAndMaskedImage = Toucan(image: resizedImage).maskWithEllipse(borderWidth: 1, borderColor: UIColor.white).image
         profilePic.image = resizedAndMaskedImage
+        
+        if (self.defaults.value(forKey: "debugMode") != nil) {
+            if (self.defaults.bool(forKey: "debugMode")) {
+                addCoinButton.isEnabled = true
+            } else {
+                addCoinButton.isEnabled = false
+            }
+        }
     }
     
     @IBAction func editProfilePicButton(sender: UIButton) {

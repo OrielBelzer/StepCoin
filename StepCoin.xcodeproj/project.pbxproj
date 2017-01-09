@@ -101,6 +101,7 @@
 		75AFD1EAF351018A2ED05732 /* Pods-StepCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.release.xcconfig"; sourceTree = "<group>"; };
 		A92ABB6A9220D133A6B5FAB1 /* Pods-StepCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReigsterationViewController.swift; sourceTree = "<group>"; };
+		BE4B31AE1E232C8900B661CE /* StepCoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepCoin.entitlements; sourceTree = "<group>"; };
 		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE8593451E0B615900A00166 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 		BE8AA0011E0F876A00364FBD /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Models/Store.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		0CAD4EA41AE6FC14000F2A2A = {
 			isa = PBXGroup;
 			children = (
+				BE4B31AE1E232C8900B661CE /* StepCoin.entitlements */,
 				BEC9AEF21E0656D500C07781 /* Model */,
 				BEC9AEEF1E06548600C07781 /* Controllers */,
 				38C172F71DCE8435002750A8 /* Assets */,
@@ -334,6 +336,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};

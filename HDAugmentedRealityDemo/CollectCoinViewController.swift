@@ -97,23 +97,26 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         
         let userCurrentCoordinates = CLLocation(latitude: centerLatitude, longitude: centerLongitude)
         
-        Shared.dataCache.fetch(key: "coins").onSuccess { data in
-            if let coins = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Coin2] {
-                for coin in coins {
-                    let annotation = ARAnnotation()
-                    let coinCoordinates = CLLocation(latitude: Double((coin.location?.latitude)!)!, longitude: Double((coin.location?.longitude)!)!)
-                    NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
-                    if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 3 meters away from user's current location
-                    {
-                        annotation.coin = coin
-                        annotation.location = coinCoordinates
-                        annotations.append(annotation)
+        CoinsController().reloadCoinsFromServerWithinCoordinatesRange(longitude: String(userCurrentCoordinates.coordinate.longitude), latitude: String(userCurrentCoordinates.coordinate.latitude), forceReload: true) { (responseObject:[AnyObject], error:String) in
+            
+            Shared.dataCache.fetch(key: "coins").onSuccess { data in
+                if let coins = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Coin2] {
+                    for coin in coins {
+                        let annotation = ARAnnotation()
+                        let coinCoordinates = CLLocation(latitude: Double((coin.location?.latitude)!)!, longitude: Double((coin.location?.longitude)!)!)
+                        NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
+                        if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 20 meters away from user's current location
+                        {
+                            annotation.coin = coin
+                            annotation.location = coinCoordinates
+                            annotations.append(annotation)
+                        }
                     }
                 }
+                arViewController.setAnnotations(annotations)
             }
-            arViewController.setAnnotations(annotations)
         }
-    
+        
         return annotations
     }
 

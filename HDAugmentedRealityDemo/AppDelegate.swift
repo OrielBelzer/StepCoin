@@ -12,6 +12,7 @@ import Crashlytics
 import Fabric
 import TwitterKit
 import Onboard
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Twitter.self])
         Fabric.with([Crashlytics.self])
         
+        defaults.set(false, forKey: "debugMode")
         return true
     }
     

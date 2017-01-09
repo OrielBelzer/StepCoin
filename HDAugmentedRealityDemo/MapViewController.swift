@@ -14,54 +14,66 @@ import SwiftyJSON
 
 class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate
 {
-    private lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 50
-        manager.delegate = self
-        manager.requestAlwaysAuthorization()
-        return manager
-    }()
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let mostRecentLocation = locations.last else {
-            return
-        }
-        
-        if UIApplication.shared.applicationState == .active {
-            print("App is not in background")
-        } else {
-            print("App is backgrounded. New location is %@", mostRecentLocation)
-        }
-    }
-
-    
+    var updateTimer: Timer?
     @IBOutlet var mapView: MGLMapView!
     var coinsController = CoinsController()
     let defaults = UserDefaults.standard
     let cache = Shared.dataCache
-
+    var counter = 0
+    let locManager = CLLocationManager()
+    var alreadyUpdating = false
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        locationManager.startMonitoringSignificantLocationChanges()
+
+        locManager.delegate = self
         
         mapView.delegate = self
         mapView.userTrackingMode = .follow
         
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        var singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         mapView.addGestureRecognizer(singleTap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
-        
-        
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
         loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+            case .authorizedAlways, .authorizedWhenInUse:
+                if (self.defaults.value(forKey: "gotFirstFreeCoin") == nil) {
+                    let locManager = CLLocationManager()
+                    locManager.requestWhenInUseAuthorization()
+                    var currentLocation: CLLocation
+                    currentLocation = locManager.location!
+                    
+                    let lat = currentLocation.coordinate.latitude // 37.241681
+                    let lon = currentLocation.coordinate.longitude // -121.884804
+                    
+                    ConnectionController.sharedInstance.addCoin(longitude: String(lon), latitude: String(lat))  { (responseObject:SwiftyJSON.JSON, error:String) in
+                        if (error == "") {
+                        } else {
+                            print(error)
+                        }
+                    }
+                    
+                    defaults.set(true, forKey: "gotFirstFreeCoin")
+                    sendLocationToServer()
+                } else {
+                    //Nothing - user should not get another coin
+                }
+            }
+        } else {
+            print("Location services are not enabled")
+        }
     }
     
     func loadCoinsToMap(swLongitude: String, swLatitude: String, neLongitude: String, neLatitude: String) {
@@ -127,15 +139,43 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     }
     
     func handleSingleTap(tap: UITapGestureRecognizer) {
-        let location: CLLocationCoordinate2D = mapView.convert(tap.location(in: mapView), toCoordinateFrom: mapView)
-        print("You tapped at: \(location.latitude), \(location.longitude)")
+        if (self.defaults.value(forKey: "debugMode") != nil) {
+            if (self.defaults.bool(forKey: "debugMode")) {
+                let location: CLLocationCoordinate2D = mapView.convert(tap.location(in: mapView), toCoordinateFrom: mapView)
+                print("You tapped at: \(location.latitude), \(location.longitude)")
         
-        ConnectionController.sharedInstance.addCoin(longitude: String(location.longitude), latitude: String(location.latitude))  { (responseObject:SwiftyJSON.JSON, error:String) in
-            if (error == "") {
-            } else {
-                print(error)
+                ConnectionController.sharedInstance.addCoin(longitude: String(location.longitude), latitude: String(location.latitude))  { (responseObject:SwiftyJSON.JSON, error:String) in
+                        if (error == "") {
+                        } else {
+                            print(error)
+                    }
+                }
             }
         }
+    }
+    
+    func sendLocationToServer() {
+        if (!alreadyUpdating) {
+            locManager.requestAlwaysAuthorization()
+            //var currentLocation: CLLocation
+            let currentLocation = locManager.location
+            if (currentLocation != nil) {
+           // currentLocation = try locManager.location!
+                locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                locManager.distanceFilter = 100
+                locManager.startUpdatingLocation()
+            }
+            alreadyUpdating = true
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        counter = counter + 1
+        print("in updated location " + String(counter))
+        
+        let location:CLLocation = locations[locations.count-1] as CLLocation
+        
+        UserController().sendLocationToServer(userId: defaults.value(forKey: "userId") as! String, latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude))
     }
     
 }

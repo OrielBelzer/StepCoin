@@ -177,6 +177,22 @@ class ConnectionController
             }
         }
     }
+    
+    func sendLocationToServer(userId: String, longitude: String, latitude: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        let params = ["longitude": longitude, "latitude": latitude]
+        
+        Alamofire.request(stepCoinBaseURL+"/users/"+userId, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+
 
 }
 

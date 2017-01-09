@@ -6,6 +6,7 @@
 //
 
 import Haneke
+import SwiftyJSON
 
 open class UserController
 {
@@ -27,6 +28,15 @@ open class UserController
                 self.defaults.set(sumOfUserCoinsValue, forKey: "userSumOfCoinsValue")
                 self.defaults.set(uniqueStoreIDs.count, forKey: "userSumOfCoinsStores")
                 self.defaults.synchronize()
+            }
+        }
+    }
+    
+    func sendLocationToServer(userId: String, latitude: String, longitude: String) {
+        ConnectionController.sharedInstance.sendLocationToServer(userId: userId, longitude: longitude, latitude: latitude)   { (responseObject:SwiftyJSON.JSON, error:String) in
+            if (error == "") {
+            } else {
+                print(error)
             }
         }
     }
