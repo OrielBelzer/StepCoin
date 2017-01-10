@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController
 {
     @IBOutlet weak var debugModeSwitch: UISwitch!
     @IBOutlet weak var backButton: UIButton!
-    let debugPasscode = "Eli$390sOriel&1WER"
+    let debugPasscode = "123456"
     let defaults = UserDefaults.standard
 
 

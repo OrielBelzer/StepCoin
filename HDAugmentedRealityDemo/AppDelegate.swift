@@ -18,12 +18,14 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let defaults = UserDefaults.standard
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "shouldReloadMapDelegateAgain")
+
         if ((defaults.value(forKey: "firstTimeUser")) == nil) {
             let firstPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "FirstScreen"), buttonText: "") { () -> Void in }
             let secondPage = OnboardingContentViewController(title: "", body: "", image: UIImage(named: "SecondScreen"), buttonText: "") { () -> Void in }
@@ -54,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func handleLoginScreens() {
-        let defaults = UserDefaults.standard
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
@@ -90,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        defaults.set(true, forKey: "shouldReloadMapDelegateAgain")
     }
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

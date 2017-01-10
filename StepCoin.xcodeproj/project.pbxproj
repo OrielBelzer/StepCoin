@@ -23,7 +23,6 @@
 		0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E21BC5E70C00C7646E /* ARConfiguration.swift */; };
 		0CF0F8EA1BC5E70C00C7646E /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */; };
 		0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */; };
-		0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */; };
 		383B574F1DE1611E008270DE /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B574E1DE1611E008270DE /* PayViewController.swift */; };
 		383B57511DE162C2008270DE /* PayCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */; };
 		387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */; };
@@ -88,7 +87,6 @@
 		0CF0F8E21BC5E70C00C7646E /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
 		0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
-		0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
 		383B574E1DE1611E008270DE /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		383B57501DE162C2008270DE /* PayCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayCustomTableViewCell.xib; sourceTree = "<group>"; };
 		387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -205,18 +203,9 @@
 				0CF0F8E21BC5E70C00C7646E /* ARConfiguration.swift */,
 				0CF0F8E31BC5E70C00C7646E /* ARTrackingManager.swift */,
 				0CF0F8E41BC5E70C00C7646E /* ARViewController.swift */,
-				0CF0F8E51BC5E70C00C7646E /* Debug */,
 			);
 			name = Classes;
 			path = HDAugmentedReality/Classes;
-			sourceTree = "<group>";
-		};
-		0CF0F8E51BC5E70C00C7646E /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				0CF0F8E61BC5E70C00C7646E /* DebugMapViewController.swift */,
-			);
-			path = Debug;
 			sourceTree = "<group>";
 		};
 		38847FFF1DD0194000ADA8F6 /* Views */ = {
@@ -475,7 +464,6 @@
 				BE8F24211E0E26B400A3992F /* UserController.swift in Sources */,
 				BEE45D4A1E22167B00F3CD38 /* DebugPasscodePopupViewController.swift in Sources */,
 				BEE45D461E21F7DA00F3CD38 /* SettingsViewController.swift in Sources */,
-				0CF0F8EC1BC5E70C00C7646E /* DebugMapViewController.swift in Sources */,
 				0CF0F8EA1BC5E70C00C7646E /* ARTrackingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

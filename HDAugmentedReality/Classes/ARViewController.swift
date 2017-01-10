@@ -265,7 +265,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             if self.uiOptions.closeButtonEnabled { self.addCloseButton() }
             
             // Debug
-            if self.uiOptions.debugEnabled { self.addDebugUi() }
+          //  if self.uiOptions.debugEnabled { self.addDebugUi() }
             
             // Layout
             self.layoutUi()
@@ -1120,39 +1120,39 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
     /// Opening DebugMapViewController
-    internal func debugButtonTap()
-    {
-        let bundle = Bundle(for: DebugMapViewController.self)
-        let mapViewController = DebugMapViewController(nibName: "DebugMapViewController", bundle: bundle)
-        self.present(mapViewController, animated: true, completion: nil)
-        mapViewController.addAnnotations(self.annotations)
-    }
+//    internal func debugButtonTap()
+//    {
+//        let bundle = Bundle(for: DebugMapViewController.self)
+//        let mapViewController = DebugMapViewController(nibName: "DebugMapViewController", bundle: bundle)
+//        self.present(mapViewController, animated: true, completion: nil)
+//        mapViewController.addAnnotations(self.annotations)
+//    }
     
-    func addDebugUi()
-    {
-        self.debugLabel?.removeFromSuperview()
-        self.debugMapButton?.removeFromSuperview()
-        
-        let debugLabel = UILabel()
-        debugLabel.backgroundColor = UIColor.white
-        debugLabel.textColor = UIColor.black
-        debugLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        debugLabel.frame = CGRect(x: 5, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width - 10, height: 45)
-        debugLabel.numberOfLines = 0
-        debugLabel.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin]
-        debugLabel.textAlignment = NSTextAlignment.left
-        view.addSubview(debugLabel)
-        self.debugLabel = debugLabel
-        
-        let debugMapButton: UIButton = UIButton(type: UIButtonType.custom)
-        debugMapButton.frame = CGRect(x: 5,y: 5,width: 40,height: 40);
-        debugMapButton.addTarget(self, action: #selector(ARViewController.debugButtonTap), for: UIControlEvents.touchUpInside)
-        debugMapButton.setTitle("map", for: UIControlState())
-        debugMapButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        debugMapButton.setTitleColor(UIColor.black, for: UIControlState())
-        self.view.addSubview(debugMapButton)
-        self.debugMapButton = debugMapButton
-    }
+//    func addDebugUi()
+//    {
+//        self.debugLabel?.removeFromSuperview()
+//        self.debugMapButton?.removeFromSuperview()
+//        
+//        let debugLabel = UILabel()
+//        debugLabel.backgroundColor = UIColor.white
+//        debugLabel.textColor = UIColor.black
+//        debugLabel.font = UIFont.boldSystemFont(ofSize: 10)
+//        debugLabel.frame = CGRect(x: 5, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width - 10, height: 45)
+//        debugLabel.numberOfLines = 0
+//        debugLabel.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin]
+//        debugLabel.textAlignment = NSTextAlignment.left
+//        view.addSubview(debugLabel)
+//        self.debugLabel = debugLabel
+//        
+//        let debugMapButton: UIButton = UIButton(type: UIButtonType.custom)
+//        debugMapButton.frame = CGRect(x: 5,y: 5,width: 40,height: 40);
+//        debugMapButton.addTarget(self, action: #selector(ARViewController.debugButtonTap), for: UIControlEvents.touchUpInside)
+//        debugMapButton.setTitle("map", for: UIControlState())
+//        debugMapButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+//        debugMapButton.setTitleColor(UIColor.black, for: UIControlState())
+//        self.view.addSubview(debugMapButton)
+//        self.debugMapButton = debugMapButton
+//    }
     
     //==========================================================================================================================================================
     //MARK:                                                        OverlayView class

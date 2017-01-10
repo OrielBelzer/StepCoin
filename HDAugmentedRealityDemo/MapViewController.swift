@@ -21,29 +21,44 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     let cache = Shared.dataCache
     var counter = 0
     let locManager = CLLocationManager()
-    var alreadyUpdating = false
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         locManager.delegate = self
+
+      //  if (defaults.bool(forKey:"shouldReloadMapDelegateAgain")) 
+
         
-        mapView.delegate = self
-        mapView.userTrackingMode = .follow
+            var singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+            mapView.addGestureRecognizer(singleTap)
         
-        var singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
-        mapView.addGestureRecognizer(singleTap)
+            sendLocationToServer()
+            defaults.set(false, forKey: "shouldReloadMapDelegateAgain")
+
+       // }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //WORK AROUND - NEED TO FIX IT AT SOME POINT 
+        mapView.delegate = nil
+       // self.dismiss(animated: false, completion: nil)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
+        
+        //WORK AROUND - NEED TO FIX IT AT SOME POINT
+        mapView.delegate = self
+        mapView.userTrackingMode = .follow
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
         loadCoinsToMap(swLongitude: String(mapView.visibleCoordinateBounds.sw.longitude), swLatitude: String(mapView.visibleCoordinateBounds.sw.latitude), neLongitude: String(mapView.visibleCoordinateBounds.ne.longitude), neLatitude: String(mapView.visibleCoordinateBounds.ne.latitude))
-        
+
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
@@ -66,7 +81,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
                     }
                     
                     defaults.set(true, forKey: "gotFirstFreeCoin")
-                    sendLocationToServer()
                 } else {
                     //Nothing - user should not get another coin
                 }
@@ -155,7 +169,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     }
     
     func sendLocationToServer() {
-        if (!alreadyUpdating) {
             locManager.requestAlwaysAuthorization()
             //var currentLocation: CLLocation
             let currentLocation = locManager.location
@@ -165,8 +178,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
                 locManager.distanceFilter = 100
                 locManager.startUpdatingLocation()
             }
-            alreadyUpdating = true
-        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

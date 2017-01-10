@@ -11,7 +11,11 @@ import CoreLocation
 import Haneke
 
 let arViewController = ARViewController()
-
+/*  
+ 
+ The issue happens I believe when there are no coins available at all for the collect coin view to tryand parse. 
+ 
+ */
 class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegate, CLLocationManagerDelegate
 {
     let cache = Shared.dataCache
