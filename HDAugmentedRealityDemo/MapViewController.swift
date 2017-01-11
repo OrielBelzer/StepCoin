@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     let cache = Shared.dataCache
     var counter = 0
     let locManager = CLLocationManager()
+    var lastTimeLocationWasSentToServer = Date()
     
     override func viewDidLoad()
     {
@@ -45,6 +46,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         
         //WORK AROUND - NEED TO FIX IT AT SOME POINT 
         mapView.delegate = nil
+        //mapView.removeFromSuperview()
        // self.dismiss(animated: false, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -183,10 +185,20 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         counter = counter + 1
         print("in updated location " + String(counter))
+        var currentDateTime = Date()
         
-        let location:CLLocation = locations[locations.count-1] as CLLocation
-        
-        UserController().sendLocationToServer(userId: defaults.value(forKey: "userId") as! String, latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude))
+        if (minutesBetweenDates(startDate: lastTimeLocationWasSentToServer, endDate: currentDateTime) >= 1) {
+            let location:CLLocation = locations[locations.count-1] as CLLocation
+            
+            UserController().sendLocationToServer(userId: defaults.value(forKey: "userId") as! String, latitude: String(location.coordinate.latitude), longitude: String(location.coordinate.longitude))
+            lastTimeLocationWasSentToServer = currentDateTime
+        }
+    }
+    
+    func minutesBetweenDates(startDate: Date, endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
+        return components.minute!
     }
     
 }
