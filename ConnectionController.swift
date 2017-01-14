@@ -9,6 +9,8 @@ import Alamofire
 import SwiftyJSON
 import AlamofireObjectMapper
 import Haneke
+import OneSignal
+
 
 typealias ServiceResponseJSON = (SwiftyJSON.JSON, String) -> Void
 typealias ServiceResponseAnyObject = (AnyObject, String) -> Void
@@ -43,6 +45,15 @@ class ConnectionController
     }
     
     func login(emailAddress: String, password: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        /*OneSignal.idsAvailable({ (userId, pushToken) in
+            print("UserId:%@", userId)
+            if (pushToken != nil) {
+                print("pushToken:%@", pushToken)
+            }
+        })
+        
+        let params = ["email": emailAddress, "password": password, "notificationId": userId]
+        */
         let params = ["email": emailAddress, "password": password]
         
         Alamofire.request(stepCoinBaseURL+"/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in

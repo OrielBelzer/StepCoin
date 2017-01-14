@@ -12,6 +12,7 @@ import Mapbox
 import Haneke
 import SwiftyJSON
 
+
 class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate
 {
     var updateTimer: Timer?
@@ -25,6 +26,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     override func viewDidLoad()
     {
+        
         super.viewDidLoad()
 
         locManager.delegate = self
@@ -37,7 +39,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         
             sendLocationToServer()
             defaults.set(false, forKey: "shouldReloadMapDelegateAgain")
-
        // }
     }
     
@@ -171,15 +172,15 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     }
     
     func sendLocationToServer() {
-            locManager.requestAlwaysAuthorization()
-            //var currentLocation: CLLocation
-            let currentLocation = locManager.location
-            if (currentLocation != nil) {
-           // currentLocation = try locManager.location!
-                locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-                locManager.distanceFilter = 100
-                locManager.startUpdatingLocation()
-            }
+        locManager.requestAlwaysAuthorization()
+        //var currentLocation: CLLocation
+        let currentLocation = locManager.location
+        if (currentLocation != nil) {
+            // currentLocation = try locManager.location!
+            locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locManager.distanceFilter = 100
+            locManager.startUpdatingLocation()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -200,5 +201,4 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         let components = calendar.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
         return components.minute!
     }
-    
 }

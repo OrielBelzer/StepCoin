@@ -17,4 +17,5 @@ target 'StepCoin' do
   pod 'Onboard'
   pod 'FrostedSidebar'
   pod 'PopupDialog', '~> 0.5'
+  pod 'OneSignal'
 end

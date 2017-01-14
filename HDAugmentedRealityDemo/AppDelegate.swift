@@ -13,6 +13,8 @@ import Fabric
 import TwitterKit
 import Onboard
 import CoreLocation
+import OneSignal
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -52,6 +54,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         defaults.set(false, forKey: "debugMode")
+        
+        /* PUSH NOTIFICATIONS */
+        OneSignal.initWithLaunchOptions(launchOptions, appId: "841da559-305e-46bc-ab04-e12456f8f764")
+        OneSignal.idsAvailable({ (userId, pushToken) in
+            print("UserId:%@", userId)
+            if (pushToken != nil) {
+                print("pushToken:%@", pushToken)
+            }
+        })
+        // Sync hashed email if you have a login system or collect it.
+        // Will be used to reach the user at the most optimal time of day.
+        // OneSignal.syncHashedEmail(userEmail)
+        
         return true
     }
     

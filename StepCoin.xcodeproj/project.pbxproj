@@ -34,6 +34,7 @@
 		3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */; };
 		3F62BB1BC654310CFCD3351B /* Pods_StepCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A7C7886D660732064BE69E /* Pods_StepCoin.framework */; };
 		BE2F44881E09EF4900652A08 /* ReigsterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */; };
+		BE4FD0B41E29C81E00EB338F /* PusherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FD0B31E29C81E00EB338F /* PusherController.swift */; };
 		BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */; };
 		BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8593451E0B615900A00166 /* ConnectionController.swift */; };
 		BE8AA0021E0F876A00364FBD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA0011E0F876A00364FBD /* Store.swift */; };
@@ -100,6 +101,7 @@
 		A92ABB6A9220D133A6B5FAB1 /* Pods-StepCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReigsterationViewController.swift; sourceTree = "<group>"; };
 		BE4B31AE1E232C8900B661CE /* StepCoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepCoin.entitlements; sourceTree = "<group>"; };
+		BE4FD0B31E29C81E00EB338F /* PusherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PusherController.swift; path = Controllers/PusherController.swift; sourceTree = "<group>"; };
 		BE7FEBDE1E07BC0200909C74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE8593451E0B615900A00166 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 		BE8AA0011E0F876A00364FBD /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Models/Store.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				BE8593451E0B615900A00166 /* ConnectionController.swift */,
 				BE8F24201E0E26B400A3992F /* UserController.swift */,
 				BE8AA0031E105AFD00364FBD /* StoreController.swift */,
+				BE4FD0B31E29C81E00EB338F /* PusherController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -327,7 +330,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -455,6 +458,7 @@
 				0CF0F8E71BC5E70C00C7646E /* ARAnnotation.swift in Sources */,
 				0CAD4EB31AE6FC14000F2A2A /* AppDelegate.swift in Sources */,
 				0CF0F8EB1BC5E70C00C7646E /* ARViewController.swift in Sources */,
+				BE4FD0B41E29C81E00EB338F /* PusherController.swift in Sources */,
 				383B574F1DE1611E008270DE /* PayViewController.swift in Sources */,
 				BE8593461E0B615900A00166 /* ConnectionController.swift in Sources */,
 				0CF0F8E91BC5E70C00C7646E /* ARConfiguration.swift in Sources */,
@@ -577,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = StepCoin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Danijel Huis (Z5VTM983UF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 87XVM5W2ZN;
@@ -586,7 +591,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HDAugmentedRealityDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StepCoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -603,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = StepCoin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Danijel Huis (Z5VTM983UF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 87XVM5W2ZN;
@@ -612,7 +618,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HDAugmentedRealityDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StepCoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
