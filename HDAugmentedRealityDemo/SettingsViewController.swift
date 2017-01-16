@@ -42,7 +42,10 @@ class SettingsViewController: UIViewController
     }
     
     @IBAction func backButton(sender: UIButton) {
-        self.performSegue(withIdentifier: "MoveToProfileFromSettings", sender: self)
+        self.dismiss(animated: true) { 
+            
+        }
+        //self.performSegue(withIdentifier: "MoveToProfileFromSettings", sender: self)
     }
     
     @IBAction func debugModeButtonTapped(sender: AnyObject) {

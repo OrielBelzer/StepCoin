@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       //  if (defaults.bool(forKey:"shouldReloadMapDelegateAgain")) 
 
         
-            var singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
             mapView.addGestureRecognizer(singleTap)
         
             sendLocationToServer()
@@ -186,7 +186,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         counter = counter + 1
         print("in updated location " + String(counter))
-        var currentDateTime = Date()
+        let currentDateTime = Date()
         
         if (minutesBetweenDates(startDate: lastTimeLocationWasSentToServer, endDate: currentDateTime) >= 1) {
             let location:CLLocation = locations[locations.count-1] as CLLocation

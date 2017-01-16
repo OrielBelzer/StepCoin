@@ -45,29 +45,27 @@ class ConnectionController
     }
     
     func login(emailAddress: String, password: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
-        /*OneSignal.idsAvailable({ (userId, pushToken) in
+        OneSignal.idsAvailable({ (userId, pushToken) in
             print("UserId:%@", userId)
+            let params = ["email": emailAddress, "password": password, "notificationId": userId]
+            
+            //let params = ["email": emailAddress, "password": password]
+            
+            Alamofire.request(self.stepCoinBaseURL+"/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print(json["id"])
+                    onCompletion(json, "")
+                case .failure(let error):
+                    onCompletion(JSON.null, error.localizedDescription)
+                    print(error)
+                }
+            }
             if (pushToken != nil) {
                 print("pushToken:%@", pushToken)
             }
         })
-        
-        let params = ["email": emailAddress, "password": password, "notificationId": userId]
-        */
-        let params = ["email": emailAddress, "password": password]
-        
-        Alamofire.request(stepCoinBaseURL+"/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json["id"])
-                onCompletion(json, "")
-            case .failure(let error):
-                onCompletion(JSON.null, error.localizedDescription)
-                print(error)
-            }
-        }
-        
     }
     
     func getUser(userId: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
@@ -83,7 +81,7 @@ class ConnectionController
             
                 onCompletion(user!, "")
             case .failure(let error):
-                print(response.result.value)
+                print(response.result.value ?? "error happened")
                 onCompletion([], error.localizedDescription)
                 print(error)
             }
@@ -103,7 +101,7 @@ class ConnectionController
                 
                 onCompletion(store!, "")
             case .failure(let error):
-                print(response.result.value)
+                print(response.result.value ?? "error happened")
                 onCompletion([], error.localizedDescription)
                 print(error)
             }

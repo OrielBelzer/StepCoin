@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -75,7 +75,7 @@
 		<false/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>StepCoin uses camera for Augmented Reality.</string>
+	<string>StepCoin uses camera to allow you to collect coins.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>StepCoin uses your location to help you collect more coins near you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

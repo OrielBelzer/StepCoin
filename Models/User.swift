@@ -13,6 +13,7 @@ class User: NSObject, NSCoding, Mappable {
     var email: String?
     var password: String?
     var phoneNumber: String?
+    var notificationId: String?
     var credits: String?
     var createTime: String?
     var coins: [Coin2]?
@@ -26,6 +27,7 @@ class User: NSObject, NSCoding, Mappable {
         email           <- map["email"]
         password        <- map["password"]
         phoneNumber     <- map["phoneNumber"]
+        notificationId  <- map["notificationId"]
         credits         <- map["credits"]
         createTime      <- map["createTime"]
         coins           <- map["coins"]
@@ -38,6 +40,7 @@ class User: NSObject, NSCoding, Mappable {
         self.email = aDecoder.decodeObject(forKey: "email") as? String
         self.password = aDecoder.decodeObject(forKey: "password") as? String
         self.phoneNumber = aDecoder.decodeObject(forKey: "phoneNumber") as? String
+        self.notificationId = aDecoder.decodeObject(forKey: "notificationId") as? String
         self.credits = aDecoder.decodeObject(forKey: "credits") as? String
         self.createTime = aDecoder.decodeObject(forKey: "createTime") as? String
         self.coins = aDecoder.decodeObject(forKey: "coins") as? [Coin2]
@@ -48,6 +51,7 @@ class User: NSObject, NSCoding, Mappable {
         aCoder.encode(email, forKey: "email")
         aCoder.encode(password, forKey: "password")
         aCoder.encode(phoneNumber, forKey: "phoneNumber")
+        aCoder.encode(notificationId, forKey: "notificationId")
         aCoder.encode(credits, forKey: "credits")
         aCoder.encode(createTime, forKey: "createTime")
         aCoder.encode(coins, forKey: "coins")

@@ -86,7 +86,7 @@ class PayViewController: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PayCustomTableViewCell = self.PaymentsTable.dequeueReusableCell(withIdentifier: "customCell") as! PayCustomTableViewCell
         
-        var (coinCode, expirationDate, type, logoURL, worth) = paymentOptions[indexPath.row]
+        let (coinCode, expirationDate, type, logoURL, worth) = paymentOptions[indexPath.row]
         cell.loadItem(ExpirationDateAndTime: expirationDate, CoinCode: coinCode, type: type, logoURL: logoURL, worth: worth)
         
         return cell

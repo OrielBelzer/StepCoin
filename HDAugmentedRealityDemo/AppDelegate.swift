@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         OneSignal.idsAvailable({ (userId, pushToken) in
             print("UserId:%@", userId)
             if (pushToken != nil) {
-                print("pushToken:%@", pushToken)
+                print("pushToken:%@", pushToken ?? "no push notifications token")
             }
         })
         // Sync hashed email if you have a login system or collect it.

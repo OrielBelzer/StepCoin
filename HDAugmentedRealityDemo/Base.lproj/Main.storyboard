@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -72,7 +73,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otF-2Q-Kz7">
-                                        <rect key="frame" x="145" y="50" width="30" height="30"/>
+                                        <rect key="frame" x="75" y="50" width="170" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="XRY-09-G6T"/>
+                                            <constraint firstAttribute="width" constant="170" id="b1R-rO-aSd"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="editProfilePicButtonWithSender:" destination="nbI-4s-qNG" eventType="touchUpInside" id="80H-J4-GvW"/>
                                         </connections>
@@ -225,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0G-Kf-xC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="1109"/>
+            <point key="canvasLocation" x="528.75" y="1108.0985915492959"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="uJO-M6-Y9Y">
@@ -302,8 +307,6 @@
                             <constraint firstItem="Bvr-0x-DLv" firstAttribute="top" secondItem="lEC-a8-xxg" secondAttribute="bottom" id="lRw-ey-sYs"/>
                             <constraint firstItem="axc-Zu-RWe" firstAttribute="top" secondItem="Bgb-KL-YlR" secondAttribute="top" constant="85" id="qFA-aX-zBa"/>
                             <constraint firstItem="btX-u2-F66" firstAttribute="centerX" secondItem="TRf-0v-uqU" secondAttribute="centerX" id="sHC-EM-r6O"/>
-                            <constraint firstItem="Bgb-KL-YlR" firstAttribute="leading" secondItem="TRf-0v-uqU" secondAttribute="leadingMargin" constant="-16" id="tXF-Xc-I06"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bgb-KL-YlR" secondAttribute="trailing" constant="-16" id="w7b-B5-p8G"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tht-ZQ-kBb"/>
