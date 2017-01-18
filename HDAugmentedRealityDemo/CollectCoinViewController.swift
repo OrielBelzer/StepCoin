@@ -59,13 +59,13 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         NSLog("lat " + String(currentLocation.coordinate.latitude))
         NSLog("long " + String(currentLocation.coordinate.longitude))
         
-        /*
+        
         let lat = currentLocation.coordinate.latitude // 37.241681
         let lon = currentLocation.coordinate.longitude // -121.884804
         let delta = 0.05
         let count = 2
         let coinsAnnotations = self.getCoinsAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
-        */
+ 
         
         // Present ARViewController
         arViewController.dataSource = self
