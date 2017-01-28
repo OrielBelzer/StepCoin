@@ -18,4 +18,5 @@ target 'StepCoin' do
   pod 'FrostedSidebar'
   pod 'PopupDialog', '~> 0.5'
   pod 'OneSignal'
+  pod 'Mapbox-iOS-SDK', '~> 3.3.7'
 end

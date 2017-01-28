@@ -28,8 +28,6 @@
 		387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */; };
 		38847FF61DCEBC8C00ADA8F6 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */; };
 		38847FF81DCEBCDF00ADA8F6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */; };
-		3884800F1DD0350200ADA8F6 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3884800E1DD0350200ADA8F6 /* Mapbox.framework */; };
-		388480101DD0350200ADA8F6 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3884800E1DD0350200ADA8F6 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		388480151DD0F5E700ADA8F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388480141DD0F5E700ADA8F6 /* MapViewController.swift */; };
 		3884801F1DD1324100ADA8F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */; };
 		3F62BB1BC654310CFCD3351B /* Pods_StepCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A7C7886D660732064BE69E /* Pods_StepCoin.framework */; };
@@ -60,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				388480101DD0350200ADA8F6 /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +90,6 @@
 		387CFC101DD2959D00D87FA5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		38847FF51DCEBC8B00ADA8F6 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		38847FF71DCEBCDF00ADA8F6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		3884800E1DD0350200ADA8F6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		388480141DD0F5E700ADA8F6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3884801A1DD1306500ADA8F6 /* StepCoin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepCoin-Bridging-Header.h"; sourceTree = "<group>"; };
 		3884801E1DD1324100ADA8F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 			files = (
 				0CAD4F061AE70ACA000F2A2A /* CoreLocation.framework in Frameworks */,
 				0CAD4F041AE70A3E000F2A2A /* CoreMotion.framework in Frameworks */,
-				3884800F1DD0350200ADA8F6 /* Mapbox.framework in Frameworks */,
 				3F62BB1BC654310CFCD3351B /* Pods_StepCoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +145,6 @@
 		0C1E92881B336AA7005254F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3884800E1DD0350200ADA8F6 /* Mapbox.framework */,
 				0CB56FB11B35E5DF000EDEBB /* MapKit.framework */,
 				0CAD4F051AE70ACA000F2A2A /* CoreLocation.framework */,
 				0CAD4F031AE70A3E000F2A2A /* CoreMotion.framework */,
@@ -388,7 +382,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6c7efcaecefc0691bfbde2a38837bb2b33d331bb 645212a3ac736a8c4821947e8b093c517acccf6acd67453bc2bae9e5f288e548";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6c7efcaecefc0691bfbde2a38837bb2b33d331bb 645212a3ac736a8c4821947e8b093c517acccf6acd67453bc2bae9e5f288e548\n";
 		};
 		48F8B5A285D19F30CE9110A0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -525,12 +519,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -566,11 +560,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -599,6 +593,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "StepCoin-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -625,6 +620,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "StepCoin-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
