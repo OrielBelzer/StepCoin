@@ -107,17 +107,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                 connection.add(GraphRequest(graphPath: "/me", parameters: params)) { httpResponse, result in
                     switch result {
                     case .success(let response):
-                        ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
-                            if (error == "") {
-                                self.performLogin(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!)
-                                print(response)
-                                self.defaults.setValue("facebook", forKey: "loginMode")
-                                let userID = (response.dictionaryValue?["id"] as? String)!
-                                self.defaults.setValue("https://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
-                                self.defaults.setValue((response.dictionaryValue?["name"] as? String)!, forKey: "userFullName")
-                            } else {
-                                print("Error logging you in!")
+                        if let val = response.dictionaryValue?["email"] {
+                            ConnectionController.sharedInstance.registerUser(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!) { (responseObject:SwiftyJSON.JSON, error:String) in
+                                if (error == "") {
+                                    self.performLogin(emailAddress: (response.dictionaryValue?["email"] as? String)!, password: (response.dictionaryValue?["id"] as? String)!)
+                                    print(response)
+                                    self.defaults.setValue("facebook", forKey: "loginMode")
+                                    let userID = (response.dictionaryValue?["id"] as? String)!
+                                    self.defaults.setValue("https://graph.facebook.com/\(userID)/picture?type=large", forKey: "facebookProfilePic")
+                                    self.defaults.setValue((response.dictionaryValue?["name"] as? String)!, forKey: "userFullName")
+                                } else {
+                                    print("Error logging you in!")
+                                }
                             }
+                        } else {
+                            NSLog("Error getting Email from Facbook login")
+                            self.showAlert(title: "Error login", message: "We could not receive your Email from Facebook, please try again or use the Register Now option")
                         }
                     case .failed(let error):
                         NSLog("Graph Request Failed: \(error)")
