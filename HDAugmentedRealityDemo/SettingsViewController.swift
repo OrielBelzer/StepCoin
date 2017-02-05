@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController
     
     @IBAction func backButton(sender: UIButton) {
         self.dismiss(animated: true) { 
-            
+             
         }
         //self.performSegue(withIdentifier: "MoveToProfileFromSettings", sender: self)
     }

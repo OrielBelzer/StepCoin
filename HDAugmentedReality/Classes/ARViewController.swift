@@ -937,7 +937,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
                 }
             }
         }
-        
+         
         if backVideoDevice != nil
         {
             var videoInput: AVCaptureDeviceInput!

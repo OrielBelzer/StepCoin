@@ -4,7 +4,7 @@
 //
 //  Created by Oriel Belzer on 1/7/2017
 //  Copyright © 2016 StepCoin. All rights reserved.
-//
+// 
 
 import UIKit
 

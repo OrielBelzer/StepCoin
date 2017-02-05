@@ -3,7 +3,7 @@
 //  StepCoin
 //
 //  Created by Oriel Belzer on 12/23/16.
-//
+// 
 
 import Haneke
 import SwiftyJSON

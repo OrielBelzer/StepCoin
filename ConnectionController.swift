@@ -3,7 +3,7 @@
 //  StepCoin
 //
 //  Created by Oriel Belzer on 12/21/16.
-//
+// 
 
 import Alamofire
 import SwiftyJSON

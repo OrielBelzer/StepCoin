@@ -29,7 +29,7 @@ class Store: NSObject, NSCoding, Mappable {
         locationId              <- map["location_id"]
         logoURL                 <- map["logo"]
     }
-    
+     
     override func isEqual(_ object: Any?) -> Bool {
         return self.id == (object as? Store)?.id
     }

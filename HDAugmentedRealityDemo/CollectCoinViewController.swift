@@ -25,7 +25,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         super.viewDidLoad()
         showARViewController()
     }
-    
+     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if (!arViewController.didCloseCamera) {

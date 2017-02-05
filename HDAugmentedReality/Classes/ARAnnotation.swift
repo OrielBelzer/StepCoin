@@ -29,3 +29,4 @@ open class ARAnnotation: NSObject
     internal(set) open var active: Bool = false
 
 }
+ 

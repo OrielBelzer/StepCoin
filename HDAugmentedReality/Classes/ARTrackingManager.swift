@@ -214,7 +214,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             {
                 self.reloadLocationPrevious = self.userLocation
             }
-            
+             
             //===== Reporting location 5s after we get location, this will filter multiple locations calls and make only one delegate call
             let reportIsScheduled = self.reportLocationTimer != nil
             

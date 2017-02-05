@@ -96,7 +96,7 @@ open class CoinAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
             self.titleLabel?.text = text
         }
     }
-    
+     
     open override func layoutSubviews()
     {
         super.layoutSubviews()

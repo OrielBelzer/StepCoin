@@ -3,7 +3,7 @@
 //  StepCoin
 //
 //  Created by Oriel Belzer on 12/22/16.
-//
+// 
 
 import ObjectMapper
 import CoreLocation

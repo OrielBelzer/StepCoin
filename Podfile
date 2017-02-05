@@ -20,3 +20,4 @@ target 'StepCoin' do
   pod 'OneSignal'
   pod 'Mapbox-iOS-SDK', '~> 3.3.7'
 end
+ 

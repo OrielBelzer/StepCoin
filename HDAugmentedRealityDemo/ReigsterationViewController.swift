@@ -40,7 +40,7 @@ class RegistrationLoginView: UIViewController, UIImagePickerControllerDelegate, 
         } else {
             profilePicImage = UIImage(named: "UserPicPlaceHolder")!
         }
-        
+         
         let resizedImage = Toucan.Resize.resizeImage(profilePicImage, size: CGSize(width: 100, height: 150))
         let resizedAndMaskedImage = Toucan(image: resizedImage).maskWithEllipse(borderWidth: 1, borderColor: UIColor.white).image
         profilePic.image = resizedAndMaskedImage

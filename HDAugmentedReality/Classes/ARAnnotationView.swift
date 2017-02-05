@@ -59,6 +59,6 @@ open class ARAnnotationView: UIView
     /// Called when distance/azimuth changes, intended to be used in subclasses
     open func bindUi()
     {
-        
+         
     }
 }

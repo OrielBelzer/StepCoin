@@ -68,7 +68,7 @@ class PayViewController: UIViewController, UITableViewDataSource, UITableViewDel
         let nib = UINib(nibName: "PayCustomTableViewCell", bundle: nil)
         PaymentsTable.register(nib, forCellReuseIdentifier: "customCell")
         
-        
+         
         
     }
     

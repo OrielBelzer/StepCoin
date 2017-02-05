@@ -170,7 +170,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
             }
         }
     }
-    
+     
     func sendLocationToServer() {
         locManager.requestAlwaysAuthorization()
         //var currentLocation: CLLocation

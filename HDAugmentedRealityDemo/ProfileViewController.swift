@@ -112,7 +112,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         backgroundImage.frame = self.view.bounds
 
-        
+         
     }
 
     @IBAction func crashButtonTapped(sender: AnyObject) {

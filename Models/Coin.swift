@@ -4,7 +4,7 @@
 //
 //  Created by Oriel Belzer on 12/17/16.
 //  Copyright © 2016 Danijel Huis. All rights reserved.
-//
+// 
 
 import UIKit
 import CoreLocation
