@@ -14,6 +14,7 @@ import TwitterKit
 import Onboard
 import CoreLocation
 import OneSignal
+import Firebase
 
 
 @UIApplicationMain
@@ -67,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Will be used to reach the user at the most optimal time of day.
         // OneSignal.syncHashedEmail(userEmail)
         
+        FIRApp.configure()
+
         return true
     }
     

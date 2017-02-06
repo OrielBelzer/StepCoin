@@ -19,5 +19,7 @@ target 'StepCoin' do
   pod 'PopupDialog', '~> 0.5'
   pod 'OneSignal'
   pod 'Mapbox-iOS-SDK', '~> 3.3.7'
+  pod 'Firebase/Core'
+  pod 'Firebase/Crash'
 end
  

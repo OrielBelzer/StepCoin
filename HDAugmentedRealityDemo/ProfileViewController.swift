@@ -16,7 +16,6 @@ import FrostedSidebar
 import MessageUI
 import PopupDialog
 
-
 class CustomTableViewCell : UITableViewCell {
     
     @IBOutlet var collectedCoinLogo: UIImageView!
@@ -208,6 +207,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             print("tapped logout menu item")
             self.logout()
         }
+    }
+    
+    private func referral() {
+
     }
     
     private func shareUs() {

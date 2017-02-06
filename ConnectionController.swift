@@ -20,7 +20,7 @@ typealias ServiceResponseAnyObjectArray = ([AnyObject], String) -> Void
 class ConnectionController
 {
     //let stepCoinBaseURL = "http://stepcoin.ddns.net:8888"
-    let stepCoinBaseURL = "https://stepcoin.co:8888"
+    let stepCoinBaseURL = "http://stepcoin.co:9999"
 
     class var sharedInstance:ConnectionController {
         struct Singleton {
@@ -202,6 +202,34 @@ class ConnectionController
         }
     }
 
+    func getConfiguration(userId: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        Alamofire.request(stepCoinBaseURL+"/users/"+userId+"/config", encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(response)
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
+    func forgotPassword(userEmail: String, onCompletion: @escaping ServiceResponseJSON) -> Void {
+        let params = ["userEmail": userEmail]
+        
+        Alamofire.request(stepCoinBaseURL+"/users/forgotPassword", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                onCompletion(json, "")
+            case .failure(let error):
+                onCompletion(JSON.null, error.localizedDescription)
+                print(error)
+            }
+        }
+    }
 
 }
 

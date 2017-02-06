@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HanekeSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,7 +97,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22C8C69057C6BC3AD185D903CCC340BB</key>
+		<key>060E6FEC005C61047444BF900E80DC9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1A2F2908C54FF33DDFF3469B1248A126</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42AC9C797BE3F0A74BB60A86CB350E3E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>593E9479C06FB200807D11AB29EB50BD</key>
+		<key>584A57E82B3476D16DB1021BD8E58E7B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A1B83771E1D960C420A12FDD394752C</key>
+		<key>593E9479C06FB200807D11AB29EB50BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,11 +138,6 @@
 			<true/>
 		</dict>
 		<key>7335E9C9689F3B8A16F063A884748533</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7CB165AD9CBD294BBBE6017A90F2BED0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -168,6 +168,16 @@
 			<true/>
 		</dict>
 		<key>AE4759774042D8E013517E82C6F7A058</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C79D040F5104DEB6067B77087A7A6A31</key>
 		<dict>
 			<key>primary</key>
 			<true/>

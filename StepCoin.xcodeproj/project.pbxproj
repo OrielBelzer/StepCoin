@@ -45,6 +45,9 @@
 		BEE45D461E21F7DA00F3CD38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */; };
 		BEE45D481E22167400F3CD38 /* DebugPasscodePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE45D471E22167400F3CD38 /* DebugPasscodePopupViewController.xib */; };
 		BEE45D4A1E22167B00F3CD38 /* DebugPasscodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE45D491E22167B00F3CD38 /* DebugPasscodePopupViewController.swift */; };
+		BEE92A241E47E26E007A0F67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEE92A231E47E26E007A0F67 /* GoogleService-Info.plist */; };
+		BEE92A261E47E273007A0F67 /* stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json in Resources */ = {isa = PBXBuildFile; fileRef = BEE92A251E47E273007A0F67 /* stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json */; };
+		BEE92A291E4834E1007A0F67 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE92A281E4834E1007A0F67 /* ForgotPasswordViewController.swift */; };
 		BEFEC6361E0C902000237997 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6351E0C902000237997 /* Location.swift */; };
 		BEFEC6381E0C908C00237997 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6371E0C908C00237997 /* Coin.swift */; };
 		BEFEC63A1E0CC8EC00237997 /* Coin2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFEC6391E0CC8EC00237997 /* Coin2.swift */; };
@@ -110,6 +113,9 @@
 		BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BEE45D471E22167400F3CD38 /* DebugPasscodePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugPasscodePopupViewController.xib; sourceTree = "<group>"; };
 		BEE45D491E22167B00F3CD38 /* DebugPasscodePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugPasscodePopupViewController.swift; sourceTree = "<group>"; };
+		BEE92A231E47E26E007A0F67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEE92A251E47E273007A0F67 /* stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json"; sourceTree = "<group>"; };
+		BEE92A281E4834E1007A0F67 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		BEFEC6351E0C902000237997 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
 		BEFEC6371E0C908C00237997 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = Models/Coin.swift; sourceTree = "<group>"; };
 		BEFEC6391E0CC8EC00237997 /* Coin2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin2.swift; path = Models/Coin2.swift; sourceTree = "<group>"; };
@@ -184,6 +190,8 @@
 		0CAD4EB01AE6FC14000F2A2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BEE92A251E47E273007A0F67 /* stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json */,
+				BEE92A231E47E26E007A0F67 /* GoogleService-Info.plist */,
 				0CAD4EB11AE6FC14000F2A2A /* Info.plist */,
 				0CAD4EB91AE6FC14000F2A2A /* Images.xcassets */,
 			);
@@ -218,6 +226,7 @@
 				BE2F44871E09EF4800652A08 /* ReigsterationViewController.swift */,
 				BEC5E1721E15BB2700546102 /* ComingSoonViewController.swift */,
 				BEE45D451E21F7DA00F3CD38 /* SettingsViewController.swift */,
+				BEE92A281E4834E1007A0F67 /* ForgotPasswordViewController.swift */,
 			);
 			name = Views;
 			path = HDAugmentedRealityDemo;
@@ -293,6 +302,7 @@
 				388480111DD0350300ADA8F6 /* Embed Frameworks */,
 				48F8B5A285D19F30CE9110A0 /* [CP] Embed Pods Frameworks */,
 				70974931FCBB0F0419A910AA /* [CP] Copy Pods Resources */,
+				BEE92A271E47E2F6007A0F67 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -353,7 +363,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE92A241E47E26E007A0F67 /* GoogleService-Info.plist in Resources */,
 				0CAD4EB81AE6FC14000F2A2A /* Main.storyboard in Resources */,
+				BEE92A261E47E273007A0F67 /* stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json in Resources */,
 				BEE45D481E22167400F3CD38 /* DebugPasscodePopupViewController.xib in Resources */,
 				BEE45D3E1E21F59800F3CD38 /* ShareUsPopupViewController.xib in Resources */,
 				387CFC111DD2959D00D87FA5 /* CustomTableViewCell.xib in Resources */,
@@ -414,6 +426,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StepCoin/Pods-StepCoin-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BEE92A271E47E2F6007A0F67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:170147450947:ios:4f6144f2f2c2f3f9\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"HDAugmentedRealityDemo/stepcoin-b7e7a-firebase-crashreporting-5viu9-3c22ce99b0.json\"";
+		};
 		FBAA9609EBD490A320EC9184 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,6 +469,7 @@
 				BEC5E1731E15BB2700546102 /* ComingSoonViewController.swift in Sources */,
 				0CF0F8E81BC5E70C00C7646E /* ARAnnotationView.swift in Sources */,
 				0CAD4EB51AE6FC14000F2A2A /* CollectCoinViewController.swift in Sources */,
+				BEE92A291E4834E1007A0F67 /* ForgotPasswordViewController.swift in Sources */,
 				BEFEC6361E0C902000237997 /* Location.swift in Sources */,
 				BE7FEBDF1E07BC0200909C74 /* LoginViewController.swift in Sources */,
 				BEFEC63C1E0CCA0700237997 /* User.swift in Sources */,

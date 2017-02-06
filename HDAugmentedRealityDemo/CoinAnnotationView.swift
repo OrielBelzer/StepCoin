@@ -18,6 +18,7 @@ open class CoinAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     open var imageView: UIImageView?
     open var coinIcon = ""
     open var coin: Coin2?
+    open var collected = false
 
     let defaults = UserDefaults.standard
 
@@ -105,8 +106,10 @@ open class CoinAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
     
     open func collectCoin()
     {
-        if self.annotation != nil
+        if (self.annotation != nil && !self.collected)
         {
+            print("Collecting coin")
+            self.collected = true
             ConnectionController.sharedInstance.collectCoin(userId: Int((defaults.value(forKey: "userId") as? String)!)! , coinId: (coin?.id)!)  { (responseObject:SwiftyJSON.JSON, error:String) in
                 if (error == "") {
                     Shared.dataCache.fetch(key: "stores").onSuccess { data in
@@ -136,6 +139,7 @@ open class CoinAnnotationView: ARAnnotationView, UIGestureRecognizerDelegate
                     
                 } else {
                     print(error)
+                    self.collected = false
                 }
             }
         }

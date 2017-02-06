@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         performLogin(emailAddress: emailTextField.text!, password: passwordTextField.text!)
         self.defaults.setValue("regular", forKey: "loginMode")
     }
-    
+
     @IBAction func twitterLoginButton(sender: UIButton) {
         Twitter.sharedInstance().logIn { (session, error) -> Void in
             if session != nil {

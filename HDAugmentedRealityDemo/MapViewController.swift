@@ -23,6 +23,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     var counter = 0
     let locManager = CLLocationManager()
     var lastTimeLocationWasSentToServer = Date()
+    var desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyThreeKilometers
+
     
     override func viewDidLoad()
     {
@@ -57,6 +59,34 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         //WORK AROUND - NEED TO FIX IT AT SOME POINT
         mapView.delegate = self
         mapView.userTrackingMode = .follow
+        
+        /* Get configuration from server */
+        
+        ConnectionController.sharedInstance.getConfiguration(userId: (defaults.value(forKey: "userId") as! String))   { (responseObject:SwiftyJSON.JSON, error:String) in
+            if (error == "") {
+                self.defaults.set(responseObject["collect_coins_visability_distance"].stringValue, forKey: "visabilityDistance")
+                self.defaults.set(responseObject["desiredAccuracy"].stringValue, forKey: "desiredAccuracy")
+                
+                switch (self.defaults.value(forKey: "desiredAccuracy") as! String)
+                {
+                case "best":
+                    self.desiredAccuracy = kCLLocationAccuracyBest
+                case "ten":
+                    self.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                case "hundreds":
+                    self.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                case "kilometer":
+                    self.desiredAccuracy = kCLLocationAccuracyKilometer
+                case "threeKilomoters":
+                    self.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+                default:
+                    self.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                }
+                self.sendLocationToServer()
+            } else {
+                print(error)
+            }
+        }
     }
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {

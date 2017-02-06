@@ -11,21 +11,23 @@ import CoreLocation
 import Haneke
 
 let arViewController = ARViewController()
-/*  
+/*
  
- The issue happens I believe when there are no coins available at all for the collect coin view to tryand parse. 
+ The issue happens I believe when there are no coins available at all for the collect coin view to tryand parse.
  
  */
 class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegate, CLLocationManagerDelegate
 {
     let cache = Shared.dataCache
-
+    let defaults = UserDefaults.standard
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         showARViewController()
     }
-     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if (!arViewController.didCloseCamera) {
@@ -53,7 +55,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
         var currentLocation: CLLocation
-
+        
         currentLocation = locManager.location!
         
         NSLog("lat " + String(currentLocation.coordinate.latitude))
@@ -65,7 +67,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         let delta = 0.05
         let count = 2
         let coinsAnnotations = self.getCoinsAnnotations(centerLatitude: lat, centerLongitude: lon, delta: delta, count: count)
- 
+        
         
         // Present ARViewController
         arViewController.dataSource = self
@@ -80,10 +82,10 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         arViewController.uiOptions.closeButtonEnabled = true
         //arViewController.interfaceOrientationMask = .landscape
         arViewController.onDidFailToFindLocation =
-        {
-            [weak self, weak arViewController] elapsedSeconds, acquiredLocationBefore in
+            {
+                [weak self, weak arViewController] elapsedSeconds, acquiredLocationBefore in
                 
-            self?.handleLocationFailure(elapsedSeconds: elapsedSeconds, acquiredLocationBefore: acquiredLocationBefore, arViewController: arViewController)
+                self?.handleLocationFailure(elapsedSeconds: elapsedSeconds, acquiredLocationBefore: acquiredLocationBefore, arViewController: arViewController)
         }
         self.present(arViewController, animated: true, completion: nil)
     }
@@ -112,7 +114,13 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
                         let annotation = ARAnnotation()
                         let coinCoordinates = CLLocation(latitude: Double((coin.location?.latitude)!)!, longitude: Double((coin.location?.longitude)!)!)
                         NSLog("Distance between current location to coin location is " + String(userCurrentCoordinates.distance(from: coinCoordinates)))
-                        if (userCurrentCoordinates.distance(from: coinCoordinates) <= 20) //Coins is within 20 meters away from user's current location
+                        var distanceToShowCoins = ""
+                        if (self.defaults.value(forKey: "visabilityDistance") != nil) {
+                            distanceToShowCoins = (self.defaults.value(forKey: "visabilityDistance") as! String)
+                        } else {
+                            distanceToShowCoins = "75"
+                        }
+                        if (userCurrentCoordinates.distance(from: coinCoordinates) <= Double(distanceToShowCoins)!)  //Distacne from current location to coins to be shown when collecting cone mode
                         {
                             annotation.coin = coin
                             annotation.location = coinCoordinates
@@ -126,7 +134,7 @@ class CollectCoinViewController: UIViewController, ARDataSource, UITabBarDelegat
         
         return annotations
     }
-
+    
     
     func handleLocationFailure(elapsedSeconds: TimeInterval, acquiredLocationBefore: Bool, arViewController: ARViewController?)
     {

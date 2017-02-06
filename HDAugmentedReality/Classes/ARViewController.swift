@@ -962,7 +962,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             }
             else
             {
-                error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input."])
+                error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input. Please go to your iPhone settings and enable Camera for StepCoin"])
             }
         }
         else
