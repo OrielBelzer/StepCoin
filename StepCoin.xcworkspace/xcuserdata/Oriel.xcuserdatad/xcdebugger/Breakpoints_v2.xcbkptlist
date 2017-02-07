@@ -122,23 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "handleSingleTap(tap:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
@@ -154,11 +138,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "handleSingleTap(tap:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171690.082466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "sendLocationToServer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "handleSingleTap(tap:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
@@ -186,27 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "handleSingleTap(tap:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "addCoinsToMap(coinsToAddToMap:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "mapView(_:regionDidChangeAnimated:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HDAugmentedRealityDemo/MapViewController.swift"
-            timestampString = "508028158.778344"
+            timestampString = "508171690.082466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "mapView(_:didUpdate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -422,7 +422,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ConnectionController.swift"
@@ -433,6 +433,246 @@
             endingLineNumber = "213"
             landmarkName = "getConfiguration(userId:onCompletion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171690.082466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.mapView (__ObjC.MGLMapView, regionDidChangeAnimated : Swift.Bool) -&gt; ()"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508172244.014915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "1656">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.(mapView (__ObjC.MGLMapView, regionDidChangeAnimated : Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508172244.016491"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171690.082466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171736.025324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "loadCoinsToMap(swLongitude:swLatitude:neLongitude:neLatitude:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.loadCoinsToMap (swLongitude : Swift.String, swLatitude : Swift.String, neLongitude : Swift.String, neLatitude : Swift.String) -&gt; ()"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171736.250162"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "1816">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.(loadCoinsToMap (swLongitude : Swift.String, swLatitude : Swift.String, neLongitude : Swift.String, neLatitude : Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171736.253887"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171767.102226"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "loadCoinsToMap(swLongitude:swLatitude:neLongitude:neLatitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171807.391268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "addCoinsToMap(coinsToAddToMap:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171959.016358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "addCoinsToMap(coinsToAddToMap:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.(addCoinsToMap in _D8264C3EB37AFD1DB90DE45DFDD9D493) (coinsToAddToMap : Swift.Array&lt;StepCoin.Coin2&gt;) -&gt; ()"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171959.033544"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "2000">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.((addCoinsToMap in _D8264C3EB37AFD1DB90DE45DFDD9D493) (coinsToAddToMap : Swift.Array&lt;StepCoin.Coin2&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171959.036606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HDAugmentedRealityDemo/MapViewController.swift"
+            timestampString = "508171960.200715"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "addCoinsToMap(coinsToAddToMap:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.(addCoinsToMap in _D8264C3EB37AFD1DB90DE45DFDD9D493) (coinsToAddToMap : Swift.Array&lt;StepCoin.Coin2&gt;) -&gt; ()"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171960.215471"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "1084">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepCoin.MapViewController.(addCoinsToMap in _D8264C3EB37AFD1DB90DE45DFDD9D493) (coinsToAddToMap : Swift.Array&lt;StepCoin.Coin2&gt;) -&gt; ()"
+                  moduleName = "StepCoin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Oriel/Dropbox/StartUp/StepCoin/Code/StepCoin/HDAugmentedRealityDemo/MapViewController.swift"
+                  timestampString = "508171960.218112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "2600">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

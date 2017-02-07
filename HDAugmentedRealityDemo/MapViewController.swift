@@ -85,6 +85,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
                 self.sendLocationToServer()
             } else {
                 print(error)
+                self.desiredAccuracy = kCLLocationAccuracyHundredMeters
             }
         }
     }
