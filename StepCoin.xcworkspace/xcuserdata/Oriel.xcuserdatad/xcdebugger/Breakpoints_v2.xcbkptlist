@@ -367,7 +367,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
             endingLineNumber = "137"
-            landmarkName = "getCoins(longitude:latitude:onCompletion:)"
+            landmarkName = "getCoins(userId:longitude:latitude:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -383,7 +383,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
             endingLineNumber = "151"
-            landmarkName = "getCoins(longitude:latitude:onCompletion:)"
+            landmarkName = "getCoins(userId:longitude:latitude:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -399,7 +399,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "getCoinsBasedOnZoom(swLongitude:swLatitude:neLongitude:neLatitude:onCompletion:)"
+            landmarkName = "getCoinsBasedOnZoom(userId:swLongitude:swLatitude:neLongitude:neLatitude:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

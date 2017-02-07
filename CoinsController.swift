@@ -14,7 +14,7 @@ open class CoinsController
     /* Used to get coins within certain distance from the current user location */
     func reloadCoinsFromServerWithinCoordinatesRange(longitude: String, latitude: String, forceReload: Bool, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
         if ((shouldReloadCoinsFromServerWithinCoordinatesRange(longitude: longitude, latitdue: latitude)) || forceReload) {
-            ConnectionController.sharedInstance.getCoins(longitude: longitude, latitude: latitude)  { (responseObject:[AnyObject], error:String) in
+            ConnectionController.sharedInstance.getCoins(userId: self.defaults.value(forKey: "userId") as! String, longitude: longitude, latitude: latitude)  { (responseObject:[AnyObject], error:String) in
                 if (error == "") {
                     let returnedCoins = responseObject as! [Coin2]
                     print(returnedCoins[0].value!)
@@ -27,8 +27,8 @@ open class CoinsController
         }
     }
     
-    func reloadCoinsFromServerBasedOnZoom(swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        ConnectionController.sharedInstance.getCoinsBasedOnZoom(swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude)  { (responseObject:[AnyObject], error:String) in
+    func reloadCoinsFromServerBasedOnZoom(userId: String, swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        ConnectionController.sharedInstance.getCoinsBasedOnZoom(userId: userId, swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude)  { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 let returnedCoins = responseObject as! [Coin2]
                 print(returnedCoins[0].value!)

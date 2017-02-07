@@ -109,8 +109,8 @@ class ConnectionController
         
     }
     
-    func getCoinsBasedOnZoom(swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        let params = ["sw.longitude": swLongitude, "sw.latitude": swLatitude, "ne.longitude": neLongitude, "ne.latitude": neLatitude]
+    func getCoinsBasedOnZoom(userId: String, swLongitude: String, swLatitude: String,neLongitude: String, neLatitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        let params = ["userId": userId, "sw.longitude": swLongitude, "sw.latitude": swLatitude, "ne.longitude": neLongitude, "ne.latitude": neLatitude]
         
         Alamofire.request(stepCoinBaseURL+"/coins", parameters: params).responseArray { (response: DataResponse<[Coin2]>) in
             switch response.result {
@@ -129,8 +129,8 @@ class ConnectionController
         }
     }
     
-    func getCoins(longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
-        let params = ["longitude": longitude, "latitude": latitude]
+    func getCoins(userId: String, longitude: String, latitude: String, onCompletion: @escaping ServiceResponseAnyObjectArray) -> Void {
+        let params = ["userId": userId, "longitude": longitude, "latitude": latitude]
         
         Alamofire.request(stepCoinBaseURL+"/coins", parameters: params).responseArray { (response: DataResponse<[Coin2]>) in
             switch response.result {

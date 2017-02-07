@@ -85,7 +85,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
                 self.sendLocationToServer()
             } else {
                 print(error)
-                self.desiredAccuracy = kCLLocationAccuracyHundredMeters
+              //  self.desiredAccuracy = kCLLocationAccuracyHundredMeters
             }
         }
     }
@@ -132,7 +132,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         print(mapView.visibleCoordinateBounds.sw.longitude)
         print("---------------------------------")
         
-        coinsController.reloadCoinsFromServerBasedOnZoom(swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude) { (responseObject:[AnyObject], error:String) in
+        coinsController.reloadCoinsFromServerBasedOnZoom(userId: self.defaults.value(forKey: "userId") as! String, swLongitude: swLongitude, swLatitude: swLatitude, neLongitude: neLongitude, neLatitude: neLatitude) { (responseObject:[AnyObject], error:String) in
             if (error == "") {
                 StoreController().getStoresForCoins(coinsToGetStoresFor: (responseObject as? [Coin2])!)
                 self.addCoinsToMap(coinsToAddToMap: (responseObject as? [Coin2])!)
